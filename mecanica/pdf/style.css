@@ -1,0 +1,73 @@
+.center_header{
+    margin-left: 230px; padding: 0;
+}
+.center{
+      margin-left: 430px; padding: 0;
+
+    }
+
+    .tabledate{
+        clear: both;
+        margin-top: 6px !important;
+        margin-bottom: 6px !important;
+        max-width: none !important;
+        margin-left: 20px;
+        border: 1px solid #ddd;
+        border-collapse: separate !important;
+        background-color: transparent;
+        border-spacing: 0;
+        display: table;
+    }
+    .td_title{
+        width:100px;
+        text-align: center; 
+        background-color:#0061C5;
+        color:#fff;
+    }
+
+    table.page_header{
+        width: 100%;
+        border: none;
+        
+        margin: 0 auto;
+        margin-left: -200px; padding: 0;
+        display: inline-block;
+    }
+     table.footer_header{
+        width: 100%;
+        border: none;
+        
+        margin: 0 auto;
+        margin-left: 500px; padding: 0;
+        
+    }
+
+    #lol{
+     margin-left: 100px;
+
+     position: absolute;
+    }
+
+    #fecha{
+        margin-left: 900px;
+        position: absolute;
+    }
+
+    #fieldset_izquierdo{
+        float: left;
+        display: inline-block;
+        width: 250px;
+      
+         position:relative;
+        left: 60px;
+       
+    }
+
+     #fieldset_derecho{
+        float: left;
+        position:relative;
+        left: 370px;
+        top: -75px;
+        display: inline-block;
+        width: 250px;
+    }

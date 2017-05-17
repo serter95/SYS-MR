@@ -1,0 +1,56 @@
+<?php
+	require 'seguridad.php';
+	require 'conexion.php';
+
+	$id=$_POST['id'];
+
+	# Obtenemos los datos del usuario
+
+	$valores=pg_query("SELECT * FROM herramientas h, numero_bien n WHERE h.estatus='1' AND h.id_herramienta='".$id."' AND h.n_b=n.id_nb");
+	$valores2=pg_fetch_assoc($valores);
+	$importe=explode(' ', $valores2['importe']);
+                            $valor=$importe[0];
+                            $bs=$importe[1];
+
+    $precio=explode(' ', $valores2['precio_unitario']);
+                            $valor2=$precio[0];
+                            $bs2=$precio[1];
+
+    $nbx=explode('-', $valores2['nb']);
+    						if($nbx[0]=="NB"){
+                            $nb=$nbx[0]."-";
+                            }
+                            else{
+                            $nb=$nbx[0];
+                            }
+                            $nbnum=$nbx[1];
+                            
+        $imagenx=explode('/', $valores2['imagen']);
+                            $primero=$imagenx[0];
+                            $segundo=$imagenx[1];
+                             $tercero=$imagenx[2];
+                            
+	$datos = array(
+		0 => $valores2['id_herramienta'],
+		1 => $valores2['codigo_herramienta'],
+		2 => $valores2['nombre'],
+		3 => $nb,
+		4 => $nbnum,
+		5 => $valores2['serial'],
+		6 => $valores2['marca'],
+		7 => $valores2['estado'],
+		8 => $valor2,
+		
+		9 => $valores2['existencia'],
+		10 => $valores2['min_stock'],
+		11 => $valores2['recambio'],
+		12 => $valores2['ubicacion'],
+		13 => $valores2['id_nb'],
+		14 => $valores2['imagen'].'?xas='.rand(0,99999),
+		15 => $valores2['imagen'],
+	
+		
+    		 );
+	echo json_encode($datos);
+
+?>

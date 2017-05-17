@@ -1,0 +1,486 @@
+1
+ Página p... ¡Se requiere una licencia Advanced!
+ index.php
+2
+ 1. Nav... ¡Se requiere una licencia Advanced!
+ navegacion.php
+3
+ 1.1. Pantal... ¡Se requiere una licencia Advanced!
+ pantalla_principal.php
+4
+ 1.1.1. Identificando los ele... ¡Se requiere una licencia Advanced!
+ identificando_los_elementos_en_pantalla_principal.php
+5
+ 1.1.2. Identificando los elemen... ¡Se requiere una licencia Advanced!
+ identificando_los_elementos_en_el_modulo_administrativo.php
+6
+ 1.1.3. Identificando los ele... ¡Se requiere una licencia Advanced!
+ identificando_los_elementos_en_el_modulo_academico.php
+7
+ 1.1.4. Identificando los eleme... ¡Se requiere una licencia Advanced!
+ identificando_los_elementos_en_el_modulo_configuracion.php
+8
+ 1.2. Módulo de... ¡Se requiere una licencia Advanced!
+ modulo_de_planificacion.php
+9
+ 1.2.1. Módul... ¡Se requiere una licencia Advanced!
+ modulo_de_materias.php
+10
+ 1.2.2. Módulo... ¡Se requiere una licencia Advanced!
+ modulo_de_secciones.php
+11
+ 1.2.3. Módu... ¡Se requiere una licencia Advanced!
+ modulo_de_horas.php
+12
+ 1.2.4. Módulo d... ¡Se requiere una licencia Advanced!
+ modulo_de_disponibilidad.php
+13
+ 1.2.5. Módu... ¡Se requiere una licencia Advanced!
+ modulo_de_aulas.php
+14
+ 1.3. Módulo... ¡Se requiere una licencia Advanced!
+ modulo_de_horarios.php
+15
+ 1.4. Módulo ... ¡Se requiere una licencia Advanced!
+ modulo_de_convenios.php
+16
+ 1.5. Módulo ... ¡Se requiere una licencia Advanced!
+ modulo_de_proyectos.php
+17
+ 1.5.1. Módulo Proyecto Soci... ¡Se requiere una licencia Advanced!
+ modulo_proyecto_socio_tecnologico_y_comunitario.php
+18
+ 1.6. Módulo ... ¡Se requiere una licencia Advanced!
+ modulo_de_inventario.php
+19
+ 1.6.1. Módulo ... ¡Se requiere una licencia Advanced!
+ modulo_de_herramientas.php
+20
+ 1.6.2. Módul... ¡Se requiere una licencia Advanced!
+ modulo_de_insumos.php
+21
+ 1.7. Módulo de Co... ¡Se requiere una licencia Advanced!
+ modulo_de_control_de_maquinas.php
+22
+ 1.8. Módulo de... ¡Se requiere una licencia Advanced!
+ modulo_de_mantenimiento.php
+23
+ 1.8.1. Solicitud ... ¡Se requiere una licencia Advanced!
+ solicitud_de_mantenimientos.php
+24
+ 1.8.2. Ejecución... ¡Se requiere una licencia Advanced!
+ ejecucion_de_mantenimiento_1.php
+25
+ 1.8.3. Reposici... ¡Se requiere una licencia Advanced!
+ reposicion_de_repuestos_1.php
+26
+ 1.9. Módulo d... ¡Se requiere una licencia Advanced!
+ modulo_de_actividades.php
+27
+ 1.9.1. Módulo Pla... ¡Se requiere una licencia Advanced!
+ modulo_planificacion_semanal.php
+28
+ 1.9.2. Módulo ... ¡Se requiere una licencia Advanced!
+ modulo_registro_diaro.php
+29
+ 1.10. Módulo... ¡Se requiere una licencia Advanced!
+ modulo_de_personal.php
+30
+ 1.11. Módulo... ¡Se requiere una licencia Advanced!
+ modulo_de_usuarios.php
+31
+ 1.12. Módulo d... ¡Se requiere una licencia Advanced!
+ modulo_de_base_de_datos.php
+32
+ 1.13. Módulo... ¡Se requiere una licencia Advanced!
+ modulo_de_reportes.php
+33
+ 2. Mó... ¡Se requiere una licencia Advanced!
+ modulos.php
+34
+ 2.1. Plan... ¡Se requiere una licencia Advanced!
+ planificacion.php
+35
+ 2.1.1. ... ¡Se requiere una licencia Advanced!
+ materia.php
+36
+ 2.1.1.1. Agr... ¡Se requiere una licencia Advanced!
+ agregar_materia.php
+37
+ 2.1.1.2. Modi... ¡Se requiere una licencia Advanced!
+ modificar_materia.php
+38
+ 2.1.1.3. Eli... ¡Se requiere una licencia Advanced!
+ eliminar_materia.php
+39
+ 2.1.2. S... ¡Se requiere una licencia Advanced!
+ secciones.php
+40
+ 2.1.2.1. Agr... ¡Se requiere una licencia Advanced!
+ agregar_seccion.php
+41
+ 2.1.2.2. Modi... ¡Se requiere una licencia Advanced!
+ modificar_seccion.php
+42
+ 2.1.2.3. Eli... ¡Se requiere una licencia Advanced!
+ eliminar_seccion.php
+43
+ 2.1.3. Bloq... ¡Se requiere una licencia Advanced!
+ bloque_de_horas.php
+44
+ 2.1.3.1. Agregar... ¡Se requiere una licencia Advanced!
+ agregar_bloque_de_horas.php
+45
+ 2.1.3.2. Modifica... ¡Se requiere una licencia Advanced!
+ modificar_bloque_de_horas.php
+46
+ 2.1.3.3. Elimina... ¡Se requiere una licencia Advanced!
+ eliminar_bloque_de_horas.php
+47
+ 2.1.4. Dis... ¡Se requiere una licencia Advanced!
+ disponibilidad.php
+48
+ 2.1.4.1. Agrega... ¡Se requiere una licencia Advanced!
+ agregar_disponibilidad.php
+49
+ 2.1.4.2. Modific... ¡Se requiere una licencia Advanced!
+ modificar_disponibilidad.php
+50
+ 2.1.4.3. Elimina... ¡Se requiere una licencia Advanced!
+ eliminar_disponibilidad.php
+51
+ 2.1.4.4. Detall... ¡Se requiere una licencia Advanced!
+ detalle_disponibilidad.php
+52
+ 2.1.5.... ¡Se requiere una licencia Advanced!
+ aulas.php
+53
+ 2.1.5.1. Ag... ¡Se requiere una licencia Advanced!
+ agregar_aulas.php
+54
+ 2.1.5.2. Mo... ¡Se requiere una licencia Advanced!
+ modificar_aula.php
+55
+ 2.1.5.3. El... ¡Se requiere una licencia Advanced!
+ eliminar_aula.php
+56
+ 2.2. H... ¡Se requiere una licencia Advanced!
+ horarios.php
+57
+ 2.2.1. Agre... ¡Se requiere una licencia Advanced!
+ agregar_horario.php
+58
+ 2.2.2. Modif... ¡Se requiere una licencia Advanced!
+ modificar_horario.php
+59
+ 2.2.3. Elim... ¡Se requiere una licencia Advanced!
+ eliminar_horario.php
+60
+ 2.2.4. Deta... ¡Se requiere una licencia Advanced!
+ detalle_horario.php
+61
+ 2.2.5. Repor... ¡Se requiere una licencia Advanced!
+ reporte_de_horario.php
+62
+ 2.3. Pr... ¡Se requiere una licencia Advanced!
+ proyectos.php
+63
+ 2.3.1. Agre... ¡Se requiere una licencia Advanced!
+ agregar_proyecto.php
+64
+ 2.3.2. Modif... ¡Se requiere una licencia Advanced!
+ modificar_proyecto.php
+65
+ 2.3.3. Elimi... ¡Se requiere una licencia Advanced!
+ eliminar_proyecto.php
+66
+ 2.3.4. Esta... ¡Se requiere una licencia Advanced!
+ estado_proyecto.php
+67
+ 2.3.5. Deta... ¡Se requiere una licencia Advanced!
+ detalle_proyecto.php
+68
+ 2.3.6. Repo... ¡Se requiere una licencia Advanced!
+ reporte_proyecto.php
+69
+ 2.4. Co... ¡Se requiere una licencia Advanced!
+ convenios.php
+70
+ 2.4.1. Agre... ¡Se requiere una licencia Advanced!
+ agregar_convenio.php
+71
+ 2.4.2. Modif... ¡Se requiere una licencia Advanced!
+ modificar_convenio.php
+72
+ 2.4.3. Elimi... ¡Se requiere una licencia Advanced!
+ eliminar_convenio.php
+73
+ 2.4.4. Deta... ¡Se requiere una licencia Advanced!
+ detalle_convenio.php
+74
+ 2.4.5. Reporte... ¡Se requiere una licencia Advanced!
+ reportes_del_convenio.php
+75
+ 2.4.6. C... ¡Se requiere una licencia Advanced!
+ clausulas.php
+76
+ 2.4.6.1. Agre... ¡Se requiere una licencia Advanced!
+ agregar_clausulas.php
+77
+ 2.4.6.2. Modi... ¡Se requiere una licencia Advanced!
+ modificar_clausula.php
+78
+ 2.4.6.3. Seg... ¡Se requiere una licencia Advanced!
+ seguir_clausula.php
+79
+ 2.4.7. Concl... ¡Se requiere una licencia Advanced!
+ concluir_convenio.php
+80
+ 2.5. In... ¡Se requiere una licencia Advanced!
+ inventario.php
+81
+ 2.5.1. He... ¡Se requiere una licencia Advanced!
+ herramientas.php
+82
+ 2.5.1.1. Agreg... ¡Se requiere una licencia Advanced!
+ agregar_herramienta.php
+83
+ 2.5.1.2. Modifi... ¡Se requiere una licencia Advanced!
+ modificar_herramienta.php
+84
+ Primera parte ... ¡Se requiere una licencia Advanced!
+ primera_parte_del_formulario_1.php
+85
+ Segunda parte ... ¡Se requiere una licencia Advanced!
+ segunda_parte_del_formulario_1.php
+86
+ 2.5.1.3. Elimi... ¡Se requiere una licencia Advanced!
+ eliminar_herramienta.php
+87
+ 2.5.1.4. Detal... ¡Se requiere una licencia Advanced!
+ detalle_herramienta.php
+88
+ 2.5.1.5. Reportes... ¡Se requiere una licencia Advanced!
+ reportes_de_la_herramienta.php
+89
+ 2.5.1.6. Prest... ¡Se requiere una licencia Advanced!
+ prestar_herramienta.php
+90
+ 2.5.1.7. Devol... ¡Se requiere una licencia Advanced!
+ devolver_herramienta.php
+91
+ 2.5.2. ... ¡Se requiere una licencia Advanced!
+ insumos.php
+92
+ 2.5.2.1. Ag... ¡Se requiere una licencia Advanced!
+ agregar_insumo.php
+93
+ 2.5.2.2. Mod... ¡Se requiere una licencia Advanced!
+ modificar_insumo.php
+94
+ Primera parte ... ¡Se requiere una licencia Advanced!
+ primera_parte_del_formulario_2.php
+95
+ Segunda parte ... ¡Se requiere una licencia Advanced!
+ segunda_parte_del_formulario_2.php
+96
+ 2.5.2.3. Eli... ¡Se requiere una licencia Advanced!
+ eliminar_insumos.php
+97
+ 2.5.2.4. De... ¡Se requiere una licencia Advanced!
+ detalle_insumo.php
+98
+ 2.5.2.5. Repo... ¡Se requiere una licencia Advanced!
+ reporte_del_insumo.php
+99
+ 2.5.2.6. Entr... ¡Se requiere una licencia Advanced!
+ entrada_de_insumo.php
+100
+ 2.5.2.7. Sal... ¡Se requiere una licencia Advanced!
+ salida_de_insumo.php
+101
+ 2.6. Control... ¡Se requiere una licencia Advanced!
+ control_de_maquinas.php
+102
+ 2.6.1. Agre... ¡Se requiere una licencia Advanced!
+ agregar_maquina.php
+103
+ 2.6.2. Agregar ... ¡Se requiere una licencia Advanced!
+ agregar_tipo_de_maquina.php
+104
+ 2.6.3. Modif... ¡Se requiere una licencia Advanced!
+ modificar_maquina.php
+105
+ 2.6.4. Elim... ¡Se requiere una licencia Advanced!
+ eliminar_maquina.php
+106
+ 2.6.5. Deta... ¡Se requiere una licencia Advanced!
+ detalle_maquina.php
+107
+ 2.6.6. Reporte... ¡Se requiere una licencia Advanced!
+ reportes_de_la_maquina.php
+108
+ 2.6.7. Graf... ¡Se requiere una licencia Advanced!
+ grafica_maquina.php
+109
+ 2.6.8. Eliminar... ¡Se requiere una licencia Advanced!
+ eliminar_tipo_de_maquina.php
+110
+ 2.7. Mant... ¡Se requiere una licencia Advanced!
+ mantenimiento.php
+111
+ 2.7.1. Solicitud... ¡Se requiere una licencia Advanced!
+ solicitud_de_mantenimiento.php
+112
+ 2.7.1.1. Agre... ¡Se requiere una licencia Advanced!
+ agregar_solicitud.php
+113
+ 2.7.1.2. Modif... ¡Se requiere una licencia Advanced!
+ modificar_solicitud.php
+114
+ 2.7.1.3. Elim... ¡Se requiere una licencia Advanced!
+ eliminar_solicitud.php
+115
+ 2.7.1.4. Deta... ¡Se requiere una licencia Advanced!
+ detalle_solicitud.php
+116
+ 2.7.1.5. Repo... ¡Se requiere una licencia Advanced!
+ reportes_solicitud_1.php
+117
+ 2.7.1.6. Ejec... ¡Se requiere una licencia Advanced!
+ ejecutar_solicitud.php
+118
+ 2.7.2. Ejecución... ¡Se requiere una licencia Advanced!
+ ejecucion_de_mantenimiento_2.php
+119
+ 2.7.2.1. ... ¡Se requiere una licencia Advanced!
+ preventivo.php
+120
+ 2.7.2.1.1. Ejecu... ¡Se requiere una licencia Advanced!
+ ejecutar_mantenimiento_1.php
+121
+ 2.7.2.1.2. Modifi... ¡Se requiere una licencia Advanced!
+ modificar_mantenimiento_1.php
+122
+ 2.7.2.1.3. Elimi... ¡Se requiere una licencia Advanced!
+ eliminar_mantenimiento_1.php
+123
+ 2.7.2.1.4. Det... ¡Se requiere una licencia Advanced!
+ detalle_ejecucion_1.php
+124
+ 2.7.2.1.5. Rep... ¡Se requiere una licencia Advanced!
+ reportes_solicitud_2.php
+125
+ 2.7.2.2. ... ¡Se requiere una licencia Advanced!
+ correctivo.php
+126
+ 2.7.2.2.1. Ejecu... ¡Se requiere una licencia Advanced!
+ ejecutar_mantenimiento_2.php
+127
+ 2.7.2.2.2. Modifi... ¡Se requiere una licencia Advanced!
+ modificar_mantenimiento_2.php
+128
+ 2.7.2.2.3. Elimi... ¡Se requiere una licencia Advanced!
+ eliminar_mantenimiento_2.php
+129
+ 2.7.2.2.4. Det... ¡Se requiere una licencia Advanced!
+ detalle_ejecucion_2.php
+130
+ 2.7.2.2.5. Rep... ¡Se requiere una licencia Advanced!
+ reportes_solicitud_3.php
+131
+ 2.7.3. Reposici... ¡Se requiere una licencia Advanced!
+ reposicion_de_repuestos_2.php
+132
+ 2.8. Act... ¡Se requiere una licencia Advanced!
+ actividades.php
+133
+ 2.8.1. Planifi... ¡Se requiere una licencia Advanced!
+ planificacion_semanal.php
+134
+ 2.8.1.1. Agre... ¡Se requiere una licencia Advanced!
+ agregar_actividad.php
+135
+ 2.8.1.2. Modif... ¡Se requiere una licencia Advanced!
+ modificar_actividad.php
+136
+ 2.8.1.3. Elim... ¡Se requiere una licencia Advanced!
+ eliminar_actividad.php
+137
+ 2.8.1.4. Est... ¡Se requiere una licencia Advanced!
+ estado_actividad.php
+138
+ 2.8.1.5. Deta... ¡Se requiere una licencia Advanced!
+ detalle_actividad.php
+139
+ 2.8.2. Regi... ¡Se requiere una licencia Advanced!
+ registro_diario.php
+140
+ 2.8.2.1. Agr... ¡Se requiere una licencia Advanced!
+ agregar_registro.php
+141
+ 2.8.2.2. Modi... ¡Se requiere una licencia Advanced!
+ modificar_registro.php
+142
+ 2.9. P... ¡Se requiere una licencia Advanced!
+ personal.php
+143
+ 2.9.1. Agre... ¡Se requiere una licencia Advanced!
+ agregar_persona.php
+144
+ 2.9.2. Modif... ¡Se requiere una licencia Advanced!
+ modificar_persona.php
+145
+ 2.9.3. Elim... ¡Se requiere una licencia Advanced!
+ eliminar_persona.php
+146
+ 2.9.4. Deta... ¡Se requiere una licencia Advanced!
+ detalle_persona.php
+147
+ 2.9.5. Report... ¡Se requiere una licencia Advanced!
+ reporte_del_personal.php
+148
+ 2.10. U... ¡Se requiere una licencia Advanced!
+ usuarios.php
+149
+ 2.10.1. Agr... ¡Se requiere una licencia Advanced!
+ agregar_usuario.php
+150
+ 2.10.2. Modi... ¡Se requiere una licencia Advanced!
+ modificar_usuario.php
+151
+ 2.10.3. Elim... ¡Se requiere una licencia Advanced!
+ eliminar_usuario.php
+152
+ 2.10.4. Det... ¡Se requiere una licencia Advanced!
+ detalle_usuario_1.php
+153
+ 2.10.5. Cuen... ¡Se requiere una licencia Advanced!
+ cuenta_de_usuario.php
+154
+ 2.10.6. Tip... ¡Se requiere una licencia Advanced!
+ tipo_de_usuario.php
+155
+ 2.10.6.1. A... ¡Se requiere una licencia Advanced!
+ agregar_tipo.php
+156
+ 2.10.6.2. Mo... ¡Se requiere una licencia Advanced!
+ modificar_tipo.php
+157
+ 2.10.6.3. E... ¡Se requiere una licencia Advanced!
+ eliminar_tipo.php
+158
+ 2.10.6.4. De... ¡Se requiere una licencia Advanced!
+ detalle_usuario_2.php
+159
+ 2.11. Bas... ¡Se requiere una licencia Advanced!
+ base_de_datos.php
+160
+ 2.11.1. Respald... ¡Se requiere una licencia Advanced!
+ respaldar_base_de_datos.php
+161
+ 2.11.2. Restaur... ¡Se requiere una licencia Advanced!
+ restaurar_base_de_datos.php
+162
+ 2.12. A... ¡Se requiere una licencia Advanced!
+ auditoria.php

@@ -1,0 +1,1066 @@
+<?php
+require('seguridad.php');
+require('conexion.php');
+
+$sql2="SELECT * FROM tipo_usuario INNER JOIN usuario ON tipo_usuario.id_tipo = usuario.id_tipo_usuario    AND nom_usuario='".$_SESSION['nom_usuario']."' AND taller=1 LIMIT 1";
+  $query2=pg_query($sql2);
+  $array2=pg_fetch_assoc($query2);
+
+  $priv=explode('-', $array2['priv_maquinas']);
+  $privilegio_A=$priv[0];
+  $privilegio_E=$priv[1];
+  $privilegio_M=$priv[2];
+  $privilegio_I=$priv[3];
+
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+   <meta name="author" content="Nelson Soto, Sergei Terán, Vicente Cifuentes">
+    <meta name="keyword" content="Sistema de Mecánica y Robótica">
+
+    <title>SYS-M&R</title>
+
+
+  <!-- Bootstrap core CSS -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <!--external css-->
+  <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="assets/css/zabuto_calendar.css">
+  <link rel="stylesheet" type="text/css" href="assets/js/gritter/css/jquery.gritter.css" />
+  <link rel="stylesheet" type="text/css" href="assets/lineicons/style.css">    
+
+  <link href="css/jquery-ui.css" type="text/css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/style-responsive.css" rel="stylesheet">
+  <link href="css/nuestro.css" rel="stylesheet">
+  <link href="css/nuevo2.css" rel="stylesheet">
+  <link href="css/jquery.fancybox.css" type="text/css"  rel="stylesheet">
+  <script src="assets/js/chart-master/Chart.js"></script>
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+      <![endif]-->
+
+      <!-- DataTables CSS -->
+      <!--<link href="assets/css/dataTables.responsive.css" rel="stylesheet"-->
+      <link href="assets/css/3/dataTables.bootstrap.css" rel="stylesheet">
+      <!--link href="assets/css/jquery.dataTables.min.css" rel="stylesheet"-->
+
+    </head>
+
+    <body>
+
+      <section id="container" >
+      <!-- **********************************************************************************************************************************************************
+      TOP BAR CONTENT & NOTIFICATIONS
+      *********************************************************************************************************************************************************** -->
+      <!--header start-->
+      <header class="header black-bg">
+        <?php
+        include("header.php");
+        $head=cabecera();
+        echo $head;
+        ?>
+      </header>
+      <!--header end-->
+      
+      <!-- **********************************************************************************************************************************************************
+      MAIN SIDEBAR MENU
+      *********************************************************************************************************************************************************** -->
+      <!--sidebar start-->
+      <aside>
+       <?php
+       include("sidebar.php");
+       $bar=barleft();
+       echo $bar;
+       ?>
+     </aside>
+     <!--sidebar end-->
+
+      <!-- **********************************************************************************************************************************************************
+      MAIN CONTENT
+      *********************************************************************************************************************************************************** -->
+      <!--main content start-->
+      <section id="main-content">
+        <section class="wrapper">
+          <div class="row">
+            <div class="col-lg-9 main-chart">
+
+              <ajax>
+             <div id="mensaje"></div>
+
+             <div id="centro_principal"></div>
+
+                                               <div id="carga"><h3>Cargando por favor espere...</h3><img alt="imagen de cargando" src="imagenes/ajax-loader.gif"/></div>
+
+
+
+
+             <div id="consulta_prev">
+
+              <h4 class="sitio_maq"><a href="#">Administrativo</a> <span>></span> <a href="mantenimiento.php">Mantenimiento</a> <span>></span> <a href="#">Mantenimiento Correctivo</a></h4>
+              <div class="info3">
+                <div id="text_center_title">
+                  <span class="t-menu">Consulta de Mantenimiento Correctivo</span>
+                </div>
+
+                
+                 <table class="tabla_agregar_imprimir">
+                  <tr>
+                    <td>
+                <?php
+                        if ($privilegio_I=='I')
+                        {
+                      ?>
+                  <p id="reporte_maq"><button class="btn btn-default">Generar Reporte &nbsp;  <span class="fa fa-file-text-o"></span></button></p> 
+                      <?php
+                        }
+                      ?>
+                      </td>
+                    <td>
+                     <?php
+                        if ($privilegio_A=='A')
+                        {
+                      ?>
+                  <p id="agregar_man" style=" margin-top: 1%;
+                  margin-left: 52%;
+                  margin-bottom: 1%;
+                  display: inline-block;"><button class="btn btn-success">Nuevo Mant. Correctivo &nbsp; <i class="fa fa-plus"></i></button></p> 
+                    <?php  
+                        }
+                      ?>
+                    </td>
+                  </tr>
+                </table>
+                  <div  id="tabla_usuario">
+
+                    <div class="dataTable_wrapper">
+                      <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                        <thead>
+                          <tr>
+                            <th>N°</th>
+                            <th width="80">Código</th>
+                            <th>Servicio</th>
+                            <th>Encargado</th>
+                            <th>Fecha de Solicitud</th>
+                            <th>Estado</th>
+                            <th>Acciónes</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <?php
+                          $sql="SELECT * FROM maquinas m, mant_correctivo p, personal s WHERE m.id_maquina=p.id_maquina AND p.id_personal=s.id AND m.estatus='1' AND p.estatus='1' AND s.estatus='1'";
+
+                          $query=pg_query($sql);
+
+                          while ($array=pg_fetch_assoc($query))
+                          {
+                                $fecha_a=explode('-', $array['fecha']);
+                            $ano=$fecha_a[0];
+                            $mes=$fecha_a[1].'/';
+                            $dia=$fecha_a[2].'/';
+                            $fecha=$dia.$mes.$ano;
+
+
+                            $nombre_per=explode(' ', $array['nombres']); 
+                            $pri_nom=$nombre_per[0];
+
+                            $apellido_per=explode(' ', $array['apellidos']);
+                            $prim_ape=$apellido_per[0];
+
+                            $encargado_mant=$pri_nom.' '.$prim_ape;
+
+                            ?>
+                            <tr class="odd gradeX">
+                              <td align="center"><?php echo $array['id_correctivo']; ?></td>
+                              <td align="center"><?php echo $array['codigo'];?></td>
+                              <td align="center"><?php echo $array['tipo_servicio'];?></td>
+                              <td align="center"><?php echo $encargado_mant; ?></td>
+                              <td align="center"><?php echo $fecha ?></td>
+                              <td align="center"><?php echo $array['estado'];?></td>
+                              <td align="center">
+                               <?php
+                             if ($privilegio_M=='M')
+                              {
+                              
+                            ?>     
+                                <a href="javascript:editar_solicitud_correctivo(<?php echo $array['id_correctivo'];?>);">
+
+                                  <button class="btn btn-default" title="Modificar" id="Modificar">
+                                    <span class="fa fa-edit"></span>
+                                  </button>
+                                </a>
+
+                              <?php
+                                    }
+                            ?>
+                            <?php
+                              if ($privilegio_E=='E')
+                              {
+                                  if ($array["estado"]!='concluido'){
+                            ?>
+
+
+                                <a href="javascript:eliminarCorrectivo(<?php echo $array['id_correctivo'];?>);">
+                                  <button class="btn btn-default" title="Eliminar">
+                                    <span class="fa fa-trash-o"></span>
+                                  </button>
+                                </a>
+                                 <?php
+                                    }
+                                  }
+                            ?>
+                                
+                                <a href="javascript:detalleCorrectivo(<?php echo $array['id_maquina'];?>,<?php echo $array['id_correctivo'];?>);">                
+                                  <button class="btn btn-default" title="Ver">
+                                    <span class="fa fa-search-plus"></span>
+                                  </button>
+                                </a>
+                                <a href="javascript:reportandoCorrectivo(<?php echo $array['id_maquina'];?>,<?php echo $array['id_correctivo'];?>);">                
+                                  <button class="btn btn-default" title="Reporte">
+                                    <span class="fa fa-print"></span>
+                                  </button>
+                                </a>
+                                  <?php if ($array["estado"]!='concluido'){
+                                  ?>
+                                  <a href="javascript:ejecutarCorrectivo(<?php echo $array['id_correctivo'];?>);">                
+                                  <button class="btn btn-default" title="Ejecutar">
+                                    <span class="fa fa-share-square-o"></span>
+                                  </button>
+                                </a>
+                                <?php
+                                }
+                                ?>
+                              </td>
+                            </tr>
+                            <?php
+                          }
+                          ?>
+                        </tbody>
+                      </table>
+                    </div>
+
+                  </div>
+                  <!-- Modal -->
+                  <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="modif_maquina" class="modal fade">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true" title="Cerrar">&times;</button>
+                          <h4 class="modal-title">Modificar Mantenimiento Correctivo</h4>
+                        </div>
+                        <div class="modal-body">
+                          <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tabcorrectivomod" data-toggle="tab">Correctivo I</a></li>
+                          </ul>
+
+                          <div class="tab-content">
+
+                           <div class="tab-pane fade in active" id="tabcorrectivomod">
+                             <div class="panel panel-default">
+                              <div class="panel-body">
+                                <form action="modificar_solicitud.php" method="post" id="modif_maq" name="modif_maqs" onSubmit="return validarForm_SC()">
+
+                                  <div style="margin-left:40%;">
+                                    <label>Interno</label><input type="radio" name="tipo_servicio" id="tipo_servicio_intmodc" value="interno">
+                                    <label style="margin-left:5%;">Externo</label><input type="radio" name="tipo_servicio" id="tipo_servicio_extmodc" value="externo">
+                                  </div>
+                                  
+                                  <fieldset id="regmaq" style="  margin-left: 10%;">
+
+                                    <input type="hidden" id="m_id_corre" name="id" /> <!--id de la maquina-->
+                                    <input type="hidden" name="tipo" value="correctivo">
+                                    <input type="hidden" id="ids_mant_mod" name="ids" />
+                                     <input type="hidden" name="resultado_fechamod" id="resultado_fechamod" value="valido">
+
+                                    <input type="hidden" id="nbmod" name="nbmod" />
+                                    <table width="100%">
+                                      <tr>
+                                        <td colspan="3" align="center">
+                                          <label style="margin-left:-50px;"><b>Supervisor:</b></label><br>
+                                          <input readonly="readonly" type="text" name="rev_maquina" id="rev_maquinamod" class="form-control" style="width:160px; margin-left:-50px;" size="" maxlength="30" placeholder="José Alcantara" onKeyPress="return soloLetras(event)" >
+                                          <br>
+                                        </td>
+                                      </tr>
+                                      <tr>
+                                        <td>
+
+                                          <label><b>Responsable:</b></label><br>
+                                               <textarea style="display:inline-block; resize:none; width:60%;" class="form-control"  name="responsable" id="responsablemod" size="" maxlength="125" placeholder="Jose Perez, Juan Perozo ..." onKeyUp="validarResponsablemod();" onblur="validarResponsablemod();" onKeyPress="return soloAlfa(event)"></textarea>
+                                                <div class="promts"> <span id="responsablemodPrompt"></span></div><p style="display:inline-block; font-size:30px;  color:red; ">*</p>                                         
+                                        </td>
+
+                                        <td>
+
+                                          <div id="proveedor_ext">
+                                            <label><b>Proveedor:</b></label>
+                                            <br>
+                                              <textarea style="display:inline-block; resize:none;  width:60%;" class="form-control"  name="proveedor" id="proveedormod" size="" maxlength="125" placeholder="Jose Hernandez" onKeyUp="validarProveedormod();" onblur="validarProveedormod();" onKeyPress="return soloAlfa(event)"></textarea>
+                                              <div class="promts" style="z-index:1;"> <span id="proveedormodPrompt"></span></div><p style="display:inline-block; font-size:30px;  color:red; ">*</p>
+
+                                          </div>
+                                        </td>
+                                             <td colspan="">
+
+                                                <label><b>Motivo:</b></label><br>
+                                                <textarea name="motivo" id="motivomod" class="form-control" size="" maxlength="125" placeholder="Motivo de la realización del mantenimiento ..." onKeyUp="validarMotivomod();" onblur="validarMotivomod();" onKeyPress="return soloAlfa(event)" style="display:inline-block; width:60%;"></textarea>
+                                                 <div class="promts" style="margin-left: -50px;"> <span id="motivomodPrompt"></span></div><p style="display:inline-block; font-size:30px; position:absolute; color:red;">*</p>
+
+                                              </td>
+                                      </tr>
+
+                                      <tr>
+                                        <td colspan="3" align="center">                                     
+                                          <label><b>Fecha de la Solicitud:</b></label><br>
+                                          <input readonly="readonly" type="text" name="fecha" id="fechamod" style="width:180px; display: inline-block;"  class="form-control"  size="" maxlength="10" placeholder="00/00/0000" onclick="valida_fechamod();" onblur="valida_fechamod();" disabled>
+                                          </td>
+                                        
+                                      </tr>
+                                        <tr>
+                                      <td colspan="3" align="center">
+                                        <h3><div id="salidaM_COR"></div></h3>
+                                      </td>
+                                    </tr>
+                                                          <tr>
+                               <td colspan="3" align="right">
+                                <div border="1"><span style="margin-right:5%; width:20%; color:red; border:1px solid #ccc; border-radius: 4px;   background-color: #fff; padding: 6px 12px; font-size: 14px;">* Campos Requeridos</span></div>
+                              </td>
+                            </tr>   
+                                    <tr>
+                                      <td colspan="3" align="center">
+                                        <input class="btn btn-primary" type="submit" value="Aceptar" title="Aceptar">&nbsp;
+                                        <!-- <input class="btn btn-danger" type="reset" value="Limpiar" title="Limpiar">-->
+                                        <button class="btn btn-danger" data-dismiss="modal" title="Cancelar">Cancelar</button>
+                                      </td>
+                                    </tr>
+                                    </table>
+                                  </fieldset>
+                                </div> </div>
+                                <!-- /.table-responsive -->
+                              </div>
+
+                                                    </div>
+
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+
+                <!-- eliminar modal-->
+                <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="elim_maq" class="modal fade">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header" id="confirm">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" title="Cerrar">&times;</button>
+                        <h4 class="modal-title">Eliminar Mantenimiento Correctivo</h4>
+                      </div>
+                      <div class="modal-body">
+
+                        <h4>¿Usted esta seguro que desea eliminar este mantenimiento correctivo?</h4>                            
+
+                      </div>
+                      <div class="modal-footer">
+
+                        <input type="hidden" id="aceptar_elim_correctivo">
+
+                        <button class="btn btn-primary" title="Aceptar" onclick="eliminar_Correctivo()">Aceptar</button>
+                        <button class="btn btn-danger" data-dismiss="modal" title="Cancelar">Cancelar</button>
+
+                      </fieldset>
+
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+                       
+              <!-- detalle Modal -->
+              <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="detalle_maquina" class="modal fade">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true" title="Cerrar">&times;</button>
+                      <h4 class="modal-title">Detalle de la Maquina</h4>
+                    </div>
+                    <div class="modal-body">
+
+                      <div id="detalle"></div>
+
+                    </div>
+                    <div class="modal-footer">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End detalle modal -->    
+
+              <!--Reporte de maquina-->
+               <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="rep_maq" class="modal fade">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header" id="confirm">
+                      <button type="button" class="close" data-dismiss="modal" aria-hidden="true" title="Cerrar">&times;</button>
+                      <h4 class="modal-title">Reporte de Mantenimiento Correctivo</h4>
+                    </div>
+                    <div class="modal-body">
+
+                      <h4>¿Usted esta seguro de que desea generar el reporte de los mantenimientos correctivos?</h4>                            
+
+                    </div>
+                    <div class="modal-footer">
+
+                      <input type="hidden" id="aceptar_elim_maquina">
+
+                      <button class="btn btn-primary" title="Aceptar" onclick="reporte_Correctivo()" data-dismiss="modal" >Aceptar</button>
+                      <button class="btn btn-danger" data-dismiss="modal" title="Cancelar">Cancelar</button>
+
+                    </fieldset>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Modal Maquina con exito-->
+            <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="registrado_maquina" class="modal fade">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header" id="exito">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" title="Cerrar">&times;</button>
+                    <h4 class="modal-title">Registro Mantenimento Correctivo</h4>
+                  </div>
+                  <div class="modal-body">
+
+                    <h4>Mantenimiento Correctivo registrado correctamente</h4>    
+                  </div>
+                  <div class="modal-footer">
+
+                   <button type="button" class="btn btn-primary" data-dismiss="modal" aria-hidden="true" title="Cerrar">Aceptar</button>
+
+                   <!-- <button id="cerrar_dialog_eli"class="btn btn-primary" title="Aceptar">Aceptar</button>-->
+
+
+                 </div>
+               </div>
+             </div>
+           </div>
+           <!-- End modal registro exito -->        
+
+           <!-- Modal Editado con exito-->
+           <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="editado_maquina" class="modal fade">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header" id="exito">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true" title="Cerrar">&times;</button>
+                  <h4 class="modal-title">Editar Mantenimiento Correctivo</h4>
+                </div>
+                <div class="modal-body">
+
+                  <h4>Mantenimiento Correctivo editado correctamente</h4>    
+                </div>
+                <div class="modal-footer">
+
+                 <button type="button" class="btn btn-primary" data-dismiss="modal" aria-hidden="true" title="Cerrar">Aceptar</button>
+
+                 <!-- <button id="cerrar_dialog_eli"class="btn btn-primary" title="Aceptar">Aceptar</button>-->
+
+
+               </div>
+             </div>
+           </div>
+         </div>
+         <!-- End eliminar modal -->  
+         <!-- detalle Modal -->
+         <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="agua_maq" class="modal fade">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header" id="confirm">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" title="Cerrar">&times;</button>
+                <h4 class="modal-title">Reporte Maquina</h4>
+              </div>
+              <div class="modal-body">
+
+               <h4>¿Usted esta seguro de que desea generar el reporte de esta maquina?</h4>                            
+
+               <input type="hidden" id="aceptar_reporte_correctivo">
+               <input type="hidden" id="aceptar_reporte_correctivo2">
+               
+             </div>
+             <div class="modal-footer">
+              <button class="btn btn-primary" title="Aceptar" onclick="reporteCorrectivo()" data-dismiss="modal">Aceptar</button>
+              <button class="btn btn-danger" data-dismiss="modal" title="Cancelar">Cancelar</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End detalle modal --> 
+
+      <!-- Modal Eliminado con exito-->
+      <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="eliminado_maquina" class="modal fade">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header" id="exito">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true" title="Cerrar">&times;</button>
+              <h4 class="modal-title">Eliminar Mantenimiento Correctivo</h4>
+            </div>
+            <div class="modal-body">
+
+              <h4>Mantenimiento Correctivo eliminado correctamente</h4>    
+            </div>
+            <div class="modal-footer">
+
+             <button type="button" class="btn btn-primary" data-dismiss="modal" aria-hidden="true" title="Cerrar">Aceptar</button>
+
+             <!-- <button id="cerrar_dialog_eli"class="btn btn-primary" title="Aceptar">Aceptar</button>-->
+
+
+           </div>
+         </div>
+       </div>
+     </div>
+     <!-- End eliminar modal -->                
+   </ajax>
+ </div>
+</div>
+
+<div id="r_mant_prev"><!--<div id="r_mant_corre">-->
+  <h4 class="sitio_maq"><a href="#">Administrativo</a> <span>></span> <a href="mantenimiento.php">Mantenimiento</a> <span>></span>  <a href="mant_correctivo.php">Mantenimiento Correctivo</a> <span>></span> <a href="#"> Registro</a></h4>
+  <div class="info2">
+    <div id="text_center_title"> <!--para la parte de titulo--> 
+      <span class="t-menu">Registro de Mantenimiento Correctivo</span>
+    </div>
+    <div id="form_contenedor" style="margin-left:4%;">
+      <br>
+      <div style="color:#000; margin-left:38%;" >
+
+        <label style="font-weight:bold;">Interno</label> <input type="radio" name="service" id="service_interno">
+        <label style="margin-left:5%; font-weight:bold;">Externo</label> <input type="radio" name="service" id="service_externo"> 
+
+      </div>
+      <!--<div class="panel panel-default">
+      <div class="panel-body">-->
+
+        <!-- Este es el registro interno del mantenimiento correctivo-->
+        <div id="interno">
+          <form action="registrando_correctivo.php" method="post" id="reg_maquina" name="reg_maquina" onSubmit="return validarForm()" enctype="multipart/form-data" >
+
+
+           <fieldset id="regmaq" style="color:#000;">
+            <input type="hidden" name="tipo_servicio" value="interno"> 
+            <input type="hidden" name="id_per" id="id_per">
+            <input type="hidden" name="id_maq" id="id_maq">
+            <input type="hidden" name="res" id="res">
+
+            <table width="100%">
+              <tr>
+              <tr> 
+              <td colspan="3" align="center" >
+
+                  <?php $numeroI=pg_query("SELECT id_correctivo FROM mant_correctivo ORDER BY id_correctivo DESC");
+                        $numeroI=pg_fetch_assoc($numeroI);
+                        $numeroI=$numeroI["id_correctivo"]+1;
+                  ?>
+                  <label><b>N° del mantenimiento:</b></label>
+                  <input type="text" readonly="readonly" value="<?php echo $numeroI; ?>" name="numero_mant" id="numero_mantI" style="text-align:center;"  maxlength="30" title="Número del Mantenimiento"/>
+
+              </td>
+              </tr>
+                <td colspan="2">
+
+                  <label><b>Código de la Máquina:</b></label>
+                  <input type="text" style="text-transform:capitalize;" name="codigo" id="codigo" onkeyup="existeCodigo()" onblur="codemaquinas(); existeCodigo();" onkeypress="return soloAlfa2(event);" maxlength="30" placeholder="Ejemplo:To-00" title="Código de la máquina">
+                  <!--<input type="text" readonly="readonly" id="pre_nb" name="pre_nb" value="NB-" size="3" ></input>-->
+                  <!--<input type="text" name="n_b" id="NB" onblur="maquinas(); validarN_B();" maxlength="5" placeholder="Ejemplo:12345678" title="Introduzca el número del bien"  onKeyUp="validarN_B()"  onchange="validarN_B()"/>-->
+                  <div class="promts" style="margin-left: -5px;"> <span id="CodePrompt"></span></div><p style="display:inline-block; font-size:30px; position:absolute;  color:red;">*</p>
+                </td>
+                <td>
+                  <label><b>Número del Bien:</b></label>  
+                  <input readonly="readonly" type="text" name="n_b" id="NB">
+
+                </td>
+              </tr>
+
+              <span id="nombres"></span>  
+
+              <tr>
+                <td>
+
+
+                  <input type="hidden" name="validar_ci_ajax" id="validar_ci_ajax" >
+
+                  <label><b>C.I. del Encargado:</b></label>
+                  <select id="nac_usu" name="nac_usu" title="Seleccione la nacionalidad de la persona">
+                    <option></option>
+                    <option>V-</option>
+                    <option>E-</option>
+                  </select>
+                  <input type="text" name="ci_usu" id="ci_usu" onblur="personal_mant(); validarCI();" maxlength="9" placeholder="Ejemplo:12345678" title="Coloque la cedula de identidad de la persona" onKeyUp="validarCI()" onchange="validarCI()" onkeypress="return solonum4(event)"/>
+                  <div class="promts" style="margin-left: -69px;"> <span id="C.I_per"></span></div><p style="display:inline-block; font-size:30px; position:absolute; color:red;">*</p>
+                </td>
+
+                <td>
+                  <label><b>Nombres:</b></label>
+                  <input readonly="readonly" type="text" name="nombres_usu" id="nombres_usu" maxlength="30" placeholder="Ejemplo:Jorge Antonio" title="Nombres de la persona"/>
+                  <span id="nombres"></span>      
+                </td>
+
+                <td>
+                  <label><b>Apellidos:</b></label>
+                  <input readonly="readonly" type="text" name="apellidos_usu" id="apellidos_usu" maxlength="30" placeholder="Ejemplo:Rodríguez Torres" title="Apellidos de la persona"/>
+                  <span id="apellidos"></span>   
+                </td>
+              </tr>
+              <tr>
+                <td>
+
+                  <input type="hidden" name="resultado_fecha" id="resultado_fecha">
+
+                  <label><b>Responsable:</b></label>
+                  <textarea  name="responsable" id="responsable" size="" maxlength="125" placeholder="Jose Perez, Juan Perozo ..." onKeyUp="validarResponsable();" onblur="validarResponsable();" onKeyPress="return soloAlfa(event)" style="display:inline-block;"></textarea>
+                  <div class="promts" > <span id="responsablePrompt"></span></div><p style="display:inline-block; font-size:30px; position:absolute; color:red; ">*</p>
+
+                </td>
+                   <td colspan="">
+
+                  <label>Motivo:</label>
+                  <textarea name="motivo" id="motivo" size="" maxlength="125" placeholder="Motivo de la realización del mantenimiento ..." onKeyUp="validarMotivo();" onblur="validarMotivo();" onKeyPress="return soloAlfa(event)" style="display:inline-block;"></textarea>
+                   <div class="promts" style=""> <span id="motivoPrompt"></span></div><p style="display:inline-block; font-size:30px; position:absolute; color:red;">*</p>
+
+                </td>
+               </tr>
+               
+              <tr>
+                <td colspan="3" align="center">
+                  <h3><div id="salidaR_COR"></div></h3>
+                </td>
+              </tr>
+                  <tr>
+             <td colspan="3" align="right">
+              <div border="1"><span style="margin-right:5%; width:20%; color:red; border:1px solid #ccc; border-radius: 4px;   background-color: #fff; padding: 6px 12px; font-size: 14px;">* Campos Requeridos</span></div>
+            </td>
+          </tr>   
+              <tr>
+                <td colspan="3" align="center">
+                 <br><br>
+                 <input class="btn btn-primary" type="submit" value="Aceptar" title="Aceptar" style="margin-left:-50px;"> 
+                 <input class="btn btn-danger" type="reset" value="Limpiar" title="Limpiar">
+                 <br><br>
+               </td>
+             </tr>
+           </table>
+         </fieldset>
+       </form>
+     </div>
+     <!-- Este es el registro externo del mantenimiento correctivo-->
+     <div id="externo">
+      <form action="registrando_correctivo.php" method="post" id="reg_maquina" name="reg_maquina" onSubmit="return validarForm2()" enctype="multipart/form-data" >
+
+       <fieldset id="regmaq" style="color:#000;">
+        <input type="hidden" name="tipo_servicio" value="externo"> 
+        <input type="hidden" name="id_per" id="id_per2">
+        <input type="hidden" name="id_maq" id="id_maq2">
+        <input type="hidden" name="res" id="res2">
+
+
+        <table width="100%">
+        <tr>
+
+                   <td colspan="3" align="center" >
+                  <label><b>N° del mantenimiento:</b></label>
+                  <input type="text" readonly="readonly" value="<?php echo $numeroI; ?>" style="text-align:center;" name="numero_mant" id="numero_mantE"  maxlength="30" title="Número del Mantenimiento"/>
+
+              </td>
+              </tr>
+          <tr>
+            <td colspan="2">
+
+              <label><b>Código de la Máquina:</b></label>
+
+              <input type="text" style="text-transform:capitalize;" name="codigo" id="codigo2" onblur="codemaquinas(); existeCodigo2();" maxlength="30" placeholder="Ejemplo:To-00" title="Código de la máquina"  onkeypress="return soloAlfa2(event)"/>
+
+              <!--<input type="text" readonly="readonly" id="pre_nb" name="pre_nb" value="NB-" size="3" ></input>-->
+              <!--<input type="text" name="n_b" id="NB" onblur="maquinas(); validarN_B();" maxlength="5" placeholder="Ejemplo:12345678" title="Introduzca el número del bien"  onKeyUp="validarN_B()"  onchange="validarN_B()"/>-->
+              <div class="promts" style="margin-left: -5px;"> <span id="Code2Prompt"></span></div><p style="display:inline-block; font-size:30px; position:absolute; color:red;">*</p>
+            </td>
+            <td>
+              <label><b>Número del Bien:</b></label> <br>
+              <input readonly="readonly" type="text" name="n_b" id="NB2">
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <span id="nombres"></span>  
+
+              <input type="hidden" name="validar_ci_ajax2" id="validar_ci_ajax2" >
+
+              <label><b>C.I del Encargado:</b></label>
+              <select id="nac_usu2" name="nac_usu" title="Seleccione la nacionalidad de la persona">
+                <option></option>
+                <option>V-</option>
+                <option>E-</option>
+              </select>
+              <input type="text" name="ci_usu" id="ci_usu2" onblur="personal_mant(); validarCI2();" onkeyup="validarCI2()" maxlength="9" placeholder="Ejemplo:12345678" title="Coloque la cedula de identidad de la persona" onKeyUp="validarCI2()" onchange="validarCI2()"  onkeypress="return solonum4(event)"/>
+              <div class="promts" style="margin-left: -69px;"> <span id="C.I_per2"></span></div><p style="display:inline-block; font-size:30px; position:absolute;  color:red;">*</p>
+            </td>
+
+            <td>
+              <label><b>Nombres:</b></label>
+              <input readonly="readonly" type="text" name="nombres_usu" id="nombres_usu2" maxlength="30" placeholder="Ejemplo:Jorge Antonio" title="Nombres de la persona"/>
+              <span id="nombres"></span>      
+            </td>
+
+            <td>
+              <label><b>Apellidos:</b></label>
+              <input readonly="readonly" type="text" name="apellidos_usu" id="apellidos_usu2" maxlength="30" placeholder="Ejemplo:Rodríguez Torres" title="Apellidos de la persona"/>
+              <span id="apellidos"></span>   
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="hidden" name="resultado_fecha2" id="resultado_fecha2">
+
+              <label><b>Proveedor:</b></label>
+              <textarea name="provedor" id="provedor" size="" maxlength="125" placeholder="Jose Hernandez" onKeyUp="validarProveedor();" onblur="validarProveedor();" onKeyPress="return soloAlfa(event)" style="display:inline-block;"></textarea>
+              <div class="promts"> <span id="proveedorPrompt"></span></div><p style="display:inline-block; font-size:30px; position:absolute; color:red;">*</p>
+
+            </td>
+            <td>
+              <label><b>Responsable:</b></label>
+              <textarea name="responsable" id="responsable2" size="" maxlength="125" placeholder="Jose Perez, Juan Perozo ..." onKeyUp="validarResponsable2();" onblur="validarResponsable2();" onKeyPress="return soloAlfa(event)" style="display:inline-block"></textarea>
+              <div class="promts" > <span id="responsable2Prompt"></span></div><p style="display:inline-block; font-size:30px; position:absolute; color:red;">*</p>
+
+            </td>
+                 <td colspan="">
+
+                  <label>Motivo:</label>
+                  <textarea name="motivo" id="motivo2" size="" maxlength="125" placeholder="Motivo de la realización del mantenimiento ..." onKeyUp="validarMotivo2();" onblur="validarMotivo2();" onKeyPress="return soloAlfa(event)" style="display:inline-block;"></textarea>
+                   <div class="promts" style=""> <span id="motivo2Prompt"></span></div><p style="display:inline-block; font-size:30px; position:absolute; color:red;">*</p>
+
+                </td>
+              
+
+          
+          </tr>
+        
+          <tr>
+            <td colspan="3" align="center">
+              <h3><div id="salidaR_COR2"></div></h3>
+            </td>
+          </tr>
+              <tr>
+             <td colspan="3" align="right">
+              <div border="1"><span style="margin-right:5%; width:20%; color:red; border:1px solid #ccc; border-radius: 4px;   background-color: #fff; padding: 6px 12px; font-size: 14px;">* Campos Requeridos</span></div>
+            </td>
+          </tr>   
+          <tr>
+            <td colspan="3" align="center">
+              <br><br>
+
+              <input class="btn btn-primary" type="submit" value="Aceptar" title="Aceptar" style="margin-left:-50px;"> 
+              <input class="btn btn-danger" type="reset" value="Limpiar" title="Limpiar">
+
+              <br><br>
+            </td>
+          </tr>
+        </table>
+      </fieldset>
+    </form>
+  </div>
+
+</div>                              
+</div>
+</div>
+
+<!-- Modal validando file error-->
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="error_imagen" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" id="confirm">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" title="Cerrar">&times;</button>
+        <h4 class="modal-title">Registro Maquina</h4>
+      </div>
+      <div class="modal-body">
+
+        <h4 style="color:#000;">Extensión no valida</h4>    
+      </div>
+      <div class="modal-footer">
+
+       <button type="button" class="btn btn-primary" data-dismiss="modal" aria-hidden="true" title="Cerrar">Aceptar</button>
+
+       <!-- <button id="cerrar_dialog_eli"class="btn btn-primary" title="Aceptar">Aceptar</button>-->
+
+
+     </div>
+   </div>
+ </div>
+</div>
+<!-- End validando file error modal -->  
+
+<!-- Modal Error formulario incompleto-->
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="error_incompleto" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header" id="confirm">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" title="Cerrar">&times;</button>
+        <h4 class="modal-title">Confirmar Usuario</h4>
+      </div>
+      <div class="modal-body">
+
+        <h4 style="color:#000;">Debe completar el formulario</h4>    
+      </div>
+      <div class="modal-footer">
+
+       <button type="button" class="btn btn-primary" data-dismiss="modal" aria-hidden="true" title="Cerrar">Aceptar</button>
+
+       <!-- <button id="cerrar_dialog_eli"class="btn btn-primary" title="Aceptar">Aceptar</button>-->
+
+
+     </div>
+   </div>
+ </div>
+</div>
+<!-- End validando file error modal --> 
+
+    <?php
+ include("form_user_elim.php");
+ $user_elim=form_user_elim();
+ echo $user_elim;
+ ?>
+
+
+
+</div><!-- /col-lg-9 END SECTION MIDDLE -->    
+      <!-- **********************************************************************************************************************************************************
+      RIGHT SIDEBAR CONTENT
+      *********************************************************************************************************************************************************** -->                  
+      <div class="col-lg-3 ds">
+        <?php
+        include("right_sidebar.php");
+        $barright=barright();
+        echo $barright;
+        ?>
+      </div><!-- /col-lg-3 -->        
+    </div><!-- end row -->
+  </section>
+</section>
+<!--main content end-->
+<!--footer start-->
+<footer class="site-footer">
+ <?php
+ include("footer.php");
+ $pie=pie();
+ echo $pie;
+ ?>
+</footer>
+<!--footer end-->
+</section>
+
+<!-- js placed at the end of the document so the pages load faster -->
+
+    <!-- << DataTables JavaScript >>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="assets/js/jquery-1.8.3.min.js"></script>-->
+
+    <script type="text/javascript" src="js/jquery-1.11.2.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
+    
+    <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="js/dataTables.bootstrap.min.js"></script>
+    
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
+
+    <script src="assets/js/jquery.scrollTo.min.js"></script>
+    <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="assets/js/jquery.sparkline.js"></script>
+
+
+    <!--common script for all pages-->
+    <script src="assets/js/common-scripts.js"></script>
+    
+    <script type="text/javascript" src="assets/js/gritter/js/jquery.gritter.js"></script>
+    <script type="text/javascript" src="assets/js/gritter-conf.js"></script>
+
+   
+<!--script for this page-->
+<script src="assets/js/sparkline-chart.js"></script>    
+<script src="assets/js/zabuto_calendar.js"></script>	
+<script type="text/javascript" src="js/jquery.cycle.all.js"></script>
+<script type="text/javascript" src="funciones.js"></script>
+<script type="text/javascript" src="js/moment.js"></script>
+<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="js/lang/es.js"></script>
+<script type="text/javascript" src="js/jquery.fancybox.js"></script>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".fancybox").fancybox();
+  });
+</script>
+
+<script type="text/javascript">
+ //  AUTOCOMPLETADO
+    $(function() {
+       $('#codigo').autocomplete({
+           source:'maquina_bus.php',
+           minLength: 1
+        });
+    });
+     //  AUTOCOMPLETADO
+    $(function() {
+       $('#codigo2').autocomplete({
+           source:'maquina_bus.php',
+           minLength: 1
+        });
+    });
+  function DameDatos(){
+    $.ajax({
+      type:"POST",
+      url:"ajax/registro_maquina2.php",
+      data:"contacto="+document.getElementById("contacto").value,
+
+      success: function(respuesta){
+    /*  Como era
+
+    if(respuesta.modelo!="0") document.getElementById('informacion').innerHTML='<br>'+respuesta.modelo;
+        else document.getElementById('informacion').innerHTML='<br><div class="info"><p>Seleccione una maquina por favor</p></div>';
+        */
+        if (respuesta!=0)
+        {
+          $('#informacion').html('<br>'+respuesta);
+        }  
+        else
+        {
+          $('#informacion').html('<br><div class="info"><p>Seleccione una máquina por favor</p></div>');
+        }
+      }
+
+    });
+
+    $.ajax({
+      type:"POST",
+      url:"ajax/consultando_maquina.php",
+      data:"contacto="+document.getElementById("contacto").value,
+      dataType:"json",
+      success: function(valores){
+       var datos=eval(valores);
+       if(valores.modelo=!0){
+         $('#codigo').val(datos[1]);
+       }
+
+
+       else {
+        $('#codigo').val(valores.modelo);
+      }
+    }
+  });
+
+  }
+</script>
+
+
+
+<!--validar formulario-->
+<script type="text/javascript" src="js/vali_corre.js"></script>
+</body>
+</html>
+
+
+<?php
+#ELIMINAR MAQUINA
+$elim_maq=$_REQUEST['elim_maq'];
+
+if ($elim_maq=='si')
+{
+  ?>
+  <script type="text/javascript">
+
+    $('#r_maquina').hide();
+    $('#slideshow').hide();
+
+    $('#consulta_maq').show();
+    $('#eliminado_maquina').modal({
+      show:true,
+      backdrop:'static'
+    }).show(200);
+
+
+        //$('#eliminado_maquina').show(200).delay(2500).hide(200);
+
+      </script>
+      <?php
+    }
+# ERRORES MODIFICACION
+
+    if ($error=='usuarioM')
+    {
+      ?>  
+      <script type="text/javascript">
+        $('#r_maquina').hide();
+        $('#slideshow').hide();
+
+        $('#miGestionUsuario').show();
+        $('#mensaje').addClass('mal').html("¡..El usuario ya existe..!").show(200).delay(2500).hide(200);
+
+      </script>
+      <?php
+    }
+    $regis_maq=$_REQUEST['registrado_maq'];
+    if ($regis_maq=='si')
+    {
+      ?>
+
+      <script type="text/javascript">
+        $('#r_maquina').hide();
+        $('#slideshow').hide();
+
+        $('#consulta_maq').show();
+        $('#registrado_maquina').modal({
+          show:true,
+          backdrop:'static'
+        }).show(200);
+
+     /*   $('#r_maquina').hide();
+        $('#slideshow').hide();
+        $('#consulta_maq').show();
+        $('#mensaje').addClass('bien').html("¡..Edición de usuario exitosa..!").show(200).delay(2500).hide(200);*/
+      </script>
+      <?php
+    }
+    $edicion_maq=$_REQUEST['editado_maq'];
+    if ($edicion_maq=='si')
+    {
+      ?>
+
+      <script type="text/javascript">
+        $('#r_maquina').hide();
+        $('#slideshow').hide();
+
+        $('#consulta_maq').show();
+        $('#editado_maquina').modal({
+          show:true,
+          backdrop:'static'
+        }).show(200);
+
+     /*   $('#r_maquina').hide();
+        $('#slideshow').hide();
+        $('#consulta_maq').show();
+        $('#mensaje').addClass('bien').html("¡..Edición de usuario exitosa..!").show(200).delay(2500).hide(200);*/
+      </script>
+      <?php
+    }
+    ?>
