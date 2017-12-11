@@ -20,13 +20,13 @@
     $('#registro_disponibilidad').hide();
     $('#consulta_aulas').hide();
     $('#registro_aulas').hide();
-    
+
     $('#registro_horarios').hide();
 
     $('#registro_tecnologico').hide();
 //  FIN ACADEMICO
-    
-//  ADMINISTRATIVO  
+
+//  ADMINISTRATIVO
   $('#r_herramientas').hide();
 
   $('#agregar_herra').click(function(){
@@ -78,7 +78,7 @@
 
 $('#tabla_entrada').hide();
 
-    
+
   $('#btn_salida').click(function(){
     $('#tabla_salida').show();
     $('#tabla_entrada').hide();
@@ -153,7 +153,7 @@ $('#tabla_entrada').hide();
             $("#date-popover").click(function (e) {
                 $(this).hide();
             });
-        
+
             $("#my-calendar").zabuto_calendar({
                 action: function () {
                     return myDateFunction(this.id, false);
@@ -217,7 +217,7 @@ $('#tabla_entrada').hide();
 
                   $('#municipio').html(datos[0]);
               }
-          });     
+          });
       }
     });
 
@@ -235,7 +235,7 @@ $('#tabla_entrada').hide();
 
                   $('#municipioM').html(datos[0]);
               }
-          });     
+          });
       }
     });
 
@@ -267,7 +267,7 @@ $('#tabla_entrada').hide();
             var jueves=document.getElementById('jueves_'+i).value;
             var viernes=document.getElementById('viernes_'+i).value;
             var horas=document.getElementById('id_'+i).value;
-            
+
             arraylunes[j]=lunes;
             arraymartes[j]=martes;
             arraymiercoles[j]=miercoles;
@@ -306,7 +306,7 @@ $('#tabla_entrada').hide();
             var viernes=document.getElementById('viernes_'+i+'_M').value;
             var horas=document.getElementById('id_'+i+'_M').value;
             var disponibilidad=document.getElementById('id_disponibilidad_'+i+'_M').value;
-            
+
             arraylunes[j]=lunes;
             arraymartes[j]=martes;
             arraymiercoles[j]=miercoles;
@@ -333,7 +333,7 @@ $('#tabla_entrada').hide();
             if (div!='cambio')
             {
                 var capa=document.getElementById(div).value;
-                
+
                 //alert(periodo+' '+ci_prof);
                 if (capa==0)
                 {
@@ -342,9 +342,9 @@ $('#tabla_entrada').hide();
                     $('#'+div).val(1);
                 }
                 else
-                { 
+                {
                     //alert("esta verde y debe cambiar a color azul");
-                    $('#'+div).removeClass('seleccionado').addClass('boton_horas');       
+                    $('#'+div).removeClass('seleccionado').addClass('boton_horas');
                     $('#'+div).val(0);
                 }
 
@@ -404,7 +404,7 @@ $('#tabla_entrada').hide();
                                 show:true,
                                 backdrop:'static'
                             });
-                        }          
+                        }
                     }
                 });
             }
@@ -502,7 +502,7 @@ $('#tabla_entrada').hide();
         {
 
             var capa=document.getElementById(div).value;
-            
+
             //alert(div+' '+capa);
 
             if (capa==0)
@@ -512,9 +512,9 @@ $('#tabla_entrada').hide();
                 $('#'+div).val(1);
             }
             else
-            { 
+            {
                 //alert("esta verde y debe cambiar a color azul");
-                $('#'+div).removeClass('seleccionado').addClass('boton_horas');       
+                $('#'+div).removeClass('seleccionado').addClass('boton_horas');
                 $('#'+div).val(0);
             }
 
@@ -547,7 +547,7 @@ $('#tabla_entrada').hide();
                     contador=contador+1;
                 }
             }
-            
+
             $.ajax({
                 type:'POST',
                 url:'horas_prof.php',
@@ -574,7 +574,7 @@ $('#tabla_entrada').hide();
                             show:true,
                             backdrop:'static'
                         });
-                    }          
+                    }
                 }
             });
         }
@@ -609,7 +609,7 @@ $('#tabla_entrada').hide();
                     contador=contador+1;
                 }
             }
-            
+
             $.ajax({
                 type:'POST',
                 url:'horas_prof.php',
@@ -646,7 +646,7 @@ $('#tabla_entrada').hide();
                                 backdrop:'static'
                             });
                         }
-                    }          
+                    }
                 }
             });
         }
@@ -655,7 +655,7 @@ $('#tabla_entrada').hide();
     function color_botonesYvalidarBloque(div)
     {
         $('#capaValidarProf').val(div);
-        
+
         $('#validarBloqueProf').modal({
             show:true,
             backdrop:'static'
@@ -669,7 +669,7 @@ $('#tabla_entrada').hide();
     function color_botonesYvalidarBloqueM(div)
     {
         $('#capaValidarProfM').val(div);
-        
+
         $('#validarBloqueProfM').modal({
             show:true,
             backdrop:'static'
@@ -684,7 +684,7 @@ $('#tabla_entrada').hide();
     {
         var div=document.getElementById('capaValidarProf').value;
         var periodo=document.getElementById('periodo').value;
-        
+
         //alert(div);
 
         $.ajax({
@@ -700,7 +700,7 @@ $('#tabla_entrada').hide();
 
                 nom_ape_horarios();
                 ValidarBloqueProfe('algo');
-                
+
             }
         });
     }
@@ -709,7 +709,7 @@ $('#tabla_entrada').hide();
     {
         var div=document.getElementById('capaValidarProfM').value;
         var periodo=document.getElementById('periodoM').value;
-        
+
         //alert(div+' '+periodo);
 
         $.ajax({
@@ -725,7 +725,7 @@ $('#tabla_entrada').hide();
 
                 nom_ape_horariosM();
                 ValidarBloqueProfeM('algo');
-                
+
             }
         });
     }
@@ -770,7 +770,7 @@ $('#tabla_entrada').hide();
                 if (ced==ci2 || ci2==ci3 || ced==ci3)
                 {
                     jsMostrar("SeleccionBloque");
-                        
+
                     mostrarPrompt("No puede colocar un profesor 2 veces en el mismo bloque", "SeleccionBloque", "red");
 
                     document.getElementById('submit').disabled=true;
@@ -787,15 +787,15 @@ $('#tabla_entrada').hide();
                     {
                         jsMostrar("SeleccionBloque");
 
-                        mostrarPrompt("No puede colocar un profesor 2 veces en el mismo bloque", "SeleccionBloque", "red");        
-                        
+                        mostrarPrompt("No puede colocar un profesor 2 veces en el mismo bloque", "SeleccionBloque", "red");
+
                         document.getElementById('submit').disabled=true;
                     }
                     else
                     {
                         jsOcultar("SeleccionBloque");
                         document.getElementById('submit').disabled=false;
-                    }    
+                    }
                 }
             }
         }
@@ -843,7 +843,7 @@ $('#tabla_entrada').hide();
                     $('#submit').val("Marcar Bloque");
                 }
                 else
-                { 
+                {
                     //alert("capa = 1");
                     $('#submit').val("Desmarcar Bloque");
                 }
@@ -875,7 +875,7 @@ $('#tabla_entrada').hide();
                                 jsMostrar("SeleccionBloque");
                                 mostrarPrompt("El aula ya esta ocupada", "SeleccionBloque", "red");
                             }
-                            
+
                             if (valores==1)
                             {
                                 if (ci2!=0 || ci3!=0)
@@ -941,7 +941,7 @@ $('#tabla_entrada').hide();
                 if (ced==ci2 || ci2==ci3 || ced==ci3)
                 {
                     jsMostrar("SeleccionBloqueM");
-                        
+
                     mostrarPrompt("No puede colocar un profesor 2 veces en el mismo bloque", "SeleccionBloqueM", "red");
 
                     document.getElementById('submitM').disabled=true;
@@ -958,18 +958,18 @@ $('#tabla_entrada').hide();
                     {
                         jsMostrar("SeleccionBloqueM");
 
-                        mostrarPrompt("No puede colocar un profesor 2 veces en el mismo bloque", "SeleccionBloqueM", "red");        
-                        
+                        mostrarPrompt("No puede colocar un profesor 2 veces en el mismo bloque", "SeleccionBloqueM", "red");
+
                         document.getElementById('submitM').disabled=true;
                     }
                     else
                     {
                         jsOcultar("SeleccionBloqueM");
                         document.getElementById('submitM').disabled=false;
-                    }    
+                    }
                 }
             }
-        }        
+        }
 
         if (parametro=='algo')
         {
@@ -1009,11 +1009,11 @@ $('#tabla_entrada').hide();
         $('#valorAjaxProfM').val("");
 
             if (capa==0)
-            {  
+            {
                 $('#submitM').val("Marcar Bloque");
             }
             else
-            { 
+            {
                 $('#submitM').val("Desmarcar Bloque");
             }
 
@@ -1038,7 +1038,7 @@ $('#tabla_entrada').hide();
                             jsMostrar("SeleccionBloqueM");
                             mostrarPrompt("El aula ya esta ocupada", "SeleccionBloqueM", "red");
                         }
-                        
+
                         if (valores==1)
                         {
                             if (ci2!=0 || ci3!=0)
@@ -1100,21 +1100,21 @@ $('#tabla_entrada').hide();
 
             if (ced2==0)
             {
-                $('#'+div).html(p[0]+" "+p[1]+"<br>"+materia+"<br>"+aula);    
+                $('#'+div).html(p[0]+" "+p[1]+"<br>"+materia+"<br>"+aula);
             }
             if (ced3==0 && ced2!=0)
             {
-                $('#'+div).html(p[0]+" "+p[1]+"<br>"+p2[0]+" "+p2[1]+"<br>"+materia+"<br>"+aula);    
+                $('#'+div).html(p[0]+" "+p[1]+"<br>"+p2[0]+" "+p2[1]+"<br>"+materia+"<br>"+aula);
             }
             if (ced3!=0)
             {
-                $('#'+div).html(p[0]+" "+p[1]+"<br>"+p2[0]+" "+p2[1]+"<br>"+p3[0]+" "+p3[1]+"<br>"+materia+"<br>"+aula);    
+                $('#'+div).html(p[0]+" "+p[1]+"<br>"+p2[0]+" "+p2[1]+"<br>"+p3[0]+" "+p3[1]+"<br>"+materia+"<br>"+aula);
             }
         }
         else
-        { 
+        {
             $('#submit').val("Marcar Bloque");
-            $('#'+div).removeClass('seleccionadoH').addClass('boton_horasH');       
+            $('#'+div).removeClass('seleccionadoH').addClass('boton_horasH');
             $('#'+div).val(0);
             $('#'+div).html("");
         }
@@ -1155,29 +1155,29 @@ $('#tabla_entrada').hide();
 
             if (ced2==0)
             {
-                $('#'+div+'_M').html(p[0]+" "+p[1]+"<br>"+materia+"<br>"+aula);    
+                $('#'+div+'_M').html(p[0]+" "+p[1]+"<br>"+materia+"<br>"+aula);
             }
             if (ced3==0 && ced2!=0)
             {
-                $('#'+div+'_M').html(p[0]+" "+p[1]+"<br>"+p2[0]+" "+p2[1]+"<br>"+materia+"<br>"+aula);    
+                $('#'+div+'_M').html(p[0]+" "+p[1]+"<br>"+p2[0]+" "+p2[1]+"<br>"+materia+"<br>"+aula);
             }
             if (ced3!=0)
             {
-                $('#'+div+'_M').html(p[0]+" "+p[1]+"<br>"+p2[0]+" "+p2[1]+"<br>"+p3[0]+" "+p3[1]+"<br>"+materia+"<br>"+aula);    
+                $('#'+div+'_M').html(p[0]+" "+p[1]+"<br>"+p2[0]+" "+p2[1]+"<br>"+p3[0]+" "+p3[1]+"<br>"+materia+"<br>"+aula);
             }
         }
         else
-        { 
+        {
             //alert("esta verde y debe cambiar a color azul");
             $('#submitM').val("Marcar Bloque");
-            $('#'+div+'_M').removeClass('seleccionadoH').addClass('boton_horasH');       
+            $('#'+div+'_M').removeClass('seleccionadoH').addClass('boton_horasH');
             $('#'+div+'_M').val(0);
             $('#'+div+'_M').html("");
         }
     }
 
     function valiDiasR (parametro)
-    {  
+    {
         var seccion=document.getElementById('seccion').value;
         var periodo=document.getElementById('periodo').value;
         var ciclo=document.getElementById('ciclo').value;
@@ -1187,7 +1187,7 @@ $('#tabla_entrada').hide();
             if (seccion==0)
             {
                 mostrarPrompt("Campo Requerido", "SeccionHorario", "red");
-            }        
+            }
             if (periodo==0)
             {
                 mostrarPrompt("Campo Requerido", "PeriodoHorario", "red");
@@ -1195,7 +1195,7 @@ $('#tabla_entrada').hide();
             if (seccion!=0)
             {
                 mostrarPrompt("Valido", "SeccionHorario", "green");
-            }        
+            }
             if (periodo!=0)
             {
                 mostrarPrompt("Valido", "PeriodoHorario", "green");
@@ -1266,7 +1266,7 @@ $('#tabla_entrada').hide();
                 document.getElementById('viernes_'+i).disabled=true;
             };
         }
-        
+
     }
 
     function registrar_horario (num)
@@ -1280,7 +1280,7 @@ $('#tabla_entrada').hide();
         var arrayjueves=[];
         var arrayviernes=[];
         var id_h=[];
-    
+
         for (var i = 1; i <= num; i++)
         {
             var j = i-1;
@@ -1291,7 +1291,7 @@ $('#tabla_entrada').hide();
             var jueves=document.getElementById('jueves_'+i).value;
             var viernes=document.getElementById('viernes_'+i).value;
             var horas=document.getElementById('id_'+i).value;
-            
+
             arraylunes[j]='lunes_'+i+' '+lunes;
             arraymartes[j]='martes_'+i+' '+martes;
             arraymiercoles[j]='miercoles_'+i+' '+miercoles;
@@ -1316,7 +1316,7 @@ $('#tabla_entrada').hide();
         var arrayjueves=[];
         var arrayviernes=[];
         var id_h=[];
-    
+
         for (var i = 1; i <= num; i++)
         {
             var j = i-1;
@@ -1327,7 +1327,7 @@ $('#tabla_entrada').hide();
             var jueves=document.getElementById('jueves_'+i+'_M').value;
             var viernes=document.getElementById('viernes_'+i+'_M').value;
             var horas=document.getElementById('id_'+i+'_M').value;
-            
+
             arraylunes[j]='lunes_'+i+' '+lunes;
             arraymartes[j]='martes_'+i+' '+martes;
             arraymiercoles[j]='miercoles_'+i+' '+miercoles;
@@ -1376,7 +1376,7 @@ $('#tabla_entrada').hide();
         if (data=='horas')
         {
             document.getElementById('horas2').checked=true;
-         
+
             $('#consulta_materias').hide();
             $('#registro_materias').hide();
             $('#consulta_secciones').hide();
@@ -1514,7 +1514,7 @@ $('#tabla_entrada').hide();
     }
 
     function Otro()
-    {    
+    {
        window.location.href="tipo_usuario.php";
     }
 
@@ -1546,7 +1546,7 @@ $('#tabla_entrada').hide();
               }
             }
 
-            conexion.open("POST","ajax.php?ajax="+opcion,true); 
+            conexion.open("POST","ajax.php?ajax="+opcion,true);
             conexion.send();
         };*/
 
@@ -1572,17 +1572,17 @@ $('#tabla_entrada').hide();
         });
 
     function detalleUsuario(id){
-        
+
         var url='detalle_usuario.php';
-        
+
         $.ajax({
             type:'POST',
             url:url,
             data:'id_usu='+id,
             success: function(valores){
-                
+
                 $('#detalle').html(valores);
-                
+
                 $('#detalle_usuario').modal({
                     show:true,
                     backdrop:'static'
@@ -1593,17 +1593,17 @@ $('#tabla_entrada').hide();
     };
 
     function detalleDisponibilidad(id_personal,id_periodo){
-        
+
         var url='detalle_disponibilidad.php';
-        
+
         $.ajax({
             type:'POST',
             url:url,
             data:'id_personal='+id_personal+'&id_periodo='+id_periodo,
             success: function(valores){
-                
+
                 $('#detalle').html(valores);
-                
+
                 $('#detalle_disponibilidad').modal({
                     show:true,
                     backdrop:'static'
@@ -1614,16 +1614,16 @@ $('#tabla_entrada').hide();
     };
 
     function detalleTipoUsuario(id){
-        
+
         var url='detalle_tipo_usuario.php';
-        
+
         $.ajax({
             type:'POST',
             url:url,
             data:'id_usu='+id,
             success: function(valores){
                 datos=eval(valores);
-                
+
                 $('#nombre_tipoD').val(datos[0]);
 
                  if (datos[1]=='A-0-0-0')
@@ -1642,106 +1642,106 @@ $('#tabla_entrada').hide();
                         document.getElementById("pach4D").checked=false;
                         document.getElementById("pach5D").checked=false;
                     }
-                if (datos[1]=='0-0-M-0') 
-                    { 
-                        document.getElementById("pach1D").checked=false;
-                        document.getElementById("pach2D").checked=false;
-                        document.getElementById("pach3D").checked=true;
-                        document.getElementById("pach4D").checked=false;
-                        document.getElementById("pach5D").checked=false; 
-                    }
-                if (datos[1]=='0-0-0-I') 
-                    { 
-                        document.getElementById("pach1D").checked=false;
-                        document.getElementById("pach2D").checked=false;
-                        document.getElementById("pach3D").checked=false;
-                        document.getElementById("pach4D").checked=true;
-                        document.getElementById("pach5D").checked=false;
-
-                    }
-                if (datos[1]=='A-E-0-0') 
-                    { 
-                        document.getElementById("pach1D").checked=true;
-                        document.getElementById("pach2D").checked=true;
-                        document.getElementById("pach3D").checked=false;
-                        document.getElementById("pach4D").checked=false;
-                        document.getElementById("pach5D").checked=false;
-
-                    }
-                if (datos[1]=='A-0-M-0') 
-                    { 
-                        document.getElementById("pach1D").checked=true;
-                        document.getElementById("pach2D").checked=false;
-                        document.getElementById("pach3D").checked=true;
-                        document.getElementById("pach4D").checked=false;
-                        document.getElementById("pach5D").checked=false;
-                    }
-                if (datos[1]=='A-0-0-I') 
-                    { 
-                        document.getElementById("pach1D").checked=true;
-                        document.getElementById("pach2D").checked=false;
-                        document.getElementById("pach3D").checked=false;
-                        document.getElementById("pach4D").checked=true; 
-                        document.getElementById("pach5D").checked=false;
-                    }
-                if (datos[1]=='0-E-M-0') 
+                if (datos[1]=='0-0-M-0')
                     {
-                        document.getElementById("pach1D").checked=false; 
-                        document.getElementById("pach2D").checked=true;
-                        document.getElementById("pach3D").checked=true;
-                        document.getElementById("pach4D").checked=false;
-                        document.getElementById("pach5D").checked=false; 
-                    }
-                if (datos[1]=='0-E-0-I') 
-                    { 
-                        document.getElementById("pach1D").checked=false;
-                        document.getElementById("pach2D").checked=true;
-                        document.getElementById("pach3D").checked=false;
-                        document.getElementById("pach4D").checked=true; 
-                        document.getElementById("pach5D").checked=false;
-                    }
-                if (datos[1]=='0-0-M-I') 
-                    { 
                         document.getElementById("pach1D").checked=false;
                         document.getElementById("pach2D").checked=false;
-                        document.getElementById("pach3D").checked=true;
-                        document.getElementById("pach4D").checked=true;
-                        document.getElementById("pach5D").checked=false; 
-                    }
-                if (datos[1]=='A-E-M-0') 
-                    { 
-                        document.getElementById("pach1D").checked=true;
-                        document.getElementById("pach2D").checked=true;
                         document.getElementById("pach3D").checked=true;
                         document.getElementById("pach4D").checked=false;
                         document.getElementById("pach5D").checked=false;
                     }
-                if (datos[1]=='A-E-0-I') 
-                    { 
+                if (datos[1]=='0-0-0-I')
+                    {
+                        document.getElementById("pach1D").checked=false;
+                        document.getElementById("pach2D").checked=false;
+                        document.getElementById("pach3D").checked=false;
+                        document.getElementById("pach4D").checked=true;
+                        document.getElementById("pach5D").checked=false;
+
+                    }
+                if (datos[1]=='A-E-0-0')
+                    {
+                        document.getElementById("pach1D").checked=true;
+                        document.getElementById("pach2D").checked=true;
+                        document.getElementById("pach3D").checked=false;
+                        document.getElementById("pach4D").checked=false;
+                        document.getElementById("pach5D").checked=false;
+
+                    }
+                if (datos[1]=='A-0-M-0')
+                    {
+                        document.getElementById("pach1D").checked=true;
+                        document.getElementById("pach2D").checked=false;
+                        document.getElementById("pach3D").checked=true;
+                        document.getElementById("pach4D").checked=false;
+                        document.getElementById("pach5D").checked=false;
+                    }
+                if (datos[1]=='A-0-0-I')
+                    {
+                        document.getElementById("pach1D").checked=true;
+                        document.getElementById("pach2D").checked=false;
+                        document.getElementById("pach3D").checked=false;
+                        document.getElementById("pach4D").checked=true;
+                        document.getElementById("pach5D").checked=false;
+                    }
+                if (datos[1]=='0-E-M-0')
+                    {
+                        document.getElementById("pach1D").checked=false;
+                        document.getElementById("pach2D").checked=true;
+                        document.getElementById("pach3D").checked=true;
+                        document.getElementById("pach4D").checked=false;
+                        document.getElementById("pach5D").checked=false;
+                    }
+                if (datos[1]=='0-E-0-I')
+                    {
+                        document.getElementById("pach1D").checked=false;
+                        document.getElementById("pach2D").checked=true;
+                        document.getElementById("pach3D").checked=false;
+                        document.getElementById("pach4D").checked=true;
+                        document.getElementById("pach5D").checked=false;
+                    }
+                if (datos[1]=='0-0-M-I')
+                    {
+                        document.getElementById("pach1D").checked=false;
+                        document.getElementById("pach2D").checked=false;
+                        document.getElementById("pach3D").checked=true;
+                        document.getElementById("pach4D").checked=true;
+                        document.getElementById("pach5D").checked=false;
+                    }
+                if (datos[1]=='A-E-M-0')
+                    {
+                        document.getElementById("pach1D").checked=true;
+                        document.getElementById("pach2D").checked=true;
+                        document.getElementById("pach3D").checked=true;
+                        document.getElementById("pach4D").checked=false;
+                        document.getElementById("pach5D").checked=false;
+                    }
+                if (datos[1]=='A-E-0-I')
+                    {
                         document.getElementById("pach1D").checked=true;
                         document.getElementById("pach2D").checked=true;
                         document.getElementById("pach3D").checked=false;
                         document.getElementById("pach4D").checked=true;
-                        document.getElementById("pach5D").checked=false; 
-                    }         
-                if (datos[1]=='A-0-M-I') 
-                    { 
+                        document.getElementById("pach5D").checked=false;
+                    }
+                if (datos[1]=='A-0-M-I')
+                    {
                         document.getElementById("pach1D").checked=true;
                         document.getElementById("pach2D").checked=false;
                         document.getElementById("pach3D").checked=true;
                         document.getElementById("pach4D").checked=true;
-                        document.getElementById("pach5D").checked=false; 
+                        document.getElementById("pach5D").checked=false;
                     }
-                if (datos[1]=='0-E-M-I') 
-                    { 
+                if (datos[1]=='0-E-M-I')
+                    {
                         document.getElementById("pach1D").checked=false;
                         document.getElementById("pach2D").checked=true;
                         document.getElementById("pach3D").checked=true;
                         document.getElementById("pach4D").checked=true;
-                        document.getElementById("pach5D").checked=false; 
+                        document.getElementById("pach5D").checked=false;
                     }
-                if (datos[1]=='A-E-M-I') 
-                    { 
+                if (datos[1]=='A-E-M-I')
+                    {
                         document.getElementById("pach1D").checked=true;
                         document.getElementById("pach2D").checked=true;
                         document.getElementById("pach3D").checked=true;
@@ -1749,13 +1749,13 @@ $('#tabla_entrada').hide();
                         document.getElementById("pach5D").checked=true;
 
                     }
-                if (datos[1]==0) 
-                    { 
+                if (datos[1]==0)
+                    {
                         document.getElementById("pach1D").checked=false;
                         document.getElementById("pach2D").checked=false;
                         document.getElementById("pach3D").checked=false;
                         document.getElementById("pach4D").checked=false;
-                        document.getElementById("pach5D").checked=false; 
+                        document.getElementById("pach5D").checked=false;
                     }
 
                     // PROYECTOS
@@ -1776,117 +1776,117 @@ $('#tabla_entrada').hide();
                         document.getElementById("pacp4D").checked=false;
                         document.getElementById("pacp5D").checked=false;
                     }
-                if (datos[2]=='0-0-M-0') 
-                    { 
+                if (datos[2]=='0-0-M-0')
+                    {
                         document.getElementById("pacp1D").checked=false;
                         document.getElementById("pacp2D").checked=false;
                         document.getElementById("pacp3D").checked=true;
                         document.getElementById("pacp4D").checked=false;
-                        document.getElementById("pacp5D").checked=false; 
+                        document.getElementById("pacp5D").checked=false;
                     }
-                if (datos[2]=='0-0-0-I') 
-                    { 
+                if (datos[2]=='0-0-0-I')
+                    {
                         document.getElementById("pacp1D").checked=false;
                         document.getElementById("pacp2D").checked=false;
                         document.getElementById("pacp3D").checked=false;
                         document.getElementById("pacp4D").checked=true;
-                        document.getElementById("pacp5D").checked=false; 
+                        document.getElementById("pacp5D").checked=false;
                     }
-                if (datos[2]=='A-E-0-0') 
-                    { 
+                if (datos[2]=='A-E-0-0')
+                    {
                         document.getElementById("pacp1D").checked=true;
                         document.getElementById("pacp2D").checked=true;
                         document.getElementById("pacp3D").checked=false;
                         document.getElementById("pacp4D").checked=false;
-                        document.getElementById("pacp5D").checked=false; 
+                        document.getElementById("pacp5D").checked=false;
                     }
-                if (datos[2]=='A-0-M-0') 
-                    { 
+                if (datos[2]=='A-0-M-0')
+                    {
                         document.getElementById("pacp1D").checked=true;
                         document.getElementById("pacp2D").checked=false;
                         document.getElementById("pacp3D").checked=true;
                         document.getElementById("pacp4D").checked=false;
                         document.getElementById("pacp5D").checked=false;
                     }
-                if (datos[2]=='A-0-0-I') 
-                    { 
+                if (datos[2]=='A-0-0-I')
+                    {
                         document.getElementById("pacp1D").checked=true;
                         document.getElementById("pacp2D").checked=false;
                         document.getElementById("pacp3D").checked=false;
                         document.getElementById("pacp4D").checked=true;
-                        document.getElementById("pacp5D").checked=false; 
+                        document.getElementById("pacp5D").checked=false;
                     }
-                if (datos[2]=='0-E-M-0') 
-                    { 
+                if (datos[2]=='0-E-M-0')
+                    {
                         document.getElementById("pacp1D").checked=false;
                         document.getElementById("pacp2D").checked=true;
                         document.getElementById("pacp3D").checked=true;
                         document.getElementById("pacp4D").checked=false;
-                        document.getElementById("pacp5D").checked=false; 
+                        document.getElementById("pacp5D").checked=false;
                     }
-                if (datos[2]=='0-E-0-I') 
-                    { 
+                if (datos[2]=='0-E-0-I')
+                    {
                         document.getElementById("pacp1D").checked=false;
                         document.getElementById("pacp2D").checked=true;
                         document.getElementById("pacp3D").checked=false;
-                        document.getElementById("pacp4D").checked=true; 
+                        document.getElementById("pacp4D").checked=true;
                         document.getElementById("pacp5D").checked=false;
                     }
-                if (datos[2]=='0-0-M-I') 
-                    { 
+                if (datos[2]=='0-0-M-I')
+                    {
                         document.getElementById("pacp1D").checked=false;
                         document.getElementById("pacp2D").checked=false;
                         document.getElementById("pacp3D").checked=true;
                         document.getElementById("pacp4D").checked=true;
-                        document.getElementById("pacp5D").checked=false; 
+                        document.getElementById("pacp5D").checked=false;
                     }
-                if (datos[2]=='A-E-M-0') 
-                    { 
+                if (datos[2]=='A-E-M-0')
+                    {
                         document.getElementById("pacp1D").checked=true;
                         document.getElementById("pacp2D").checked=true;
                         document.getElementById("pacp3D").checked=true;
                         document.getElementById("pacp4D").checked=false;
                         document.getElementById("pacp5D").checked=false;
                     }
-                if (datos[2]=='A-E-0-I') 
-                    { 
+                if (datos[2]=='A-E-0-I')
+                    {
                         document.getElementById("pacp1D").checked=true;
                         document.getElementById("pacp2D").checked=true;
                         document.getElementById("pacp3D").checked=false;
-                        document.getElementById("pacp4D").checked=true; 
+                        document.getElementById("pacp4D").checked=true;
                         document.getElementById("pacp5D").checked=false;
-                    }         
-                if (datos[2]=='A-0-M-I') 
-                    { 
+                    }
+                if (datos[2]=='A-0-M-I')
+                    {
                         document.getElementById("pacp1D").checked=true;
                         document.getElementById("pacp2D").checked=false;
                         document.getElementById("pacp3D").checked=true;
-                        document.getElementById("pacp4D").checked=true; 
+                        document.getElementById("pacp4D").checked=true;
                         document.getElementById("pacp5D").checked=false;
                     }
-                if (datos[2]=='0-E-M-I') 
-                    { 
+                if (datos[2]=='0-E-M-I')
+                    {
                         document.getElementById("pacp1D").checked=false;
                         document.getElementById("pacp2D").checked=true;
                         document.getElementById("pacp3D").checked=true;
                         document.getElementById("pacp4D").checked=true;
-                        document.getElementById("pacp5D").checked=false; 
+                        document.getElementById("pacp5D").checked=false;
                     }
-                if (datos[2]=='A-E-M-I') 
-                    { 
+                if (datos[2]=='A-E-M-I')
+                    {
                         document.getElementById("pacp1D").checked=true;
                         document.getElementById("pacp2D").checked=true;
                         document.getElementById("pacp3D").checked=true;
-                        document.getElementById("pacp4D").checked=true; 
+                        document.getElementById("pacp4D").checked=true;
                         document.getElementById("pacp5D").checked=true;
                     }
-                if (datos[2]==0) 
-                    { 
+                if (datos[2]==0)
+                    {
                         document.getElementById("pacp1D").checked=false;
                         document.getElementById("pacp2D").checked=false;
                         document.getElementById("pacp3D").checked=false;
                         document.getElementById("pacp4D").checked=false;
-                        document.getElementById("pacp5D").checked=false; 
+                        document.getElementById("pacp5D").checked=false;
                     }
 
                     // CONVENIOS
@@ -1907,112 +1907,112 @@ $('#tabla_entrada').hide();
                         document.getElementById("paconv4D").checked=false;
                         document.getElementById("paconv5D").checked=false;
                     }
-                if (datos[3]=='0-0-M-0') 
-                    { 
+                if (datos[3]=='0-0-M-0')
+                    {
                         document.getElementById("paconv1D").checked=false;
                         document.getElementById("paconv2D").checked=false;
                         document.getElementById("paconv3D").checked=true;
                         document.getElementById("paconv4D").checked=false;
-                        document.getElementById("paconv5D").checked=false; 
+                        document.getElementById("paconv5D").checked=false;
                     }
-                if (datos[3]=='0-0-0-I') 
-                    { 
+                if (datos[3]=='0-0-0-I')
+                    {
                         document.getElementById("paconv1D").checked=false;
                         document.getElementById("paconv2D").checked=false;
                         document.getElementById("paconv3D").checked=false;
                         document.getElementById("paconv4D").checked=true;
-                        document.getElementById("paconv5D").checked=false; 
+                        document.getElementById("paconv5D").checked=false;
                     }
-                if (datos[3]=='A-E-0-0') 
-                    { 
+                if (datos[3]=='A-E-0-0')
+                    {
                         document.getElementById("paconv1D").checked=true;
                         document.getElementById("paconv2D").checked=true;
                         document.getElementById("paconv3D").checked=false;
                         document.getElementById("paconv4D").checked=false;
-                        document.getElementById("paconv5D").checked=false; 
+                        document.getElementById("paconv5D").checked=false;
                     }
-                if (datos[3]=='A-0-M-0') 
-                    { 
+                if (datos[3]=='A-0-M-0')
+                    {
                         document.getElementById("paconv1D").checked=true;
                         document.getElementById("paconv2D").checked=false;
                         document.getElementById("paconv3D").checked=true;
                         document.getElementById("paconv4D").checked=false;
                         document.getElementById("paconv5D").checked=false;
                     }
-                if (datos[3]=='A-0-0-I') 
-                    { 
+                if (datos[3]=='A-0-0-I')
+                    {
                         document.getElementById("paconv1D").checked=true;
                         document.getElementById("paconv2D").checked=false;
                         document.getElementById("paconv3D").checked=false;
                         document.getElementById("paconv4D").checked=true;
-                        document.getElementById("paconv5D").checked=false; 
+                        document.getElementById("paconv5D").checked=false;
                     }
-                if (datos[3]=='0-E-M-0') 
-                    { 
+                if (datos[3]=='0-E-M-0')
+                    {
                         document.getElementById("paconv1D").checked=false;
                         document.getElementById("paconv2D").checked=true;
                         document.getElementById("paconv3D").checked=true;
                         document.getElementById("paconv4D").checked=false;
-                        document.getElementById("paconv5D").checked=false; 
+                        document.getElementById("paconv5D").checked=false;
                     }
-                if (datos[3]=='0-E-0-I') 
-                    { 
+                if (datos[3]=='0-E-0-I')
+                    {
                         document.getElementById("paconv1D").checked=false;
                         document.getElementById("paconv2D").checked=true;
                         document.getElementById("paconv3D").checked=false;
                         document.getElementById("paconv4D").checked=true;
-                        document.getElementById("paconv5D").checked=false; 
+                        document.getElementById("paconv5D").checked=false;
                     }
-                if (datos[3]=='0-0-M-I') 
-                    { 
+                if (datos[3]=='0-0-M-I')
+                    {
                         document.getElementById("paconv1D").checked=false;
                         document.getElementById("paconv2D").checked=false;
                         document.getElementById("paconv3D").checked=true;
                         document.getElementById("paconv4D").checked=true;
-                        document.getElementById("paconv5D").checked=false; 
+                        document.getElementById("paconv5D").checked=false;
                     }
-                if (datos[3]=='A-E-M-0') 
-                    { 
+                if (datos[3]=='A-E-M-0')
+                    {
                         document.getElementById("paconv1D").checked=true;
                         document.getElementById("paconv2D").checked=true;
                         document.getElementById("paconv3D").checked=true;
                         document.getElementById("paconv4D").checked=false;
                         document.getElementById("paconv5D").checked=false;
                     }
-                if (datos[3]=='A-E-0-I') 
-                    { 
+                if (datos[3]=='A-E-0-I')
+                    {
                         document.getElementById("paconv1D").checked=true;
                         document.getElementById("paconv2D").checked=true;
                         document.getElementById("paconv3D").checked=false;
                         document.getElementById("paconv4D").checked=true;
-                        document.getElementById("paconv5D").checked=false; 
-                    }         
-                if (datos[3]=='A-0-M-I') 
-                    { 
+                        document.getElementById("paconv5D").checked=false;
+                    }
+                if (datos[3]=='A-0-M-I')
+                    {
                         document.getElementById("paconv1D").checked=true;
                         document.getElementById("paconv2D").checked=false;
                         document.getElementById("paconv3D").checked=true;
                         document.getElementById("paconv4D").checked=true;
-                        document.getElementById("paconv5D").checked=false; 
+                        document.getElementById("paconv5D").checked=false;
                     }
-                if (datos[3]=='0-E-M-I') 
-                    { 
+                if (datos[3]=='0-E-M-I')
+                    {
                         document.getElementById("paconv1D").checked=false;
                         document.getElementById("paconv2D").checked=true;
                         document.getElementById("paconv3D").checked=true;
                         document.getElementById("paconv4D").checked=true;
-                        document.getElementById("paconv5D").checked=false; 
+                        document.getElementById("paconv5D").checked=false;
                     }
-                if (datos[3]=='A-E-M-I') 
-                    { 
+                if (datos[3]=='A-E-M-I')
+                    {
                         document.getElementById("paconv1D").checked=true;
                         document.getElementById("paconv2D").checked=true;
                         document.getElementById("paconv3D").checked=true;
                         document.getElementById("paconv4D").checked=true;
-                        document.getElementById("paconv5D").checked=true; 
+                        document.getElementById("paconv5D").checked=true;
                     }
-                if (datos[3]==0) 
-                    { 
+                if (datos[3]==0)
+                    {
                         document.getElementById("paconv1D").checked=false;
                         document.getElementById("paconv2D").checked=false;
                         document.getElementById("paconv3D").checked=false;
@@ -2039,117 +2039,117 @@ $('#tabla_entrada').hide();
                         document.getElementById("padi4D").checked=false;
                         document.getElementById("padi5D").checked=false;
                     }
-                if (datos[4]=='0-0-M-0') 
+                if (datos[4]=='0-0-M-0')
                     {
                         document.getElementById("padi1D").checked=false;
-                        document.getElementById("padi2D").checked=false; 
-                        document.getElementById("padi3D").checked=true;
-                        document.getElementById("padi4D").checked=false;
-                        document.getElementById("padi5D").checked=false; 
-                    }
-                if (datos[4]=='0-0-0-I') 
-                    { 
-                        document.getElementById("padi1D").checked=false;
-                        document.getElementById("padi2D").checked=false;
-                        document.getElementById("padi3D").checked=false;
-                        document.getElementById("padi4D").checked=true;
-                        document.getElementById("padi5D").checked=false; 
-                    }
-                if (datos[4]=='A-E-0-0') 
-                    { 
-                        document.getElementById("padi1D").checked=true;
-                        document.getElementById("padi2D").checked=true; 
-                        document.getElementById("padi3D").checked=false;
-                        document.getElementById("padi4D").checked=false;
-                        document.getElementById("padi5D").checked=false;
-                    }
-                if (datos[4]=='A-0-M-0') 
-                    { 
-                        document.getElementById("padi1D").checked=true;
                         document.getElementById("padi2D").checked=false;
                         document.getElementById("padi3D").checked=true;
                         document.getElementById("padi4D").checked=false;
                         document.getElementById("padi5D").checked=false;
                     }
-                if (datos[4]=='A-0-0-I') 
-                    { 
+                if (datos[4]=='0-0-0-I')
+                    {
+                        document.getElementById("padi1D").checked=false;
+                        document.getElementById("padi2D").checked=false;
+                        document.getElementById("padi3D").checked=false;
+                        document.getElementById("padi4D").checked=true;
+                        document.getElementById("padi5D").checked=false;
+                    }
+                if (datos[4]=='A-E-0-0')
+                    {
+                        document.getElementById("padi1D").checked=true;
+                        document.getElementById("padi2D").checked=true;
+                        document.getElementById("padi3D").checked=false;
+                        document.getElementById("padi4D").checked=false;
+                        document.getElementById("padi5D").checked=false;
+                    }
+                if (datos[4]=='A-0-M-0')
+                    {
+                        document.getElementById("padi1D").checked=true;
+                        document.getElementById("padi2D").checked=false;
+                        document.getElementById("padi3D").checked=true;
+                        document.getElementById("padi4D").checked=false;
+                        document.getElementById("padi5D").checked=false;
+                    }
+                if (datos[4]=='A-0-0-I')
+                    {
                         document.getElementById("padi1D").checked=true;
                         document.getElementById("padi2D").checked=false;
                         document.getElementById("padi3D").checked=false;
                         document.getElementById("padi4D").checked=true;
-                        document.getElementById("padi5D").checked=false; 
+                        document.getElementById("padi5D").checked=false;
                     }
-                if (datos[4]=='0-E-M-0') 
-                    { 
+                if (datos[4]=='0-E-M-0')
+                    {
                         document.getElementById("padi1D").checked=false;
                         document.getElementById("padi2D").checked=true;
                         document.getElementById("padi3D").checked=true;
                         document.getElementById("padi4D").checked=false;
-                        document.getElementById("padi5D").checked=false; 
+                        document.getElementById("padi5D").checked=false;
                     }
-                if (datos[4]=='0-E-0-I') 
-                    { 
+                if (datos[4]=='0-E-0-I')
+                    {
                         document.getElementById("padi1D").checked=false;
                         document.getElementById("padi2D").checked=true;
                         document.getElementById("padi3D").checked=false;
                         document.getElementById("padi4D").checked=true;
-                        document.getElementById("padi5D").checked=false; 
+                        document.getElementById("padi5D").checked=false;
                     }
-                if (datos[4]=='0-0-M-I') 
-                    { 
+                if (datos[4]=='0-0-M-I')
+                    {
                         document.getElementById("padi1D").checked=false;
                         document.getElementById("padi2D").checked=false;
                         document.getElementById("padi3D").checked=true;
                         document.getElementById("padi4D").checked=true;
-                        document.getElementById("padi5D").checked=false; 
+                        document.getElementById("padi5D").checked=false;
                     }
-                if (datos[4]=='A-E-M-0') 
-                    { 
+                if (datos[4]=='A-E-M-0')
+                    {
                         document.getElementById("padi1D").checked=true;
                         document.getElementById("padi2D").checked=true;
                         document.getElementById("padi3D").checked=true;
                         document.getElementById("padi4D").checked=false;
                         document.getElementById("padi5D").checked=false;
                     }
-                if (datos[4]=='A-E-0-I') 
-                    { 
+                if (datos[4]=='A-E-0-I')
+                    {
                         document.getElementById("padi1D").checked=true;
                         document.getElementById("padi2D").checked=true;
                         document.getElementById("padi3D").checked=false;
                         document.getElementById("padi4D").checked=true;
-                        document.getElementById("padi5D").checked=false; 
-                    }         
-                if (datos[4]=='A-0-M-I') 
-                    { 
+                        document.getElementById("padi5D").checked=false;
+                    }
+                if (datos[4]=='A-0-M-I')
+                    {
                         document.getElementById("padi1D").checked=true;
                         document.getElementById("padi2D").checked=false;
                         document.getElementById("padi3D").checked=true;
                         document.getElementById("padi4D").checked=true;
-                        document.getElementById("padi5D").checked=false; 
+                        document.getElementById("padi5D").checked=false;
                     }
-                if (datos[4]=='0-E-M-I') 
-                    { 
+                if (datos[4]=='0-E-M-I')
+                    {
                         document.getElementById("padi1D").checked=false;
                         document.getElementById("padi2D").checked=true;
                         document.getElementById("padi3D").checked=true;
                         document.getElementById("padi4D").checked=true;
-                        document.getElementById("padi5D").checked=false; 
+                        document.getElementById("padi5D").checked=false;
                     }
-                if (datos[4]=='A-E-M-I') 
-                    { 
+                if (datos[4]=='A-E-M-I')
+                    {
                         document.getElementById("padi1D").checked=true;
                         document.getElementById("padi2D").checked=true;
                         document.getElementById("padi3D").checked=true;
                         document.getElementById("padi4D").checked=true;
-                        document.getElementById("padi5D").checked=true; 
+                        document.getElementById("padi5D").checked=true;
                     }
-                if (datos[4]==0) 
-                    { 
+                if (datos[4]==0)
+                    {
                         document.getElementById("padi1D").checked=false;
                         document.getElementById("padi2D").checked=false;
                         document.getElementById("padi3D").checked=false;
                         document.getElementById("padi4D").checked=false;
-                        document.getElementById("padi5D").checked=false; 
+                        document.getElementById("padi5D").checked=false;
                     }
 
                 // MAQUINAS
@@ -2170,117 +2170,117 @@ $('#tabla_entrada').hide();
                         document.getElementById("padm4D").checked=false;
                         document.getElementById("padm5D").checked=false;
                     }
-                if (datos[5]=='0-0-M-0') 
-                    { 
+                if (datos[5]=='0-0-M-0')
+                    {
                         document.getElementById("padm1D").checked=false;
                         document.getElementById("padm2D").checked=false;
                         document.getElementById("padm3D").checked=true;
                         document.getElementById("padm4D").checked=false;
-                        document.getElementById("padm5D").checked=false; 
+                        document.getElementById("padm5D").checked=false;
                     }
-                if (datos[5]=='0-0-0-I') 
-                    { 
+                if (datos[5]=='0-0-0-I')
+                    {
                         document.getElementById("padm1D").checked=false;
                         document.getElementById("padm2D").checked=false;
                         document.getElementById("padm3D").checked=false;
-                        document.getElementById("padm4D").checked=true; 
+                        document.getElementById("padm4D").checked=true;
                         document.getElementById("padm5D").checked=false;
                     }
-                if (datos[5]=='A-E-0-0') 
-                    { 
+                if (datos[5]=='A-E-0-0')
+                    {
                         document.getElementById("padm1D").checked=true;
-                        document.getElementById("padm2D").checked=true; 
+                        document.getElementById("padm2D").checked=true;
                         document.getElementById("padm3D").checked=false;
                         document.getElementById("padm4D").checked=false;
                         document.getElementById("padm5D").checked=false;
                     }
-                if (datos[5]=='A-0-M-0') 
-                    { 
+                if (datos[5]=='A-0-M-0')
+                    {
                         document.getElementById("padm1D").checked=true;
                         document.getElementById("padm2D").checked=false;
                         document.getElementById("padm3D").checked=true;
                         document.getElementById("padm4D").checked=false;
                         document.getElementById("padm5D").checked=false;
                     }
-                if (datos[5]=='A-0-0-I') 
+                if (datos[5]=='A-0-0-I')
                     {
                         document.getElementById("padm1D").checked=true;
                         document.getElementById("padm2D").checked=false;
                         document.getElementById("padm3D").checked=false;
                         document.getElementById("padm4D").checked=true;
-                        document.getElementById("padm5D").checked=false; 
+                        document.getElementById("padm5D").checked=false;
                     }
-                if (datos[5]=='0-E-M-0') 
-                    { 
+                if (datos[5]=='0-E-M-0')
+                    {
                         document.getElementById("padm1D").checked=false;
                         document.getElementById("padm2D").checked=true;
                         document.getElementById("padm3D").checked=true;
                         document.getElementById("padm4D").checked=false;
-                        document.getElementById("padm5D").checked=false; 
+                        document.getElementById("padm5D").checked=false;
                     }
-                if (datos[5]=='0-E-0-I') 
-                    { 
+                if (datos[5]=='0-E-0-I')
+                    {
                         document.getElementById("padm1D").checked=false;
                         document.getElementById("padm2D").checked=true;
                         document.getElementById("padm3D").checked=false;
                         document.getElementById("padm4D").checked=true;
-                        document.getElementById("padm5D").checked=false; 
+                        document.getElementById("padm5D").checked=false;
                     }
-                if (datos[5]=='0-0-M-I') 
-                    { 
+                if (datos[5]=='0-0-M-I')
+                    {
                         document.getElementById("padm1D").checked=false;
                         document.getElementById("padm2D").checked=false;
                         document.getElementById("padm3D").checked=true;
                         document.getElementById("padm4D").checked=true;
-                        document.getElementById("padm5D").checked=false; 
+                        document.getElementById("padm5D").checked=false;
                     }
-                if (datos[5]=='A-E-M-0') 
-                    { 
+                if (datos[5]=='A-E-M-0')
+                    {
                         document.getElementById("padm1D").checked=true;
                         document.getElementById("padm2D").checked=true;
                         document.getElementById("padm3D").checked=true;
                         document.getElementById("padm4D").checked=false;
                         document.getElementById("padm5D").checked=false;
                     }
-                if (datos[5]=='A-E-0-I') 
-                    { 
+                if (datos[5]=='A-E-0-I')
+                    {
                         document.getElementById("padm1D").checked=true;
                         document.getElementById("padm2D").checked=true;
                         document.getElementById("padm3D").checked=false;
                         document.getElementById("padm4D").checked=true;
-                        document.getElementById("padm5D").checked=false; 
-                    }         
-                if (datos[5]=='A-0-M-I') 
-                    { 
+                        document.getElementById("padm5D").checked=false;
+                    }
+                if (datos[5]=='A-0-M-I')
+                    {
                         document.getElementById("padm1D").checked=true;
                         document.getElementById("padm2D").checked=false;
                         document.getElementById("padm3D").checked=true;
-                        document.getElementById("padm4D").checked=true; 
+                        document.getElementById("padm4D").checked=true;
                         document.getElementById("padm5D").checked=false;
                     }
-                if (datos[5]=='0-E-M-I') 
-                    { 
+                if (datos[5]=='0-E-M-I')
+                    {
                         document.getElementById("padm1D").checked=false;
                         document.getElementById("padm2D").checked=true;
                         document.getElementById("padm3D").checked=true;
                         document.getElementById("padm4D").checked=true;
-                        document.getElementById("padm5D").checked=false; 
+                        document.getElementById("padm5D").checked=false;
                     }
-                if (datos[5]=='A-E-M-I') 
-                    { 
+                if (datos[5]=='A-E-M-I')
+                    {
                         document.getElementById("padm1D").checked=true;
                         document.getElementById("padm2D").checked=true;
                         document.getElementById("padm3D").checked=true;
                         document.getElementById("padm4D").checked=true;
-                        document.getElementById("padm5D").checked=true; 
+                        document.getElementById("padm5D").checked=true;
                     }
-                if (datos[5]==0) 
-                    { 
+                if (datos[5]==0)
+                    {
                         document.getElementById("padm1D").checked=false;
                         document.getElementById("padm2D").checked=false;
                         document.getElementById("padm3D").checked=false;
                         document.getElementById("padm4D").checked=false;
-                        document.getElementById("padm5D").checked=false; 
+                        document.getElementById("padm5D").checked=false;
                     }
 
                     // PERSONAL
@@ -2301,117 +2301,117 @@ $('#tabla_entrada').hide();
                         document.getElementById("padp4D").checked=false;
                         document.getElementById("padp5D").checked=false;
                     }
-                if (datos[7]=='0-0-M-0') 
-                    { 
+                if (datos[7]=='0-0-M-0')
+                    {
                         document.getElementById("padp1D").checked=false;
                         document.getElementById("padp2D").checked=false;
                         document.getElementById("padp3D").checked=true;
                         document.getElementById("padp4D").checked=false;
-                        document.getElementById("padp5D").checked=false; 
+                        document.getElementById("padp5D").checked=false;
                     }
-                if (datos[7]=='0-0-0-I') 
-                    { 
+                if (datos[7]=='0-0-0-I')
+                    {
                         document.getElementById("padp1D").checked=false;
                         document.getElementById("padp2D").checked=false;
                         document.getElementById("padp3D").checked=false;
                         document.getElementById("padp4D").checked=true;
-                        document.getElementById("padp5D").checked=false; 
+                        document.getElementById("padp5D").checked=false;
                     }
-                if (datos[7]=='A-E-0-0') 
-                    { 
+                if (datos[7]=='A-E-0-0')
+                    {
                         document.getElementById("padp1D").checked=true;
                         document.getElementById("padp2D").checked=true;
                         document.getElementById("padp3D").checked=false;
                         document.getElementById("padp4D").checked=false;
-                        document.getElementById("padp5D").checked=false; 
+                        document.getElementById("padp5D").checked=false;
                     }
-                if (datos[7]=='A-0-M-0') 
-                    { 
+                if (datos[7]=='A-0-M-0')
+                    {
                         document.getElementById("padp1D").checked=true;
                         document.getElementById("padp2D").checked=false;
                         document.getElementById("padp3D").checked=true;
                         document.getElementById("padp4D").checked=false;
                         document.getElementById("padp5D").checked=false;
                     }
-                if (datos[7]=='A-0-0-I') 
-                    { 
+                if (datos[7]=='A-0-0-I')
+                    {
                         document.getElementById("padp1D").checked=true;
                         document.getElementById("padp2D").checked=false;
                         document.getElementById("padp3D").checked=false;
                         document.getElementById("padp4D").checked=true;
-                        document.getElementById("padp5D").checked=false; 
+                        document.getElementById("padp5D").checked=false;
                     }
-                if (datos[7]=='0-E-M-0') 
-                    { 
+                if (datos[7]=='0-E-M-0')
+                    {
                         document.getElementById("padp1D").checked=false;
                         document.getElementById("padp2D").checked=true;
                         document.getElementById("padp3D").checked=true;
                         document.getElementById("padp4D").checked=false;
-                        document.getElementById("padp5D").checked=false; 
+                        document.getElementById("padp5D").checked=false;
                     }
-                if (datos[7]=='0-E-0-I') 
-                    { 
+                if (datos[7]=='0-E-0-I')
+                    {
                         document.getElementById("padp1D").checked=false;
                         document.getElementById("padp2D").checked=true;
                         document.getElementById("padp3D").checked=false;
                         document.getElementById("padp4D").checked=true;
-                        document.getElementById("padp5D").checked=false; 
+                        document.getElementById("padp5D").checked=false;
                     }
-                if (datos[7]=='0-0-M-I') 
-                    { 
+                if (datos[7]=='0-0-M-I')
+                    {
                         document.getElementById("padp1D").checked=false;
                         document.getElementById("padp2D").checked=false;
                         document.getElementById("padp3D").checked=true;
                         document.getElementById("padp4D").checked=true;
-                        document.getElementById("padp5D").checked=false; 
+                        document.getElementById("padp5D").checked=false;
                     }
-                if (datos[7]=='A-E-M-0') 
-                    { 
+                if (datos[7]=='A-E-M-0')
+                    {
                         document.getElementById("padp1D").checked=true;
                         document.getElementById("padp2D").checked=true;
                         document.getElementById("padp3D").checked=true;
                         document.getElementById("padp4D").checked=false;
                         document.getElementById("padp5D").checked=false;
                     }
-                if (datos[7]=='A-E-0-I') 
-                    { 
+                if (datos[7]=='A-E-0-I')
+                    {
                         document.getElementById("padp1D").checked=true;
                         document.getElementById("padp2D").checked=true;
                         document.getElementById("padp3D").checked=false;
                         document.getElementById("padp4D").checked=true;
-                        document.getElementById("padp5D").checked=false; 
-                    }         
-                if (datos[7]=='A-0-M-I') 
-                    { 
+                        document.getElementById("padp5D").checked=false;
+                    }
+                if (datos[7]=='A-0-M-I')
+                    {
                         document.getElementById("padp1D").checked=true;
                         document.getElementById("padp2D").checked=false;
                         document.getElementById("padp3D").checked=true;
-                        document.getElementById("padp4D").checked=true; 
+                        document.getElementById("padp4D").checked=true;
                         document.getElementById("padp5D").checked=false;
                     }
-                if (datos[7]=='0-E-M-I') 
-                    { 
+                if (datos[7]=='0-E-M-I')
+                    {
                         document.getElementById("padp1D").checked=false;
                         document.getElementById("padp2D").checked=true;
                         document.getElementById("padp3D").checked=true;
                         document.getElementById("padp4D").checked=true;
-                        document.getElementById("padp5D").checked=false; 
+                        document.getElementById("padp5D").checked=false;
                     }
-                if (datos[7]=='A-E-M-I') 
-                    { 
+                if (datos[7]=='A-E-M-I')
+                    {
                         document.getElementById("padp1D").checked=true;
                         document.getElementById("padp2D").checked=true;
                         document.getElementById("padp3D").checked=true;
                         document.getElementById("padp4D").checked=true;
-                        document.getElementById("padp5D").checked=true; 
+                        document.getElementById("padp5D").checked=true;
                     }
-                if (datos[7]==0) 
-                    { 
+                if (datos[7]==0)
+                    {
                         document.getElementById("padp1D").checked=false;
                         document.getElementById("padp2D").checked=false;
                         document.getElementById("padp3D").checked=false;
                         document.getElementById("padp4D").checked=false;
-                        document.getElementById("padp5D").checked=false; 
+                        document.getElementById("padp5D").checked=false;
                     }
 
                 // USUARIOS
@@ -2421,39 +2421,39 @@ $('#tabla_entrada').hide();
                 document.getElementById("BDsiD").checked=false;
                 document.getElementById("BDnoD").checked=false;
                 // AUDITORIA
-                document.getElementById("auditoriasiD").checked=false;        
+                document.getElementById("auditoriasiD").checked=false;
                 document.getElementById("auditorianoD").checked=false;
 
-                if (datos[8]=='si') 
+                if (datos[8]=='si')
                     {
                         document.getElementById("pconusiD").checked=true;
                     }
-                if (datos[8]=='no') 
+                if (datos[8]=='no')
                     {
                         document.getElementById("pconunoD").checked=true;
                     }
                 // BASE DE DATOS
 
-                if (datos[9]=='si') 
+                if (datos[9]=='si')
                     {
                         document.getElementById("BDsiD").checked=true;
                     }
-                if (datos[9]=='no') 
+                if (datos[9]=='no')
                     {
                         document.getElementById("BDnoD").checked=true;
                     }
 
                 // AUDITORIA
 
-                if (datos[10]=='si') 
+                if (datos[10]=='si')
                     {
                         document.getElementById("auditoriasiD").checked=true;
                     }
-                if (datos[10]=='no') 
+                if (datos[10]=='no')
                     {
                         document.getElementById("auditorianoD").checked=true;
                     }
-                
+
                 $('#detalle_tipo_usuario').modal({
                     show:true,
                     backdrop:'static'
@@ -2464,17 +2464,17 @@ $('#tabla_entrada').hide();
     };
 
     function detallePersonal(id){
-        
+
         var url='detalle_personal.php';
-        
+
         $.ajax({
             type:'POST',
             url:url,
             data:'id='+id,
             success: function(valores){
-                
+
                 $('#detalle_per').html(valores);
-                
+
                 $('#detalle_persona').modal({
                     show:true,
                     backdrop:'static'
@@ -2485,16 +2485,16 @@ $('#tabla_entrada').hide();
     };
 
     function editar_horario(idSeccion, idPeriodo){
-        
+
         var url='modificar_horario.php';
-        
+
         $.ajax({
             type:'POST',
             url:url,
             data:'id_seccion='+idSeccion+'&id_periodo='+idPeriodo,
             success: function(valores){
                 datos=eval(valores);
-                
+
                 var ciclo=document.getElementById('ciclo_M').value;
 
                 //alert("ciclo Original="+ciclo+" ciclo Busqueda="+datos[0]+" periodo="+datos[2]+" dia="+datos[3]+" aula="+datos[4]+" nomApe="+datos[5]+" codigoMateria"+datos[6]);
@@ -2540,7 +2540,7 @@ $('#tabla_entrada').hide();
                     }
                     else
                     {
-                        var nom_ci2=datos[8][j].split(" ");    
+                        var nom_ci2=datos[8][j].split(" ");
                     }
 
                     if (datos[9][j]==0)
@@ -2550,16 +2550,16 @@ $('#tabla_entrada').hide();
                     }
                     else
                     {
-                        var nom_ci3=datos[9][j].split(" ");    
+                        var nom_ci3=datos[9][j].split(" ");
                     }
 
                     $('#'+datos[3][j]+'_M').removeClass('boton_horasH').addClass('seleccionadoH');
                     $('#'+datos[3][j]+'_M').val(1+" "+datos[6][j]+" "+datos[4][j]+" "+nom_ci[2]+" "+nom_ci2[2]+" "+nom_ci3[2]+" "+datos[7][j]);
-                    
+
 
                     if (datos[8][j]==0)
                     {
-                        $('#'+datos[3][j]+'_M').html(nom_ci[0]+' '+nom_ci[1]+'<br>'+datos[6][j]+'<br>'+datos[4][j]);    
+                        $('#'+datos[3][j]+'_M').html(nom_ci[0]+' '+nom_ci[1]+'<br>'+datos[6][j]+'<br>'+datos[4][j]);
                     }
                     if (datos[9][j]==0 && datos[8][j]!=0)
                     {
@@ -2569,9 +2569,9 @@ $('#tabla_entrada').hide();
                     {
                         $('#'+datos[3][j]+'_M').html(nom_ci[0]+' '+nom_ci[1]+'<br>'+nom_ci2[0]+' '+nom_ci2[1]+'<br>'+nom_ci3[0]+' '+nom_ci3[1]+'<br>'+datos[6][j]+'<br>'+datos[4][j]);
                     }
-                    
+
                 }
-                                                
+
                 $('#modif_horario').modal({
                     show:true,
                     backdrop:'static'
@@ -2582,16 +2582,16 @@ $('#tabla_entrada').hide();
     }
 
     function detalleHorario(idSeccion, idPeriodo){
-        
+
         var url='modificar_horario.php';
-        
+
         $.ajax({
             type:'POST',
             url:url,
             data:'id_seccion='+idSeccion+'&id_periodo='+idPeriodo,
             success: function(valores){
                 datos=eval(valores);
-                
+
                 var ciclo=document.getElementById('ciclo_D').value;
 
                 //alert("ciclo Original="+ciclo+" ciclo Busqueda="+datos[0]+" periodo="+datos[2]+" dia="+datos[3]+" aula="+datos[4]+" nomApe="+datos[5]+" codigoMateria"+datos[6]);
@@ -2635,7 +2635,7 @@ $('#tabla_entrada').hide();
                     }
                     else
                     {
-                        var nom_ci2=datos[8][j].split(" ");    
+                        var nom_ci2=datos[8][j].split(" ");
                     }
 
                     if (datos[9][j]==0)
@@ -2645,14 +2645,14 @@ $('#tabla_entrada').hide();
                     }
                     else
                     {
-                        var nom_ci3=datos[9][j].split(" ");    
+                        var nom_ci3=datos[9][j].split(" ");
                     }
 
                     $('#'+datos[3][j]+'_D').removeClass('boton_horasH').addClass('seleccionadoH');
 
                     if (datos[8][j]==0)
                     {
-                        $('#'+datos[3][j]+'_D').html(nom_ci[0]+' '+nom_ci[1]+'<br>'+datos[6][j]+'<br>'+datos[4][j]);    
+                        $('#'+datos[3][j]+'_D').html(nom_ci[0]+' '+nom_ci[1]+'<br>'+datos[6][j]+'<br>'+datos[4][j]);
                     }
                     if (datos[9][j]==0 && datos[8][j]!=0)
                     {
@@ -2662,8 +2662,8 @@ $('#tabla_entrada').hide();
                     {
                         $('#'+datos[3][j]+'_D').html(nom_ci[0]+' '+nom_ci[1]+'<br>'+nom_ci2[0]+' '+nom_ci2[1]+'<br>'+nom_ci3[0]+' '+nom_ci3[1]+'<br>'+datos[6][j]+'<br>'+datos[4][j]);
                     }
-                }            
-                                                
+                }
+
                 $('#modif_horarioD').modal({
                     show:true,
                     backdrop:'static'
@@ -2674,9 +2674,9 @@ $('#tabla_entrada').hide();
     }
 
     function editar_planificacion(id){
-        
+
         var url='modificar_planificacion.php';
-        
+
         $.ajax({
             type:'POST',
             url:url,
@@ -2691,8 +2691,8 @@ $('#tabla_entrada').hide();
                 $('#apellidos_usu_planif_M').val(datos[3]);
                 $('#nom_act_M').val(datos[4]);
                 $('#fecha_act_M').val(datos[5]);
-                $('#id_per').val(datos[6]);               
-                                                
+                $('#id_per').val(datos[6]);
+
                 $('#modif_planif').modal({
                     show:true,
                     backdrop:'static'
@@ -2707,7 +2707,7 @@ $('#tabla_entrada').hide();
                     pickTime: false,
                     showTodayButton: true,
                 });
-                
+
                     return false;
             }
         });
@@ -2716,9 +2716,9 @@ $('#tabla_entrada').hide();
     function editar_disponibilidad(id_persona,id_periodo){
 
         //alert("persona="+id_persona+" periodo="+id_periodo);
-        
+
         var url='modificar_disponibilidad.php';
-        
+
         $.ajax({
             type:'POST',
             url:url,
@@ -2732,71 +2732,71 @@ $('#tabla_entrada').hide();
                 $('#ci_disp_M').val(datos[2])
                 $('#nom_ape_M').val(datos[3]);
                 $('#periodo_M').val(datos[4]);
-                
+
                 for (var i = 1; i <= datos[0]; i++)
                 {
                     var j=i-1;
 
                     // LUNES
-                    $('#lunes_'+i+'_M').val(datos[5][j]); 
+                    $('#lunes_'+i+'_M').val(datos[5][j]);
                     if (datos[5][j]==1)
-                    { 
+                    {
                         $('#lunes_'+i+'_M').removeClass("boton_horas").addClass("seleccionado");
                         //alert("lunes_"+i+"= "+datos[5][j]+" SELECCIONADO");
                     }
                     if (datos[5][j]==0)
-                    { 
+                    {
                         $('#lunes_'+i+'_M').removeClass("seleccionado").addClass("boton_horas");
-                        //alert("lunes_"+i+"= "+datos[5][j]+" NO SELECCIONADO"); 
+                        //alert("lunes_"+i+"= "+datos[5][j]+" NO SELECCIONADO");
                     }
-                    
+
                     // MARTES
                     $('#martes_'+i+'_M').val(datos[6][j]);
-                    if (datos[6][j]==1) 
-                    { 
-                        $('#martes_'+i+'_M').removeClass("boton_horas").addClass("seleccionado"); 
+                    if (datos[6][j]==1)
+                    {
+                        $('#martes_'+i+'_M').removeClass("boton_horas").addClass("seleccionado");
                     }
-                    else 
-                    { 
-                        $('#martes_'+i+'_M').removeClass("seleccionado").addClass("boton_horas"); 
+                    else
+                    {
+                        $('#martes_'+i+'_M').removeClass("seleccionado").addClass("boton_horas");
                     }
 
                     // MIERCOLES
                     $('#miercoles_'+i+'_M').val(datos[7][j]);
-                    if (datos[7][j]==1) 
-                    { 
-                        $('#miercoles_'+i+'_M').removeClass("boton_horas").addClass("seleccionado"); 
+                    if (datos[7][j]==1)
+                    {
+                        $('#miercoles_'+i+'_M').removeClass("boton_horas").addClass("seleccionado");
                     }
-                    else 
-                    { 
-                        $('#miercoles_'+i+'_M').removeClass("seleccionado").addClass("boton_horas"); 
+                    else
+                    {
+                        $('#miercoles_'+i+'_M').removeClass("seleccionado").addClass("boton_horas");
                     }
 
                     // JUEVES
                     $('#jueves_'+i+'_M').val(datos[8][j]);
-                    if (datos[8][j]==1) 
-                    { 
-                        $('#jueves_'+i+'_M').removeClass("boton_horas").addClass("seleccionado"); 
+                    if (datos[8][j]==1)
+                    {
+                        $('#jueves_'+i+'_M').removeClass("boton_horas").addClass("seleccionado");
                     }
-                    else 
-                    { 
-                        $('#jueves_'+i+'_M').removeClass("seleccionado").addClass("boton_horas"); 
+                    else
+                    {
+                        $('#jueves_'+i+'_M').removeClass("seleccionado").addClass("boton_horas");
                     }
-                    
+
                     // VIERNES
                     $('#viernes_'+i+'_M').val(datos[9][j]);
-                    if (datos[9][j]==1) 
-                    { 
-                        $('#viernes_'+i+'_M').removeClass("boton_horas").addClass("seleccionado"); 
+                    if (datos[9][j]==1)
+                    {
+                        $('#viernes_'+i+'_M').removeClass("boton_horas").addClass("seleccionado");
                     }
-                    else 
-                    { 
-                        $('#viernes_'+i+'_M').removeClass("seleccionado").addClass("boton_horas"); 
+                    else
+                    {
+                        $('#viernes_'+i+'_M').removeClass("seleccionado").addClass("boton_horas");
                     }
 
                     $('#id_disponibilidad_'+i+'_M').val(datos[10][j]);
                 };
-                                                
+
                 $('#modif_disp').modal({
                     show:true,
                     backdrop:'static'
@@ -2810,9 +2810,9 @@ $('#tabla_entrada').hide();
     }
 
     function editar_seccion(id){
-        
+
         var url='modifica_seccion.php';
-        
+
         $.ajax({
             type:'POST',
             url:url,
@@ -2826,7 +2826,7 @@ $('#tabla_entrada').hide();
                 $('#seccion_M').val(datos[2]);
                 $('#sede_M').val(datos[3]);
                 $('#pnf_M').val(datos[4]);
-                                                
+
                 $('#modif_seccion').modal({
                     show:true,
                     backdrop:'static'
@@ -2837,9 +2837,9 @@ $('#tabla_entrada').hide();
     }
 
     function editar_materia(id){
-        
+
         var url='modifica_materia.php';
-        
+
         $.ajax({
             type:'POST',
             url:url,
@@ -2851,8 +2851,8 @@ $('#tabla_entrada').hide();
                 $('#codigo_M').val(datos[0])
                 $('#nombre_M').val(datos[1]);
                 $('#trayecto_M').val(datos[2]);
-                $('#horas_M').val(datos[3]);            
-                                                
+                $('#horas_M').val(datos[3]);
+
                 $('#modif_materia').modal({
                     show:true,
                     backdrop:'static'
@@ -2863,9 +2863,9 @@ $('#tabla_entrada').hide();
     }
 
     function editar_tecnologico(id){
-        
+
         var url='modificar_tecnologico.php';
-        
+
         $.ajax({
             type:'POST',
             url:url,
@@ -2954,7 +2954,7 @@ $('#tabla_entrada').hide();
                     document.getElementById("integrante3M").checked=true;
                 }
 
-                                                
+
                 $('#modif_tec').modal({
                     show:true,
                     backdrop:'static'
@@ -2965,9 +2965,9 @@ $('#tabla_entrada').hide();
     }
 
     function editar_registro(id){
-        
+
         var url='modificar_registro.php';
-        
+
         $.ajax({
             type:'POST',
             url:url,
@@ -2977,8 +2977,8 @@ $('#tabla_entrada').hide();
 
                 $('#id').val(id);
                 $('#id_per').val(datos[0]);
-                $('#observaciones_M').val(datos[1]);             
-                                                
+                $('#observaciones_M').val(datos[1]);
+
                 $('#modif_observaciones').modal({
                     show:true,
                     backdrop:'static'
@@ -2989,9 +2989,9 @@ $('#tabla_entrada').hide();
     }
 
     function editar_usuario(id){
-        
+
         var url='modificar_usuario.php';
-        
+
         $.ajax({
             type:'POST',
             url:url,
@@ -3008,8 +3008,8 @@ $('#tabla_entrada').hide();
                 $('#nombre_usuarioM').val(datos[5]);
                 $('#tipoM').val(datos[6]);
                 $('#preguntaM').val(datos[7]);
-                $('#respuestaM').val(datos[8]);   
-                                                
+                $('#respuestaM').val(datos[8]);
+
                 $('#modif_usuario').modal({
                     show:true,
                     backdrop:'static'
@@ -3020,9 +3020,9 @@ $('#tabla_entrada').hide();
     }
 
     function editar_tipo_usuario(id){
-        
+
         var url='modificar_tipo_usuario.php';
-        
+
         $.ajax({
             type:'POST',
             url:url,
@@ -3051,106 +3051,106 @@ $('#tabla_entrada').hide();
                         document.getElementById("pach4M").checked=false;
                         document.getElementById("pach5M").checked=false;
                     }
-                if (datos[2]=='0-0-M-0') 
-                    { 
-                        document.getElementById("pach1M").checked=false;
-                        document.getElementById("pach2M").checked=false;
-                        document.getElementById("pach3M").checked=true;
-                        document.getElementById("pach4M").checked=false;
-                        document.getElementById("pach5M").checked=false; 
-                    }
-                if (datos[2]=='0-0-0-I') 
-                    { 
-                        document.getElementById("pach1M").checked=false;
-                        document.getElementById("pach2M").checked=false;
-                        document.getElementById("pach3M").checked=false;
-                        document.getElementById("pach4M").checked=true;
-                        document.getElementById("pach5M").checked=false;
-
-                    }
-                if (datos[2]=='A-E-0-0') 
-                    { 
-                        document.getElementById("pach1M").checked=true;
-                        document.getElementById("pach2M").checked=true;
-                        document.getElementById("pach3M").checked=false;
-                        document.getElementById("pach4M").checked=false;
-                        document.getElementById("pach5M").checked=false;
-
-                    }
-                if (datos[2]=='A-0-M-0') 
-                    { 
-                        document.getElementById("pach1M").checked=true;
-                        document.getElementById("pach2M").checked=false;
-                        document.getElementById("pach3M").checked=true;
-                        document.getElementById("pach4M").checked=false;
-                        document.getElementById("pach5M").checked=false;
-                    }
-                if (datos[2]=='A-0-0-I') 
-                    { 
-                        document.getElementById("pach1M").checked=true;
-                        document.getElementById("pach2M").checked=false;
-                        document.getElementById("pach3M").checked=false;
-                        document.getElementById("pach4M").checked=true; 
-                        document.getElementById("pach5M").checked=false;
-                    }
-                if (datos[2]=='0-E-M-0') 
+                if (datos[2]=='0-0-M-0')
                     {
-                        document.getElementById("pach1M").checked=false; 
-                        document.getElementById("pach2M").checked=true;
-                        document.getElementById("pach3M").checked=true;
-                        document.getElementById("pach4M").checked=false;
-                        document.getElementById("pach5M").checked=false; 
-                    }
-                if (datos[2]=='0-E-0-I') 
-                    { 
-                        document.getElementById("pach1M").checked=false;
-                        document.getElementById("pach2M").checked=true;
-                        document.getElementById("pach3M").checked=false;
-                        document.getElementById("pach4M").checked=true; 
-                        document.getElementById("pach5M").checked=false;
-                    }
-                if (datos[2]=='0-0-M-I') 
-                    { 
                         document.getElementById("pach1M").checked=false;
                         document.getElementById("pach2M").checked=false;
-                        document.getElementById("pach3M").checked=true;
-                        document.getElementById("pach4M").checked=true;
-                        document.getElementById("pach5M").checked=false; 
-                    }
-                if (datos[2]=='A-E-M-0') 
-                    { 
-                        document.getElementById("pach1M").checked=true;
-                        document.getElementById("pach2M").checked=true;
                         document.getElementById("pach3M").checked=true;
                         document.getElementById("pach4M").checked=false;
                         document.getElementById("pach5M").checked=false;
                     }
-                if (datos[2]=='A-E-0-I') 
-                    { 
+                if (datos[2]=='0-0-0-I')
+                    {
+                        document.getElementById("pach1M").checked=false;
+                        document.getElementById("pach2M").checked=false;
+                        document.getElementById("pach3M").checked=false;
+                        document.getElementById("pach4M").checked=true;
+                        document.getElementById("pach5M").checked=false;
+
+                    }
+                if (datos[2]=='A-E-0-0')
+                    {
+                        document.getElementById("pach1M").checked=true;
+                        document.getElementById("pach2M").checked=true;
+                        document.getElementById("pach3M").checked=false;
+                        document.getElementById("pach4M").checked=false;
+                        document.getElementById("pach5M").checked=false;
+
+                    }
+                if (datos[2]=='A-0-M-0')
+                    {
+                        document.getElementById("pach1M").checked=true;
+                        document.getElementById("pach2M").checked=false;
+                        document.getElementById("pach3M").checked=true;
+                        document.getElementById("pach4M").checked=false;
+                        document.getElementById("pach5M").checked=false;
+                    }
+                if (datos[2]=='A-0-0-I')
+                    {
+                        document.getElementById("pach1M").checked=true;
+                        document.getElementById("pach2M").checked=false;
+                        document.getElementById("pach3M").checked=false;
+                        document.getElementById("pach4M").checked=true;
+                        document.getElementById("pach5M").checked=false;
+                    }
+                if (datos[2]=='0-E-M-0')
+                    {
+                        document.getElementById("pach1M").checked=false;
+                        document.getElementById("pach2M").checked=true;
+                        document.getElementById("pach3M").checked=true;
+                        document.getElementById("pach4M").checked=false;
+                        document.getElementById("pach5M").checked=false;
+                    }
+                if (datos[2]=='0-E-0-I')
+                    {
+                        document.getElementById("pach1M").checked=false;
+                        document.getElementById("pach2M").checked=true;
+                        document.getElementById("pach3M").checked=false;
+                        document.getElementById("pach4M").checked=true;
+                        document.getElementById("pach5M").checked=false;
+                    }
+                if (datos[2]=='0-0-M-I')
+                    {
+                        document.getElementById("pach1M").checked=false;
+                        document.getElementById("pach2M").checked=false;
+                        document.getElementById("pach3M").checked=true;
+                        document.getElementById("pach4M").checked=true;
+                        document.getElementById("pach5M").checked=false;
+                    }
+                if (datos[2]=='A-E-M-0')
+                    {
+                        document.getElementById("pach1M").checked=true;
+                        document.getElementById("pach2M").checked=true;
+                        document.getElementById("pach3M").checked=true;
+                        document.getElementById("pach4M").checked=false;
+                        document.getElementById("pach5M").checked=false;
+                    }
+                if (datos[2]=='A-E-0-I')
+                    {
                         document.getElementById("pach1M").checked=true;
                         document.getElementById("pach2M").checked=true;
                         document.getElementById("pach3M").checked=false;
                         document.getElementById("pach4M").checked=true;
-                        document.getElementById("pach5M").checked=false; 
-                    }         
-                if (datos[2]=='A-0-M-I') 
-                    { 
+                        document.getElementById("pach5M").checked=false;
+                    }
+                if (datos[2]=='A-0-M-I')
+                    {
                         document.getElementById("pach1M").checked=true;
                         document.getElementById("pach2M").checked=false;
                         document.getElementById("pach3M").checked=true;
                         document.getElementById("pach4M").checked=true;
-                        document.getElementById("pach5M").checked=false; 
+                        document.getElementById("pach5M").checked=false;
                     }
-                if (datos[2]=='0-E-M-I') 
-                    { 
+                if (datos[2]=='0-E-M-I')
+                    {
                         document.getElementById("pach1M").checked=false;
                         document.getElementById("pach2M").checked=true;
                         document.getElementById("pach3M").checked=true;
                         document.getElementById("pach4M").checked=true;
-                        document.getElementById("pach5M").checked=false; 
+                        document.getElementById("pach5M").checked=false;
                     }
-                if (datos[2]=='A-E-M-I') 
-                    { 
+                if (datos[2]=='A-E-M-I')
+                    {
                         document.getElementById("pach1M").checked=true;
                         document.getElementById("pach2M").checked=true;
                         document.getElementById("pach3M").checked=true;
@@ -3158,13 +3158,13 @@ $('#tabla_entrada').hide();
                         document.getElementById("pach5M").checked=true;
 
                     }
-                if (datos[2]==0) 
-                    { 
+                if (datos[2]==0)
+                    {
                         document.getElementById("pach1M").checked=false;
                         document.getElementById("pach2M").checked=false;
                         document.getElementById("pach3M").checked=false;
                         document.getElementById("pach4M").checked=false;
-                        document.getElementById("pach5M").checked=false; 
+                        document.getElementById("pach5M").checked=false;
                     }
 
                     // PROYECTOS
@@ -3185,117 +3185,117 @@ $('#tabla_entrada').hide();
                         document.getElementById("pacp4M").checked=false;
                         document.getElementById("pacp5M").checked=false;
                     }
-                if (datos[3]=='0-0-M-0') 
-                    { 
+                if (datos[3]=='0-0-M-0')
+                    {
                         document.getElementById("pacp1M").checked=false;
                         document.getElementById("pacp2M").checked=false;
                         document.getElementById("pacp3M").checked=true;
                         document.getElementById("pacp4M").checked=false;
-                        document.getElementById("pacp5M").checked=false; 
+                        document.getElementById("pacp5M").checked=false;
                     }
-                if (datos[3]=='0-0-0-I') 
-                    { 
+                if (datos[3]=='0-0-0-I')
+                    {
                         document.getElementById("pacp1M").checked=false;
                         document.getElementById("pacp2M").checked=false;
                         document.getElementById("pacp3M").checked=false;
                         document.getElementById("pacp4M").checked=true;
-                        document.getElementById("pacp5M").checked=false; 
+                        document.getElementById("pacp5M").checked=false;
                     }
-                if (datos[3]=='A-E-0-0') 
-                    { 
+                if (datos[3]=='A-E-0-0')
+                    {
                         document.getElementById("pacp1M").checked=true;
                         document.getElementById("pacp2M").checked=true;
                         document.getElementById("pacp3M").checked=false;
                         document.getElementById("pacp4M").checked=false;
-                        document.getElementById("pacp5M").checked=false; 
+                        document.getElementById("pacp5M").checked=false;
                     }
-                if (datos[3]=='A-0-M-0') 
-                    { 
+                if (datos[3]=='A-0-M-0')
+                    {
                         document.getElementById("pacp1M").checked=true;
                         document.getElementById("pacp2M").checked=false;
                         document.getElementById("pacp3M").checked=true;
                         document.getElementById("pacp4M").checked=false;
                         document.getElementById("pacp5M").checked=false;
                     }
-                if (datos[3]=='A-0-0-I') 
-                    { 
+                if (datos[3]=='A-0-0-I')
+                    {
                         document.getElementById("pacp1M").checked=true;
                         document.getElementById("pacp2M").checked=false;
                         document.getElementById("pacp3M").checked=false;
                         document.getElementById("pacp4M").checked=true;
-                        document.getElementById("pacp5M").checked=false; 
+                        document.getElementById("pacp5M").checked=false;
                     }
-                if (datos[3]=='0-E-M-0') 
-                    { 
+                if (datos[3]=='0-E-M-0')
+                    {
                         document.getElementById("pacp1M").checked=false;
                         document.getElementById("pacp2M").checked=true;
                         document.getElementById("pacp3M").checked=true;
                         document.getElementById("pacp4M").checked=false;
-                        document.getElementById("pacp5M").checked=false; 
+                        document.getElementById("pacp5M").checked=false;
                     }
-                if (datos[3]=='0-E-0-I') 
-                    { 
+                if (datos[3]=='0-E-0-I')
+                    {
                         document.getElementById("pacp1M").checked=false;
                         document.getElementById("pacp2M").checked=true;
                         document.getElementById("pacp3M").checked=false;
-                        document.getElementById("pacp4M").checked=true; 
+                        document.getElementById("pacp4M").checked=true;
                         document.getElementById("pacp5M").checked=false;
                     }
-                if (datos[3]=='0-0-M-I') 
-                    { 
+                if (datos[3]=='0-0-M-I')
+                    {
                         document.getElementById("pacp1M").checked=false;
                         document.getElementById("pacp2M").checked=false;
                         document.getElementById("pacp3M").checked=true;
                         document.getElementById("pacp4M").checked=true;
-                        document.getElementById("pacp5M").checked=false; 
+                        document.getElementById("pacp5M").checked=false;
                     }
-                if (datos[3]=='A-E-M-0') 
-                    { 
+                if (datos[3]=='A-E-M-0')
+                    {
                         document.getElementById("pacp1M").checked=true;
                         document.getElementById("pacp2M").checked=true;
                         document.getElementById("pacp3M").checked=true;
                         document.getElementById("pacp4M").checked=false;
                         document.getElementById("pacp5M").checked=false;
                     }
-                if (datos[3]=='A-E-0-I') 
-                    { 
+                if (datos[3]=='A-E-0-I')
+                    {
                         document.getElementById("pacp1M").checked=true;
                         document.getElementById("pacp2M").checked=true;
                         document.getElementById("pacp3M").checked=false;
-                        document.getElementById("pacp4M").checked=true; 
+                        document.getElementById("pacp4M").checked=true;
                         document.getElementById("pacp5M").checked=false;
-                    }         
-                if (datos[3]=='A-0-M-I') 
-                    { 
+                    }
+                if (datos[3]=='A-0-M-I')
+                    {
                         document.getElementById("pacp1M").checked=true;
                         document.getElementById("pacp2M").checked=false;
                         document.getElementById("pacp3M").checked=true;
-                        document.getElementById("pacp4M").checked=true; 
+                        document.getElementById("pacp4M").checked=true;
                         document.getElementById("pacp5M").checked=false;
                     }
-                if (datos[3]=='0-E-M-I') 
-                    { 
+                if (datos[3]=='0-E-M-I')
+                    {
                         document.getElementById("pacp1M").checked=false;
                         document.getElementById("pacp2M").checked=true;
                         document.getElementById("pacp3M").checked=true;
                         document.getElementById("pacp4M").checked=true;
-                        document.getElementById("pacp5M").checked=false; 
+                        document.getElementById("pacp5M").checked=false;
                     }
-                if (datos[3]=='A-E-M-I') 
-                    { 
+                if (datos[3]=='A-E-M-I')
+                    {
                         document.getElementById("pacp1M").checked=true;
                         document.getElementById("pacp2M").checked=true;
                         document.getElementById("pacp3M").checked=true;
-                        document.getElementById("pacp4M").checked=true; 
+                        document.getElementById("pacp4M").checked=true;
                         document.getElementById("pacp5M").checked=true;
                     }
-                if (datos[3]==0) 
-                    { 
+                if (datos[3]==0)
+                    {
                         document.getElementById("pacp1M").checked=false;
                         document.getElementById("pacp2M").checked=false;
                         document.getElementById("pacp3M").checked=false;
                         document.getElementById("pacp4M").checked=false;
-                        document.getElementById("pacp5M").checked=false; 
+                        document.getElementById("pacp5M").checked=false;
                     }
 
                     // CONVENIOS
@@ -3316,112 +3316,112 @@ $('#tabla_entrada').hide();
                         document.getElementById("paconv4M").checked=false;
                         document.getElementById("paconv5M").checked=false;
                     }
-                if (datos[4]=='0-0-M-0') 
-                    { 
+                if (datos[4]=='0-0-M-0')
+                    {
                         document.getElementById("paconv1M").checked=false;
                         document.getElementById("paconv2M").checked=false;
                         document.getElementById("paconv3M").checked=true;
                         document.getElementById("paconv4M").checked=false;
-                        document.getElementById("paconv5M").checked=false; 
+                        document.getElementById("paconv5M").checked=false;
                     }
-                if (datos[4]=='0-0-0-I') 
-                    { 
+                if (datos[4]=='0-0-0-I')
+                    {
                         document.getElementById("paconv1M").checked=false;
                         document.getElementById("paconv2M").checked=false;
                         document.getElementById("paconv3M").checked=false;
                         document.getElementById("paconv4M").checked=true;
-                        document.getElementById("paconv5M").checked=false; 
+                        document.getElementById("paconv5M").checked=false;
                     }
-                if (datos[4]=='A-E-0-0') 
-                    { 
+                if (datos[4]=='A-E-0-0')
+                    {
                         document.getElementById("paconv1M").checked=true;
                         document.getElementById("paconv2M").checked=true;
                         document.getElementById("paconv3M").checked=false;
                         document.getElementById("paconv4M").checked=false;
-                        document.getElementById("paconv5M").checked=false; 
+                        document.getElementById("paconv5M").checked=false;
                     }
-                if (datos[4]=='A-0-M-0') 
-                    { 
+                if (datos[4]=='A-0-M-0')
+                    {
                         document.getElementById("paconv1M").checked=true;
                         document.getElementById("paconv2M").checked=false;
                         document.getElementById("paconv3M").checked=true;
                         document.getElementById("paconv4M").checked=false;
                         document.getElementById("paconv5M").checked=false;
                     }
-                if (datos[4]=='A-0-0-I') 
-                    { 
+                if (datos[4]=='A-0-0-I')
+                    {
                         document.getElementById("paconv1M").checked=true;
                         document.getElementById("paconv2M").checked=false;
                         document.getElementById("paconv3M").checked=false;
                         document.getElementById("paconv4M").checked=true;
-                        document.getElementById("paconv5M").checked=false; 
+                        document.getElementById("paconv5M").checked=false;
                     }
-                if (datos[4]=='0-E-M-0') 
-                    { 
+                if (datos[4]=='0-E-M-0')
+                    {
                         document.getElementById("paconv1M").checked=false;
                         document.getElementById("paconv2M").checked=true;
                         document.getElementById("paconv3M").checked=true;
                         document.getElementById("paconv4M").checked=false;
-                        document.getElementById("paconv5M").checked=false; 
+                        document.getElementById("paconv5M").checked=false;
                     }
-                if (datos[4]=='0-E-0-I') 
-                    { 
+                if (datos[4]=='0-E-0-I')
+                    {
                         document.getElementById("paconv1M").checked=false;
                         document.getElementById("paconv2M").checked=true;
                         document.getElementById("paconv3M").checked=false;
                         document.getElementById("paconv4M").checked=true;
-                        document.getElementById("paconv5M").checked=false; 
+                        document.getElementById("paconv5M").checked=false;
                     }
-                if (datos[4]=='0-0-M-I') 
-                    { 
+                if (datos[4]=='0-0-M-I')
+                    {
                         document.getElementById("paconv1M").checked=false;
                         document.getElementById("paconv2M").checked=false;
                         document.getElementById("paconv3M").checked=true;
                         document.getElementById("paconv4M").checked=true;
-                        document.getElementById("paconv5M").checked=false; 
+                        document.getElementById("paconv5M").checked=false;
                     }
-                if (datos[4]=='A-E-M-0') 
-                    { 
+                if (datos[4]=='A-E-M-0')
+                    {
                         document.getElementById("paconv1M").checked=true;
                         document.getElementById("paconv2M").checked=true;
                         document.getElementById("paconv3M").checked=true;
                         document.getElementById("paconv4M").checked=false;
                         document.getElementById("paconv5M").checked=false;
                     }
-                if (datos[4]=='A-E-0-I') 
-                    { 
+                if (datos[4]=='A-E-0-I')
+                    {
                         document.getElementById("paconv1M").checked=true;
                         document.getElementById("paconv2M").checked=true;
                         document.getElementById("paconv3M").checked=false;
                         document.getElementById("paconv4M").checked=true;
-                        document.getElementById("paconv5M").checked=false; 
-                    }         
-                if (datos[4]=='A-0-M-I') 
-                    { 
+                        document.getElementById("paconv5M").checked=false;
+                    }
+                if (datos[4]=='A-0-M-I')
+                    {
                         document.getElementById("paconv1M").checked=true;
                         document.getElementById("paconv2M").checked=false;
                         document.getElementById("paconv3M").checked=true;
                         document.getElementById("paconv4M").checked=true;
-                        document.getElementById("paconv5M").checked=false; 
+                        document.getElementById("paconv5M").checked=false;
                     }
-                if (datos[4]=='0-E-M-I') 
-                    { 
+                if (datos[4]=='0-E-M-I')
+                    {
                         document.getElementById("paconv1M").checked=false;
                         document.getElementById("paconv2M").checked=true;
                         document.getElementById("paconv3M").checked=true;
                         document.getElementById("paconv4M").checked=true;
-                        document.getElementById("paconv5M").checked=false; 
+                        document.getElementById("paconv5M").checked=false;
                     }
-                if (datos[4]=='A-E-M-I') 
-                    { 
+                if (datos[4]=='A-E-M-I')
+                    {
                         document.getElementById("paconv1M").checked=true;
                         document.getElementById("paconv2M").checked=true;
                         document.getElementById("paconv3M").checked=true;
                         document.getElementById("paconv4M").checked=true;
-                        document.getElementById("paconv5M").checked=true; 
+                        document.getElementById("paconv5M").checked=true;
                     }
-                if (datos[4]==0) 
-                    { 
+                if (datos[4]==0)
+                    {
                         document.getElementById("paconv1M").checked=false;
                         document.getElementById("paconv2M").checked=false;
                         document.getElementById("paconv3M").checked=false;
@@ -3448,117 +3448,117 @@ $('#tabla_entrada').hide();
                         document.getElementById("padi4M").checked=false;
                         document.getElementById("padi5M").checked=false;
                     }
-                if (datos[5]=='0-0-M-0') 
+                if (datos[5]=='0-0-M-0')
                     {
                         document.getElementById("padi1M").checked=false;
-                        document.getElementById("padi2M").checked=false; 
-                        document.getElementById("padi3M").checked=true;
-                        document.getElementById("padi4M").checked=false;
-                        document.getElementById("padi5M").checked=false; 
-                    }
-                if (datos[5]=='0-0-0-I') 
-                    { 
-                        document.getElementById("padi1M").checked=false;
-                        document.getElementById("padi2M").checked=false;
-                        document.getElementById("padi3M").checked=false;
-                        document.getElementById("padi4M").checked=true;
-                        document.getElementById("padi5M").checked=false; 
-                    }
-                if (datos[5]=='A-E-0-0') 
-                    { 
-                        document.getElementById("padi1M").checked=true;
-                        document.getElementById("padi2M").checked=true; 
-                        document.getElementById("padi3M").checked=false;
-                        document.getElementById("padi4M").checked=false;
-                        document.getElementById("padi5M").checked=false;
-                    }
-                if (datos[5]=='A-0-M-0') 
-                    { 
-                        document.getElementById("padi1M").checked=true;
                         document.getElementById("padi2M").checked=false;
                         document.getElementById("padi3M").checked=true;
                         document.getElementById("padi4M").checked=false;
                         document.getElementById("padi5M").checked=false;
                     }
-                if (datos[5]=='A-0-0-I') 
-                    { 
+                if (datos[5]=='0-0-0-I')
+                    {
+                        document.getElementById("padi1M").checked=false;
+                        document.getElementById("padi2M").checked=false;
+                        document.getElementById("padi3M").checked=false;
+                        document.getElementById("padi4M").checked=true;
+                        document.getElementById("padi5M").checked=false;
+                    }
+                if (datos[5]=='A-E-0-0')
+                    {
+                        document.getElementById("padi1M").checked=true;
+                        document.getElementById("padi2M").checked=true;
+                        document.getElementById("padi3M").checked=false;
+                        document.getElementById("padi4M").checked=false;
+                        document.getElementById("padi5M").checked=false;
+                    }
+                if (datos[5]=='A-0-M-0')
+                    {
+                        document.getElementById("padi1M").checked=true;
+                        document.getElementById("padi2M").checked=false;
+                        document.getElementById("padi3M").checked=true;
+                        document.getElementById("padi4M").checked=false;
+                        document.getElementById("padi5M").checked=false;
+                    }
+                if (datos[5]=='A-0-0-I')
+                    {
                         document.getElementById("padi1M").checked=true;
                         document.getElementById("padi2M").checked=false;
                         document.getElementById("padi3M").checked=false;
                         document.getElementById("padi4M").checked=true;
-                        document.getElementById("padi5M").checked=false; 
+                        document.getElementById("padi5M").checked=false;
                     }
-                if (datos[5]=='0-E-M-0') 
-                    { 
+                if (datos[5]=='0-E-M-0')
+                    {
                         document.getElementById("padi1M").checked=false;
                         document.getElementById("padi2M").checked=true;
                         document.getElementById("padi3M").checked=true;
                         document.getElementById("padi4M").checked=false;
-                        document.getElementById("padi5M").checked=false; 
+                        document.getElementById("padi5M").checked=false;
                     }
-                if (datos[5]=='0-E-0-I') 
-                    { 
+                if (datos[5]=='0-E-0-I')
+                    {
                         document.getElementById("padi1M").checked=false;
                         document.getElementById("padi2M").checked=true;
                         document.getElementById("padi3M").checked=false;
                         document.getElementById("padi4M").checked=true;
-                        document.getElementById("padi5M").checked=false; 
+                        document.getElementById("padi5M").checked=false;
                     }
-                if (datos[5]=='0-0-M-I') 
-                    { 
+                if (datos[5]=='0-0-M-I')
+                    {
                         document.getElementById("padi1M").checked=false;
                         document.getElementById("padi2M").checked=false;
                         document.getElementById("padi3M").checked=true;
                         document.getElementById("padi4M").checked=true;
-                        document.getElementById("padi5M").checked=false; 
+                        document.getElementById("padi5M").checked=false;
                     }
-                if (datos[5]=='A-E-M-0') 
-                    { 
+                if (datos[5]=='A-E-M-0')
+                    {
                         document.getElementById("padi1M").checked=true;
                         document.getElementById("padi2M").checked=true;
                         document.getElementById("padi3M").checked=true;
                         document.getElementById("padi4M").checked=false;
                         document.getElementById("padi5M").checked=false;
                     }
-                if (datos[5]=='A-E-0-I') 
-                    { 
+                if (datos[5]=='A-E-0-I')
+                    {
                         document.getElementById("padi1M").checked=true;
                         document.getElementById("padi2M").checked=true;
                         document.getElementById("padi3M").checked=false;
                         document.getElementById("padi4M").checked=true;
-                        document.getElementById("padi5M").checked=false; 
-                    }         
-                if (datos[5]=='A-0-M-I') 
-                    { 
+                        document.getElementById("padi5M").checked=false;
+                    }
+                if (datos[5]=='A-0-M-I')
+                    {
                         document.getElementById("padi1M").checked=true;
                         document.getElementById("padi2M").checked=false;
                         document.getElementById("padi3M").checked=true;
                         document.getElementById("padi4M").checked=true;
-                        document.getElementById("padi5M").checked=false; 
+                        document.getElementById("padi5M").checked=false;
                     }
-                if (datos[5]=='0-E-M-I') 
-                    { 
+                if (datos[5]=='0-E-M-I')
+                    {
                         document.getElementById("padi1M").checked=false;
                         document.getElementById("padi2M").checked=true;
                         document.getElementById("padi3M").checked=true;
                         document.getElementById("padi4M").checked=true;
-                        document.getElementById("padi5M").checked=false; 
+                        document.getElementById("padi5M").checked=false;
                     }
-                if (datos[5]=='A-E-M-I') 
-                    { 
+                if (datos[5]=='A-E-M-I')
+                    {
                         document.getElementById("padi1M").checked=true;
                         document.getElementById("padi2M").checked=true;
                         document.getElementById("padi3M").checked=true;
                         document.getElementById("padi4M").checked=true;
-                        document.getElementById("padi5M").checked=true; 
+                        document.getElementById("padi5M").checked=true;
                     }
-                if (datos[5]==0) 
-                    { 
+                if (datos[5]==0)
+                    {
                         document.getElementById("padi1M").checked=false;
                         document.getElementById("padi2M").checked=false;
                         document.getElementById("padi3M").checked=false;
                         document.getElementById("padi4M").checked=false;
-                        document.getElementById("padi5M").checked=false; 
+                        document.getElementById("padi5M").checked=false;
                     }
 
                 // MAQUINAS
@@ -3579,117 +3579,117 @@ $('#tabla_entrada').hide();
                         document.getElementById("padm4M").checked=false;
                         document.getElementById("padm5M").checked=false;
                     }
-                if (datos[6]=='0-0-M-0') 
-                    { 
+                if (datos[6]=='0-0-M-0')
+                    {
                         document.getElementById("padm1M").checked=false;
-                        document.getElementById("padm2M").checked=false;
-                        document.getElementById("padm3M").checked=true;
-                        document.getElementById("padm4M").checked=false;
-                        document.getElementById("padm5M").checked=false; 
-                    }
-                if (datos[6]=='0-0-0-I') 
-                    { 
-                        document.getElementById("padm1M").checked=false;
-                        document.getElementById("padm2M").checked=false;
-                        document.getElementById("padm3M").checked=false;
-                        document.getElementById("padm4M").checked=true; 
-                        document.getElementById("padm5M").checked=false;
-                    }
-                if (datos[6]=='A-E-0-0') 
-                    { 
-                        document.getElementById("padm1M").checked=true;
-                        document.getElementById("padm2M").checked=true; 
-                        document.getElementById("padm3M").checked=false;
-                        document.getElementById("padm4M").checked=false;
-                        document.getElementById("padm5M").checked=false;
-                    }
-                if (datos[6]=='A-0-M-0') 
-                    { 
-                        document.getElementById("padm1M").checked=true;
                         document.getElementById("padm2M").checked=false;
                         document.getElementById("padm3M").checked=true;
                         document.getElementById("padm4M").checked=false;
                         document.getElementById("padm5M").checked=false;
                     }
-                if (datos[6]=='A-0-0-I') 
-                    { 
+                if (datos[6]=='0-0-0-I')
+                    {
+                        document.getElementById("padm1M").checked=false;
+                        document.getElementById("padm2M").checked=false;
+                        document.getElementById("padm3M").checked=false;
+                        document.getElementById("padm4M").checked=true;
+                        document.getElementById("padm5M").checked=false;
+                    }
+                if (datos[6]=='A-E-0-0')
+                    {
+                        document.getElementById("padm1M").checked=true;
+                        document.getElementById("padm2M").checked=true;
+                        document.getElementById("padm3M").checked=false;
+                        document.getElementById("padm4M").checked=false;
+                        document.getElementById("padm5M").checked=false;
+                    }
+                if (datos[6]=='A-0-M-0')
+                    {
+                        document.getElementById("padm1M").checked=true;
+                        document.getElementById("padm2M").checked=false;
+                        document.getElementById("padm3M").checked=true;
+                        document.getElementById("padm4M").checked=false;
+                        document.getElementById("padm5M").checked=false;
+                    }
+                if (datos[6]=='A-0-0-I')
+                    {
                         document.getElementById("padm1M").checked=true;
                         document.getElementById("padm2M").checked=false;
                         document.getElementById("padm3M").checked=false;
                         document.getElementById("padm4M").checked=true;
-                        document.getElementById("padm5M").checked=false; 
+                        document.getElementById("padm5M").checked=false;
                     }
-                if (datos[6]=='0-E-M-0') 
-                    { 
+                if (datos[6]=='0-E-M-0')
+                    {
                         document.getElementById("padm1M").checked=false;
                         document.getElementById("padm2M").checked=true;
                         document.getElementById("padm3M").checked=true;
                         document.getElementById("padm4M").checked=false;
-                        document.getElementById("padm5M").checked=false; 
+                        document.getElementById("padm5M").checked=false;
                     }
-                if (datos[6]=='0-E-0-I') 
-                    { 
+                if (datos[6]=='0-E-0-I')
+                    {
                         document.getElementById("padm1M").checked=false;
                         document.getElementById("padm2M").checked=true;
                         document.getElementById("padm3M").checked=false;
                         document.getElementById("padm4M").checked=true;
-                        document.getElementById("padm5M").checked=false; 
+                        document.getElementById("padm5M").checked=false;
                     }
-                if (datos[6]=='0-0-M-I') 
-                    { 
+                if (datos[6]=='0-0-M-I')
+                    {
                         document.getElementById("padm1M").checked=false;
                         document.getElementById("padm2M").checked=false;
                         document.getElementById("padm3M").checked=true;
                         document.getElementById("padm4M").checked=true;
-                        document.getElementById("padm5M").checked=false; 
+                        document.getElementById("padm5M").checked=false;
                     }
-                if (datos[6]=='A-E-M-0') 
-                    { 
+                if (datos[6]=='A-E-M-0')
+                    {
                         document.getElementById("padm1M").checked=true;
                         document.getElementById("padm2M").checked=true;
                         document.getElementById("padm3M").checked=true;
                         document.getElementById("padm4M").checked=false;
                         document.getElementById("padm5M").checked=false;
                     }
-                if (datos[6]=='A-E-0-I') 
-                    { 
+                if (datos[6]=='A-E-0-I')
+                    {
                         document.getElementById("padm1M").checked=true;
                         document.getElementById("padm2M").checked=true;
                         document.getElementById("padm3M").checked=false;
                         document.getElementById("padm4M").checked=true;
-                        document.getElementById("padm5M").checked=false; 
-                    }         
-                if (datos[6]=='A-0-M-I') 
-                    { 
+                        document.getElementById("padm5M").checked=false;
+                    }
+                if (datos[6]=='A-0-M-I')
+                    {
                         document.getElementById("padm1M").checked=true;
                         document.getElementById("padm2M").checked=false;
                         document.getElementById("padm3M").checked=true;
-                        document.getElementById("padm4M").checked=true; 
+                        document.getElementById("padm4M").checked=true;
                         document.getElementById("padm5M").checked=false;
                     }
-                if (datos[6]=='0-E-M-I') 
-                    { 
+                if (datos[6]=='0-E-M-I')
+                    {
                         document.getElementById("padm1M").checked=false;
                         document.getElementById("padm2M").checked=true;
                         document.getElementById("padm3M").checked=true;
                         document.getElementById("padm4M").checked=true;
-                        document.getElementById("padm5M").checked=false; 
+                        document.getElementById("padm5M").checked=false;
                     }
-                if (datos[6]=='A-E-M-I') 
-                    { 
+                if (datos[6]=='A-E-M-I')
+                    {
                         document.getElementById("padm1M").checked=true;
                         document.getElementById("padm2M").checked=true;
                         document.getElementById("padm3M").checked=true;
                         document.getElementById("padm4M").checked=true;
-                        document.getElementById("padm5M").checked=true; 
+                        document.getElementById("padm5M").checked=true;
                     }
-                if (datos[6]==0) 
-                    { 
+                if (datos[6]==0)
+                    {
                         document.getElementById("padm1M").checked=false;
                         document.getElementById("padm2M").checked=false;
                         document.getElementById("padm3M").checked=false;
                         document.getElementById("padm4M").checked=false;
-                        document.getElementById("padm5M").checked=false; 
+                        document.getElementById("padm5M").checked=false;
                     }
 
                     // PERSONAL
@@ -3710,151 +3710,151 @@ $('#tabla_entrada').hide();
                         document.getElementById("padp4M").checked=false;
                         document.getElementById("padp5M").checked=false;
                     }
-                if (datos[8]=='0-0-M-0') 
-                    { 
+                if (datos[8]=='0-0-M-0')
+                    {
                         document.getElementById("padp1M").checked=false;
                         document.getElementById("padp2M").checked=false;
                         document.getElementById("padp3M").checked=true;
                         document.getElementById("padp4M").checked=false;
-                        document.getElementById("padp5M").checked=false; 
+                        document.getElementById("padp5M").checked=false;
                     }
-                if (datos[8]=='0-0-0-I') 
-                    { 
+                if (datos[8]=='0-0-0-I')
+                    {
                         document.getElementById("padp1M").checked=false;
                         document.getElementById("padp2M").checked=false;
                         document.getElementById("padp3M").checked=false;
                         document.getElementById("padp4M").checked=true;
-                        document.getElementById("padp5M").checked=false; 
+                        document.getElementById("padp5M").checked=false;
                     }
-                if (datos[8]=='A-E-0-0') 
-                    { 
+                if (datos[8]=='A-E-0-0')
+                    {
                         document.getElementById("padp1M").checked=true;
                         document.getElementById("padp2M").checked=true;
                         document.getElementById("padp3M").checked=false;
                         document.getElementById("padp4M").checked=false;
-                        document.getElementById("padp5M").checked=false; 
+                        document.getElementById("padp5M").checked=false;
                     }
-                if (datos[8]=='A-0-M-0') 
-                    { 
+                if (datos[8]=='A-0-M-0')
+                    {
                         document.getElementById("padp1M").checked=true;
                         document.getElementById("padp2M").checked=false;
                         document.getElementById("padp3M").checked=true;
                         document.getElementById("padp4M").checked=false;
                         document.getElementById("padp5M").checked=false;
                     }
-                if (datos[8]=='A-0-0-I') 
-                    { 
+                if (datos[8]=='A-0-0-I')
+                    {
                         document.getElementById("padp1M").checked=true;
                         document.getElementById("padp2M").checked=false;
                         document.getElementById("padp3M").checked=false;
                         document.getElementById("padp4M").checked=true;
-                        document.getElementById("padp5M").checked=false; 
+                        document.getElementById("padp5M").checked=false;
                     }
-                if (datos[8]=='0-E-M-0') 
-                    { 
+                if (datos[8]=='0-E-M-0')
+                    {
                         document.getElementById("padp1M").checked=false;
                         document.getElementById("padp2M").checked=true;
                         document.getElementById("padp3M").checked=true;
                         document.getElementById("padp4M").checked=false;
-                        document.getElementById("padp5M").checked=false; 
+                        document.getElementById("padp5M").checked=false;
                     }
-                if (datos[8]=='0-E-0-I') 
-                    { 
+                if (datos[8]=='0-E-0-I')
+                    {
                         document.getElementById("padp1M").checked=false;
                         document.getElementById("padp2M").checked=true;
                         document.getElementById("padp3M").checked=false;
                         document.getElementById("padp4M").checked=true;
-                        document.getElementById("padp5M").checked=false; 
+                        document.getElementById("padp5M").checked=false;
                     }
-                if (datos[8]=='0-0-M-I') 
-                    { 
+                if (datos[8]=='0-0-M-I')
+                    {
                         document.getElementById("padp1M").checked=false;
                         document.getElementById("padp2M").checked=false;
                         document.getElementById("padp3M").checked=true;
                         document.getElementById("padp4M").checked=true;
-                        document.getElementById("padp5M").checked=false; 
+                        document.getElementById("padp5M").checked=false;
                     }
-                if (datos[8]=='A-E-M-0') 
-                    { 
+                if (datos[8]=='A-E-M-0')
+                    {
                         document.getElementById("padp1M").checked=true;
                         document.getElementById("padp2M").checked=true;
                         document.getElementById("padp3M").checked=true;
                         document.getElementById("padp4M").checked=false;
                         document.getElementById("padp5M").checked=false;
                     }
-                if (datos[8]=='A-E-0-I') 
-                    { 
+                if (datos[8]=='A-E-0-I')
+                    {
                         document.getElementById("padp1M").checked=true;
                         document.getElementById("padp2M").checked=true;
                         document.getElementById("padp3M").checked=false;
                         document.getElementById("padp4M").checked=true;
-                        document.getElementById("padp5M").checked=false; 
-                    }         
-                if (datos[8]=='A-0-M-I') 
-                    { 
+                        document.getElementById("padp5M").checked=false;
+                    }
+                if (datos[8]=='A-0-M-I')
+                    {
                         document.getElementById("padp1M").checked=true;
                         document.getElementById("padp2M").checked=false;
                         document.getElementById("padp3M").checked=true;
-                        document.getElementById("padp4M").checked=true; 
+                        document.getElementById("padp4M").checked=true;
                         document.getElementById("padp5M").checked=false;
                     }
-                if (datos[8]=='0-E-M-I') 
-                    { 
+                if (datos[8]=='0-E-M-I')
+                    {
                         document.getElementById("padp1M").checked=false;
                         document.getElementById("padp2M").checked=true;
                         document.getElementById("padp3M").checked=true;
                         document.getElementById("padp4M").checked=true;
-                        document.getElementById("padp5M").checked=false; 
+                        document.getElementById("padp5M").checked=false;
                     }
-                if (datos[8]=='A-E-M-I') 
-                    { 
+                if (datos[8]=='A-E-M-I')
+                    {
                         document.getElementById("padp1M").checked=true;
                         document.getElementById("padp2M").checked=true;
                         document.getElementById("padp3M").checked=true;
                         document.getElementById("padp4M").checked=true;
-                        document.getElementById("padp5M").checked=true; 
+                        document.getElementById("padp5M").checked=true;
                     }
-                if (datos[8]==0) 
-                    { 
+                if (datos[8]==0)
+                    {
                         document.getElementById("padp1M").checked=false;
                         document.getElementById("padp2M").checked=false;
                         document.getElementById("padp3M").checked=false;
                         document.getElementById("padp4M").checked=false;
-                        document.getElementById("padp5M").checked=false; 
+                        document.getElementById("padp5M").checked=false;
                     }
 
                 // USUARIOS
 
-                if (datos[9]=='si') 
+                if (datos[9]=='si')
                     {
                         document.getElementById("pconusiM").checked=true;
                     }
-                if (datos[9]=='no') 
+                if (datos[9]=='no')
                     {
                         document.getElementById("pconunoM").checked=true;
                     }
                 // BASE DE DATOS
 
-                if (datos[10]=='si') 
+                if (datos[10]=='si')
                     {
                         document.getElementById("BDsiM").checked=true;
                     }
-                if (datos[10]=='no') 
+                if (datos[10]=='no')
                     {
                         document.getElementById("BDnoM").checked=true;
                     }
 
                 // AUDITORIA
 
-                if (datos[11]=='si') 
+                if (datos[11]=='si')
                     {
                         document.getElementById("auditoriasiM").checked=true;
                     }
-                if (datos[11]=='no') 
+                if (datos[11]=='no')
                     {
                         document.getElementById("auditorianoM").checked=true;
-                    }              
-                                                
+                    }
+
                 $('#modif_tipo_usuario').modal({
                     show:true,
                     backdrop:'static'
@@ -3867,7 +3867,7 @@ $('#tabla_entrada').hide();
     function editar_convenio(id){
 
         var url='modifica_convenio.php';
-        
+
         $.ajax({
             type:'POST',
             url:url,
@@ -3879,13 +3879,13 @@ $('#tabla_entrada').hide();
                 $('#ente1mod').val(datos[2]);
                 $('#ente2mod').val(datos[3]);
                 $('#contratantemod').val(datos[4]);
-                
+
                 $('#contratadomod').val(datos[5]);
                 $('#fechaimod').val(datos[6]);
                 $('#fechafmod').val(datos[7]);
                 $('#clausulasmod').val(datos[8]);
 
-                
+
                 $('#modif_maquina').modal({
                     show:true,
                     backdrop:'static'
@@ -3964,7 +3964,7 @@ function detalleConvenio(id){
     function eliminarSeccion(id){
 
         $('#aceptar_elim_seccion').val(id);
-        
+
         $('#elim_seccion').modal({
             show:true,
             backdrop:'static'
@@ -3977,7 +3977,7 @@ function detalleConvenio(id){
 
         $('#valorIdSeccion').val(idSeccion);
         $('#valorIdPeriodo').val(idPeriodo);
-        
+
         $('#elim_horario').modal({
             show:true,
             backdrop:'static'
@@ -4010,7 +4010,7 @@ function detalleConvenio(id){
     function mostrarClausula(id){
 
         var url='modifica_convenio.php';
-        
+
         $.ajax({
             type:'POST',
             url:url,
@@ -4029,7 +4029,7 @@ function detalleConvenio(id){
                $('#fechai_clau').val(datos[6]);
                $('#fechaf_clau').val(datos[7]);
                 $('#c_clausulas').show();
-                $('#consulta_insu').hide(); 
+                $('#consulta_insu').hide();
 
             }
         });
@@ -4039,15 +4039,15 @@ function detalleConvenio(id){
             url:'buscar_clausulas.php',
             data:'id='+id,
             success: function(valores){
-                
-                
+
+
                 $('#tbody_consultaClau').html(valores);
                  $('#dataTables-exampleClausulas').DataTable({
               responsive: true
         });
             }
         });
- 
+
     };
 
 
@@ -4067,15 +4067,15 @@ function detalleConvenio(id){
                     show:true,
                     backdrop:'static'
                 });
-               
+
             }
         });
     }
 
     function editar_aula(id){
-        
+
         var url='modificar_aula.php';
-        
+
         $.ajax({
             type:'POST',
             url:url,
@@ -4084,7 +4084,7 @@ function detalleConvenio(id){
                  var datos=eval(valores);
 
                 // alert(id);
-                
+
                 $('#id_aula').val(id);
                 $('#nombre_aM').val(datos[0]);
 
@@ -4114,7 +4114,7 @@ function detalleConvenio(id){
                     show:true,
                     backdrop:'static'
                 });
-               
+
             }
         });
     }
@@ -4147,7 +4147,7 @@ function detalleConvenio(id){
     function editar_configuracionPer(id)
     {
         var url='modificar_cuentaPersonal.php';
-        
+
         $.ajax({
             type:'POST',
             url:url,
@@ -4164,7 +4164,7 @@ function detalleConvenio(id){
                 $('#cod_tlfC').val(datos[5])
                 $('#num_contC').val(datos[6]);
                 $('#fecha_nacC').val(datos[7]);
-                                                
+
                 $('#modif_configuracionPersonal').modal({
                     show:true,
                     backdrop:'static'
@@ -4181,7 +4181,7 @@ function detalleConvenio(id){
                 });
                     return false;
 
-                
+
             }
         });
     }
@@ -4189,7 +4189,7 @@ function detalleConvenio(id){
     function editar_horas(id)
     {
         var url='modifica_horas.php';
-        
+
         $.ajax({
             type:'POST',
             url:url,
@@ -4227,7 +4227,7 @@ function detalleConvenio(id){
 
                 validarBLOQUE_M();
                 validarINICIO_M();
-                                                
+
                 $('#modif_horas').modal({
                     show:true,
                     backdrop:'static'
@@ -4238,9 +4238,9 @@ function detalleConvenio(id){
     }
 
     function editar_personal(id){
-        
+
         var url='modificar_personal.php';
-        
+
         $.ajax({
             type:'POST',
             url:url,
@@ -4253,16 +4253,16 @@ function detalleConvenio(id){
                 $('#ci_perM').val(datos[1]);
                 $('#nombres_perM').val(datos[2]);
                 $('#apellidos_perM').val(datos[3]);
-                
+
                 if (datos[4]=='M')
                 {
                     document.getElementById("masculino_M").checked=true;
                 }
                 if (datos[4]=='F')
                 {
-                    document.getElementById("femenino_M").checked=true; 
+                    document.getElementById("femenino_M").checked=true;
                 }
-                
+
                 $('#grado_instM').val(datos[5]);
                 $('#especialidadM').val(datos[6])
                 $('#cargo_perM').val(datos[7]);
@@ -4278,7 +4278,7 @@ function detalleConvenio(id){
                 }
 
                 $('#dedicacionM').val(datos[12]);
-                                                
+
                 $('#modif_personal').modal({
                     show:true,
                     backdrop:'static'
@@ -4447,7 +4447,7 @@ function detalleConvenio(id){
                 }
                 if (datos[0]=='No concluida')
                 {
-                    document.getElementById("no_concluido").checked=true;   
+                    document.getElementById("no_concluido").checked=true;
                 }
 
                 $('#id_planif').val(id);
@@ -4481,7 +4481,7 @@ function detalleConvenio(id){
                 }
                 if (datos[0]=='Abandonado')
                 {
-                    document.getElementById("abandonado").checked=true;   
+                    document.getElementById("abandonado").checked=true;
                 }
 
                 $('#id_tec').val(id);
@@ -4509,7 +4509,7 @@ function detalleConvenio(id){
     }
 
     function verif_estadoC()
-    {        
+    {
         $('#verif_estadoC').modal({
             show:true,
             backdrop:'static'
@@ -4517,7 +4517,7 @@ function detalleConvenio(id){
     }
 
     function verif_estadoA()
-    {        
+    {
         $('#verif_estadoA').modal({
             show:true,
             backdrop:'static'
@@ -4561,7 +4561,7 @@ function detalleConvenio(id){
     });
 
     function personal(){
-     
+
         var url='buscar_personal.php';
 
         var ci=document.getElementById('ci_usu').value;
@@ -4584,7 +4584,7 @@ function detalleConvenio(id){
 // FIN AUTOCOMPLETADO
 
     function personalM(){
-     
+
         var url='buscar_personal.php';
 
         var ci=document.getElementById('ci_usuM').value;
@@ -4615,7 +4615,7 @@ function detalleConvenio(id){
     });
 
     function personal_planif(){
-     
+
         var url='buscar_personal.php';
 
         var ci=document.getElementById('ci_planif').value;
@@ -4646,7 +4646,7 @@ function detalleConvenio(id){
                 });
 */
     function personal_planif_M(){
-     
+
         var url='buscar_personal.php';
 
         var ci=document.getElementById('ci_planif_M').value;
@@ -4675,7 +4675,7 @@ function detalleConvenio(id){
     });
 
     function nom_ape_disp(){
-     
+
         var url='buscar_personal.php';
 
         var ci=document.getElementById('ci_disp').value;
@@ -4692,7 +4692,7 @@ function detalleConvenio(id){
                 var ape=datos[1].split(" ");
 
                 var NomApe=nom[0]+" "+ape[0]+" "+datos[2];
-                
+
                 $('#nom_ape').val(NomApe);
             }
         });
@@ -4702,7 +4702,7 @@ function detalleConvenio(id){
 // MODIFICAR DISPONIBILIDAD
 
     function nom_ape_disp_M(){
-     
+
         var url='buscar_personal.php';
 
         var ci=document.getElementById('ci_disp_M').value;
@@ -4719,7 +4719,7 @@ function detalleConvenio(id){
                 var ape=datos[1].split(" ");
 
                 var NomApe=nom[0]+" "+ape[0];
-                
+
                 $('#nom_ape_M').val(NomApe);
             }
         });
@@ -4729,7 +4729,7 @@ function detalleConvenio(id){
 // MODIFICAR DISPONIBILIDAD
 
     function nom_ape_horarios(cp,nomApe){
-     
+
         var url='buscar_personal.php';
 
         var ced=document.getElementById(cp).value;
@@ -4738,7 +4738,7 @@ function detalleConvenio(id){
         {
             $('#'+nomApe).val("");
         }
-        
+
         var c=ced.split("-");
         var ci=c[1];
         var nac=c[0]+"-";
@@ -4754,7 +4754,7 @@ function detalleConvenio(id){
                 var ape=datos[1].split(" ");
 
                 var NomApe=nom[0]+" "+ape[0]+" "+datos[2];
-                
+
                 $('#'+nomApe).val(NomApe);
 
                 ValidarBloqueProfe('algo');
@@ -4763,7 +4763,7 @@ function detalleConvenio(id){
     };
 
     function nom_ape_horariosM(cp,nomApe){
-     
+
         var url='buscar_personal.php';
 
         var ced=document.getElementById(cp).value;
@@ -4772,7 +4772,7 @@ function detalleConvenio(id){
         {
             $('#'+nomApe).val("");
         }
-        
+
         var c=ced.split("-");
         var ci=c[1];
         var nac=c[0]+"-";
@@ -4788,7 +4788,7 @@ function detalleConvenio(id){
                 var ape=datos[1].split(" ");
 
                 var NomApe=nom[0]+" "+ape[0]+" "+datos[2];
-                
+
                 $('#'+nomApe).val(NomApe);
 
                 ValidarBloqueProfeM('algo');
@@ -4797,7 +4797,7 @@ function detalleConvenio(id){
     };
 
     function materia_horarios(){
-     
+
         var url='buscar_materia.php';
 
         var mat=document.getElementById('materia').value;
@@ -4810,7 +4810,7 @@ function detalleConvenio(id){
             data:'mat='+mat,
             success:function(valores){
                 var datos=eval(valores);
-                
+
                 $('#nom_materia').val(datos[0]);
                 $('#hora').val(datos[1]);
 
@@ -4820,7 +4820,7 @@ function detalleConvenio(id){
     };
 
     function materia_horariosM(){
-     
+
         var url='buscar_materia.php';
 
         var mat=document.getElementById('materiaM').value;
@@ -4831,7 +4831,7 @@ function detalleConvenio(id){
             data:'mat='+mat,
             success:function(valores){
                 var datos=eval(valores);
-                
+
                 $('#nom_materiaM').val(datos[0]);
                 $('#horaM').val(datos[1]);
 
@@ -4851,7 +4851,7 @@ function detalleConvenio(id){
     var dateNow=new Date(year, month, day);
 
         $("#fecha_nac").attr('readonly',true);
-        
+
         $("#fecha_nac").datetimepicker({
             format: 'DD/MM/YYYY',
             defaultDate: dateNow,
@@ -5263,17 +5263,17 @@ $('#padp5M').click(function(){
 };
 
     function detalleTecnologico(id){
-        
+
         var url='detalle_tec.php';
-        
+
         $.ajax({
             type:'POST',
             url:url,
             data:'id='+id,
             success: function(valores){
-                
+
                 $('#detalle').html(valores);
-                
+
                 $('#detalle_tecnologico').modal({
                     show:true,
                     backdrop:'static'
@@ -5284,17 +5284,17 @@ $('#padp5M').click(function(){
     };
 
     function detallePlanificacion(id){
-        
+
         var url='detalle_planificacion.php';
-        
+
         $.ajax({
             type:'POST',
             url:url,
             data:'id='+id,
             success: function(valores){
-                
+
                 $('#detalle').html(valores);
-                
+
                 $('#detalle_planificacion').modal({
                     show:true,
                     backdrop:'static'
@@ -5361,7 +5361,7 @@ function editar_maquina(id){
             data:'id='+id,
             success: function(valores){
                 var datos=eval(valores);
-                
+
                 $('#id_usu').val(id);
                 $('#nombre_usuarioC').val(datos[0]);
                 $('#preguntaC').val(datos[1]);
@@ -5477,8 +5477,8 @@ $('#rep_maq').modal({
     };
 
     function reporteHorario(id,id2){
-        $('#aceptar_reporte_horario').val(id); 
-        $('#aceptar_reporte_horario2').val(id2); 
+        $('#aceptar_reporte_horario').val(id);
+        $('#aceptar_reporte_horario2').val(id2);
 
         $('#reporte_horario_indv').modal({
             show:true,
@@ -5505,7 +5505,7 @@ $('#rep_maq').modal({
 
 // REPORTE PERSONAL
 $('#reporte_personal').click(function(){
-        
+
     $('#rep_per').modal({
         show:true,
         backdrop: 'static'
@@ -5522,7 +5522,7 @@ $('#reporte_personal').click(function(){
 
 // REPORTE PERSONAL
 $('#reporte_planificacion').click(function(){
-        
+
     $('#rep_planif').modal({
         show:true,
         backdrop: 'static'
@@ -5556,7 +5556,7 @@ function DameDatos(){
         {
           $('#informacion').html('<br>'+respuesta);
           DameDatos_maq();
-        }  
+        }
         else
         {
           $('#informacion').html('<br><div class="info"><p>Seleccione una máquina por favor</p></div>');
@@ -5573,11 +5573,11 @@ function DameDatos_maq(){
         type:"POST",
         url:"consultando_maquina.php",
         data:"contacto="+document.getElementById("contacto").value,
-      
+
         success: function(valores){
-        
+
            $('#codigo').val(valores);
-        
+
       }
     });
 }
@@ -5617,11 +5617,11 @@ function DameDatos_maq(){
         confirm_user();
     };
 
- 
+
  function editar_insumos(id){
 
         var url='modifica_insumos.php';
-        
+
         $.ajax({
             type:'POST',
             url:url,
@@ -5690,7 +5690,7 @@ function DameDatos_maq(){
     function detalleInsumo(id){
 
         var url='detalle_insumos.php';
-        
+
         $.ajax({
             type:'POST',
             url:url,
@@ -5698,7 +5698,7 @@ function DameDatos_maq(){
             success: function(valores){
 
                 $('#detalle').html(valores);
-                
+
                 $('#detalle_insumos').modal({
                     show:true,
                     backdrop:'static'
@@ -5720,7 +5720,7 @@ function editar_preventivo(id){
         data:'id='+id,
         success: function(valores){
             var datos=eval(valores);
-        
+
             $('#m_id_prev').val(datos[0]);
             $('#rev_maquinamod').val(datos[1]);
             $('#fechamod').val(datos[19]);
@@ -5817,13 +5817,13 @@ function editar_solicitud_preventivo(id){
             var datos=eval(valores);
             $('#m_id_prev').val(datos[0]);
             $('#rev_maquinamod').val(datos[1]);
-            
+
              $('#responsablemod').val(datos[9]);
             $('#provedormod').val(datos[12]);
             $('#observacionesmod').val(datos[4]);
             $('#fechamod').val(datos[2]);
             $('#motivomod').val(datos[20]);
-            
+
             if (datos[10]=="interno")
             {
                 document.getElementById("tipo_servicio_intmod").checked=true;
@@ -5836,9 +5836,9 @@ function editar_solicitud_preventivo(id){
                 document.getElementById("provedormod").disabled=false;
                 $('#proveedor_ext').show();
             }
-           
+
             $('#proveedormod').val(datos[10]);
-           
+
              $('#modif_maquina').modal({
                 show:true,
                 backdrop:'static'
@@ -5851,21 +5851,21 @@ function editar_solicitud_preventivo(id){
    function ejecutarPreventivo(id){
     window.open("ejecucion_mant_preventivo.php?numeros_mant="+id+"","_parent");
       //window.opener.buscaNumeroMantI();
-     
+
     }
 
 
 function ejecutarCorrectivo(id){
     window.open("ejecucion_mant_correctivo.php?numeros_mant="+id+"","_parent");
       //window.opener.buscaNumeroMantI();
-     
+
     }
 
             $('#tipo_servicio_intmod').click(function(){
                 $('#proveedor_ext').hide();
                 document.getElementById("provedormod").disabled=true;
             });
-            
+
             $('#tipo_servicio_extmod').click(function(){
                 $('#proveedor_ext').show();
                  document.getElementById("provedormod").disabled=false;
@@ -5934,7 +5934,7 @@ function eliminarPreventivo(id){
 
 
     function personal(){
-     
+
         var url='buscar_personal.php';
 
         var ci=document.getElementById('ci_usu').value;
@@ -5956,7 +5956,7 @@ function eliminarPreventivo(id){
     };
 
       function maquinas(){
-     
+
         var url='buscar_maquinas.php';
         var prenb=document.getElementById('pre_nb').value;
         var nb=document.getElementById('NB').value;
@@ -5987,11 +5987,11 @@ function eliminarPreventivo(id){
     $('#r_mant_prev').hide();
 
 function codemaquinas(){
-     
+
         var url='buscar_codemaquinas.php';
         var code=document.getElementById('codigo').value;
         var code2=document.getElementById('codigo2').value;
-        
+
 
         //alert("funcion personal "+ci);
 
@@ -6021,7 +6021,7 @@ function codemaquinas(){
     };
 
 function personal_mant(){
-     
+
         var url='buscar_personal2.php';
 
         var ci=document.getElementById('ci_usu').value;
@@ -6100,12 +6100,12 @@ function eliminarCorrectivo(id){
                 show:true,
                 backdrop:'static',
                 keyboard: false
-                
+
             });
     }
 
     function validando_usuario_elim(){
-     
+
         var url='verifica_user_elim.php';
 
         var user=document.getElementById('username_confirm').value;
@@ -6119,13 +6119,13 @@ function eliminarCorrectivo(id){
             url:url,
             data:'user='+user+'&pass='+pass,
             success:function(data){
-               
+
                 if(data==0){
                     $('#elim_all_error').modal({
                 show:true,
                 backdrop:'static',
                 keyboard: false
-                
+
             });
                 }
                 else{
@@ -6133,7 +6133,7 @@ function eliminarCorrectivo(id){
                     $('#elim_all').modal('hide');
                     $('#password').val("");
                 }
-               
+
             }
         });
     };
@@ -6156,8 +6156,8 @@ function eliminarCorrectivo(id){
         success: function(valores){
             var datos=eval(valores);
 
-         
-            
+
+
             $('#m_id_corre').val(datos[0]);
             $('#rev_maquinamod').val(datos[1]);
             $('#responsablemod').val(datos[2]);
@@ -6181,13 +6181,13 @@ function eliminarCorrectivo(id){
                 document.getElementById("proveedormod").disabled=false;
                 $('#proveedor_ext').show();
             }
-        
-        
+
+
             $('#hora_hombremod').val(datos[9]);
             $('#proveedormod').val(datos[10]);
             $('#costomod').val(datos[11]);
             $('#ids_mant_mod').val(datos[12]);
-       
+
 
             $('#modif_maquina').modal({
                 show:true,
@@ -6214,8 +6214,8 @@ function editar_solicitud_correctivo(id){
             $('#responsablemod').val(datos[2]);
             $('#fechamod').val(datos[16]);
             $('#motivomod').val(datos[18]);
-            
-            
+
+
             if (datos[8]=="interno"){
                 document.modif_maqs.tipo_servicio_intmodc.checked=true;
                 document.getElementById("proveedormod").disabled=true;
@@ -6227,11 +6227,11 @@ function editar_solicitud_correctivo(id){
                 document.getElementById("proveedormod").disabled=false;
                 $('#proveedor_ext').show();
             }
-        
-        
-           
+
+
+
             $('#proveedormod').val(datos[10]);
-           
+
             $('#modif_maquina').modal({
                 show:true,
                 backdrop:'static'
@@ -6246,14 +6246,14 @@ $('#tipo_servicio_intmodc').click(function(){
                 document.getElementById("proveedormod").disabled=true;
                 $('#proveedor_ext').hide();
                 $('#proveedormod').val("");
-            
+
 
     });
 
 $('#tipo_servicio_extmodc').click(function(){
                 document.getElementById("proveedormod").disabled=false;
-                $('#proveedor_ext').show();                
-                 
+                $('#proveedor_ext').show();
+
     });
 
 //-----FIN-----Correctivo-----------
@@ -6261,13 +6261,13 @@ $('#tipo_servicio_extmodc').click(function(){
 //------------insumos--------
 
 function buscar_insumo(){
-     
+
         var url='buscar_insumos.php';
         var tipo=document.getElementById('tipo').value;
         var codigo=document.getElementById('codigo').value;
         var codigo2=document.getElementById('codigo2').value;
-        
-        
+
+
         //alert("funcion personal "+ci);
 
         $.ajax({
@@ -6278,7 +6278,7 @@ function buscar_insumo(){
                 var datos=eval(valores);
 
                 $('#id_insu').val(datos[0]);
-                
+
                 $('#NB').val(datos[2]);
                 $('#descripcion').val(datos[3]);
                 $('#existencia').val(datos[4]);
@@ -6297,7 +6297,7 @@ function buscar_insumo(){
                 var datos=eval(valores);
 
                 $('#id_insu2').val(datos[0]);
-                
+
                  $('#NB2').val(datos[2]);
                  $('#descripcion2').val(datos[3]);
                  $('#existencia2').val(datos[4]);
@@ -6310,8 +6310,8 @@ function buscar_insumo(){
     };
 
     function reportandoInsumo(id){
-        $('#aceptar_reporte_insumo').val(id); 
-        
+        $('#aceptar_reporte_insumo').val(id);
+
         $('#agua_maq').modal({
             show:true,
             backdrop:'static'
@@ -6327,8 +6327,8 @@ function buscar_insumo(){
     }
 
      function reporteTecnologico(id){
-        $('#aceptar_reporte_proyecto').val(id); 
-        
+        $('#aceptar_reporte_proyecto').val(id);
+
         $('#reporte_proyecto_indv').modal({
             show:true,
             backdrop:'static'
@@ -6343,8 +6343,8 @@ function buscar_insumo(){
     }
 
     function reportandoHerramienta(id){
-        $('#aceptar_reporte_herramienta').val(id); 
-        
+        $('#aceptar_reporte_herramienta').val(id);
+
         $('#agua_maq').modal({
             show:true,
             backdrop:'static'
@@ -6371,7 +6371,7 @@ function buscar_insumo(){
     }
 
     function reporteCorrectivo () {
-        
+
         var id=document.getElementById('aceptar_reporte_correctivo').value;
         var id2=document.getElementById('aceptar_reporte_correctivo2').value;
 
@@ -6382,12 +6382,12 @@ function buscar_insumo(){
 //-----------------Herramientas--------------
 
      function personal_herra(){
-     
+
         var url='buscar_personal2.php';
 
         var ci=document.getElementById('ci_usu').value;
         var nac=document.getElementById('nac_usu').value;
-       
+
 
 
         //alert("funcion personal "+ci);
@@ -6405,17 +6405,17 @@ function buscar_insumo(){
             }
         });
 
-        
+
     };
 
     function buscar_herramienta(){
-     
+
         var url='buscar_insumos.php';
         var tipo="herramienta";
         var consulta;
 
   consulta=$("#codigo").val();
-  
+
         $.ajax({
             type:'POST',
             url:url,
@@ -6434,7 +6434,7 @@ function buscar_insumo(){
   function detalleHerramienta(id){
 
         var url='detalle_herramientas.php';
-        
+
         $.ajax({
             type:'POST',
             url:url,
@@ -6442,7 +6442,7 @@ function buscar_insumo(){
             success: function(valores){
 
                 $('#detalle').html(valores);
-                
+
                 $('#detalle_herramientas').modal({
                     show:true,
                     backdrop:'static'
@@ -6455,7 +6455,7 @@ function buscar_insumo(){
 function editar_herramientas(id){
 
         var url='modifica_herramientas.php';
-        
+
         $.ajax({
             type:'POST',
             url:url,
@@ -6491,7 +6491,7 @@ function editar_herramientas(id){
                 $('#estadomod').val(datos[7]);
                 $('#preciomod').val(datos[8]);
                 $('#existenciamod').val(datos[9]);
-                
+
                 $('#tipo_medidamod').val(datos[10]);
                 $('#medidamod').val(datos[11]);
                 $('#ubicacionmod').val(datos[12]);
@@ -6513,7 +6513,7 @@ function editar_herramientas(id){
                     else{
                       $('#div_quitar_imagen').show();
                     }
-  
+
                 $('#modif_maquina').modal({
                     show:true,
                     backdrop:'static'
@@ -6526,7 +6526,7 @@ function editar_herramientas(id){
     function Devolucion(id){
 
         var url='modifica_prestamo.php';
-        
+
         $.ajax({
             type:'POST',
             url:url,
@@ -6539,16 +6539,16 @@ function editar_herramientas(id){
                 $('#encargadomod').val(datos[2]);
                 $('#responsablemod').val(datos[3]);
                 $('#estadomodP').val(datos[4]);
-                
+
                 if(datos[4]=='Activo')
                 {
                     $('#divdevolucion').hide();
                     document.getElementById('devolucion').disabled=true;
-               
+
                 }
                 $('#id_herramod').val(datos[5]);
 
-        
+
                 $('#modif_prestamo').modal({
                     show:true,
                     backdrop:'static'
@@ -6563,8 +6563,8 @@ function editar_herramientas(id){
             pickTime: false,
             showTodayButton: true,
         });
-                
-              
+
+
             }
         });
     };
@@ -6597,7 +6597,7 @@ function editar_herramientas(id){
    function editar_prestamo(id){
 
         var url='modifica_prestamos.php';
-        
+
         $.ajax({
             type:'POST',
             url:url,
@@ -6612,10 +6612,10 @@ function editar_herramientas(id){
                 if(datos[4]=='Activo'){
                           $('#divdevolucion').hide();
                     document.getElementById('devolucion').disabled=true;
-               
+
                 }
                 $('#id_herramod').val(datos[5]);
-                
+
                 $('#modif_maquina').modal({
                     show:true,
                     backdrop:'static'
@@ -6672,7 +6672,7 @@ function eliminarPrestamo(id,id2){
 function detalleEntradaI(id,id2){
 
         var url='detalle_entrada_i.php';
-                
+
         $.ajax({
             type:'POST',
             url:url,
@@ -6680,7 +6680,7 @@ function detalleEntradaI(id,id2){
             success: function(valores){
 
                 $('#detalle').html(valores);
-                
+
                 $('#detalle_entrada').modal({
                     show:true,
                     backdrop:'static'
@@ -6693,7 +6693,7 @@ function detalleEntradaI(id,id2){
     function detalleEntradaH(id,id2){
 
         var url='detalle_entrada_h.php';
-                
+
         $.ajax({
             type:'POST',
             url:url,
@@ -6701,7 +6701,7 @@ function detalleEntradaI(id,id2){
             success: function(valores){
 
                 $('#detalle').html(valores);
-                
+
                 $('#detalle_entrada').modal({
                     show:true,
                     backdrop:'static'
@@ -6733,7 +6733,7 @@ function eliminarEntrada(id){
     function detalleSalidaI(id,id2){
 
         var url='detalle_salida_i.php';
-                
+
         $.ajax({
             type:'POST',
             url:url,
@@ -6741,7 +6741,7 @@ function eliminarEntrada(id){
             success: function(valores){
 
                 $('#detalle').html(valores);
-                
+
                 $('#detalle_entrada').modal({
                     show:true,
                     backdrop:'static'
@@ -6754,7 +6754,7 @@ function eliminarEntrada(id){
     function detalleSalidaH(id,id2){
 
         var url='detalle_salida_h.php';
-                
+
         $.ajax({
             type:'POST',
             url:url,
@@ -6762,7 +6762,7 @@ function eliminarEntrada(id){
             success: function(valores){
 
                 $('#detalle').html(valores);
-                
+
                 $('#detalle_entrada').modal({
                     show:true,
                     backdrop:'static'
@@ -6858,7 +6858,7 @@ function eliminarSalida(id){
             mostrarPrompt(" ", "Tlf3", "red");
             mostrarPrompt(" ", "Correo3", "red");
             mostrarPrompt(" ", "Especialidad3", "red");
-            
+
         }
     }
  }
@@ -6928,7 +6928,7 @@ function eliminarSalida(id){
             mostrarPrompt(" ", "Tlf3M", "red");
             mostrarPrompt(" ", "Correo3M", "red");
             mostrarPrompt(" ", "Especialidad3M", "red");
-            
+
         }
     }
  }
@@ -6940,29 +6940,28 @@ function eliminarSalida(id){
 }
 function jsMostrar(id)
 {
-        document.getElementById(id).style.display = "block";    
+        document.getElementById(id).style.display = "block";
 }
 
 function jsOcultar(id)
 {
-        document.getElementById(id).style.display = "none"; 
+        document.getElementById(id).style.display = "none";
 }
 
 
  $('body').find('input').attr("onpaste", function(){
 
             var opcion = "return false";
-            //return parts[1] + +parts[2];  
+            //return parts[1] + +parts[2];
             return opcion;
         });
 
 $('body').find('textarea').attr("onpaste", function(){
 
     var opcion = "return false";
-    //return parts[1] + +parts[2];  
+    //return parts[1] + +parts[2];
     return opcion;
 });
 
 
 window.onload =  $("#carga").hide();
-

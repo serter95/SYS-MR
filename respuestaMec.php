@@ -98,15 +98,15 @@
 	$mail->Port = 587;
 	//$mail->Timeout=30;
 	//Nuestra cuenta
-	$mail->Username ='noreply@upta.edu.ve';
+	$mail->Username ='noreply@upta.edu.ve';//desde donde se envia el correo
 	$mail->Password = 'FGaNapHavpmb38d9'; //Su password
-	$mail->Host = "correo.upta.edu.ve"; # NOMBRE O DIRECCION DEL HOSTING
-	$mail->From = "noreply@upta.edu.ve"; # EMAIL DEL QUE SE ENVIARA EL CORREO
-	$mail->FromName = "SYS-M&R"; # NOMBRE DEL CORREO
-	$mail->Subject = "Recuperación de ".$asunto; #ASUNTO
-	$mail->addAddress($Email, $nom[0]." ".$ape[0]); #CORREO AL CUAL ENVIAR, NOMBRE DEL SUJETO
-	$mail->IsHTML(true); # Activar HTML
-	$mail->MsgHTML($mensaje); # MENSAJE  ó Alternativa: $mail->Body = $mensaje
+	$mail->Host = "correo.upta.edu.ve"; // NOMBRE O DIRECCION DEL HOSTING
+	$mail->From = "noreply@upta.edu.ve"; // EMAIL DEL QUE SE ENVIARA EL CORREO
+	$mail->FromName = "SYS-M&R"; // NOMBRE DEL CORREO
+	$mail->Subject = "Recuperación de ".$asunto; // ASUNTO
+	$mail->addAddress($Email, $nom[0]." ".$ape[0]); // CORREO AL CUAL ENVIAR, NOMBRE DEL SUJETO
+	$mail->IsHTML(true); // Activar HTML
+	$mail->MsgHTML($mensaje); // MENSAJE  ó Alternativa: $mail->Body = $mensaje
 
 	$mail->CharSet = 'UTF-8'; # Activar UTF-8
 
