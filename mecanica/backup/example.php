@@ -11,18 +11,20 @@
     */ 
    require("../seguridad.php");
    require("pgBackupRestore.class2.php"); 
-
+   
+   $dbopts = parse_url(getenv('DATABASE_URL')); // HEROKU
+   
    // POSTGRESQL AUTH INFO 
-   $db_host = "localhost"; 
-   $db_user = "postgres"; 
-   $db_pass = "1234"; 
+   $db_host = $dbopts["host"]; //"localhost"; 
+   $db_user = $dbopts["user"]; //"postgres"; 
+   $db_pass = $dbopts["pass"]; //"1234"; 
    // SOURCE DATABASE (Backup) 
-   $source_db="SYS-M&R"; 
+   $source_db= ltrim($dbopts["path"],'/'); //"SYS-M&R"; 
    // SQL FILE TO BE CREATED 
    //$sql_file="maquinas.sql"; 
    $sql_file=$_FILES["path"]["tmp_name"]; 
    // DESTINATION DATABASE (Restore)
-   $dest_db="SYS-M&R"; 
+   $dest_db=ltrim($dbopts["path"],'/'); //"SYS-M&R"; 
 
    $action = $_REQUEST["actionButton"]; 
 
