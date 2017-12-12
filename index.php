@@ -3,6 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="author" content="Ing. Sergei Terán, Ing. Nelson Soto, Ing. Vicente Cifuentes">
+<meta name="robots" content="Index, Follow">
+<meta name="generator" content="SublimeText">
+<meta name="description" content="Demo de la aplicación web para el control y gestion académica y administrativa para el taller de metalmecánica y laboratorio de robótica de UPT-Aragua 'Federico Brito Figueroa'">
+
 <title>SYS-M&R</title>
 <link rel="stylesheet" type="text/css" href="css/Nuevo2.css"/>
 <link rel="stylesheet" type="text/css" href="css/jquery-ui.css"/>
